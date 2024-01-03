@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="icon" href="https://em-content.zobj.net/source/microsoft-teams/363/three-oclock_1f552.png">
+  <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width">
+  <title>Countdown</title>
+<style>
+           @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+        body {
+                  font-family: Arial, sans-serif;
+                  text-align: center;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  justify-content: center;
+                color: white;
+                  height: 100vh; /* This ensures that the content is centered vertically on the viewport */
+                background: linear-gradient(to right, #ef4343, #f26441, #f79641);
+                  margin: 0; /* Remove default body margin */
+        }
+
+        h1 {
+          color: white;
+          font-size: 36px;
+        }
+
+        .countdown {
+          display: none;
+          margin: 5px 0;
+        }
+
+        .time {
+          display: inline-block;
+          margin-left:10px;
+                    margin-right:10px;
+        }
+
+        h1 {
+          color: white;
+          font-size: 50px;
+        }
+
+        h4 {
+          font-size: 25px;
+        }
+
+        .countdown {
+                  font-family:"Space Grotesk", sans-serif;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-wrap: wrap;
+        }
+        h2{
+                  font-family: "Space Grotesk", sans-serif;
+                    font-size: 20px;
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    margin: 0;
+        }
+        a{
+                text-decoration: none;
+                color:white;
+        }
+</style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PTzPFJ9P6AVDf6pzSLcoe8fcWFG8lM3UZ5Fet1EsYI5FFM" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.css">
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PTzPFJ9P6AVDf6pzSLcoe8fcWFG8lM3UZ5Fet1EsYI5FFM" crossorigin="anonymous">
+          <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+                 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+J0W+7wahf7D0p0sONd6E46Z3j5B9gR/+d1PpoF5ml+1HpfF" crossorigin="anonymous">
+          <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="year" class="year"></div>
+  <div>
+          <h2><a href="https://yoonus4040.com/2024/" target="_blank" >NEW YEAR COUNTDOWN FOR 2024 </a><i class='fas fa-external-link-alt' style="font-size: 18px;"></i></h2>
+  </div>
+  <div id="countdown" class="countdown">
+    <div class="time">
+                  <h4>DAYS</h4>
+      <h1 id="days">00</h1>
+    </div>
+    <div class="time">
+             <h4>HOURS</h4>
+      <h1 id="hours">00</h1>
+    </div>
+    <div class="time">
+             <h4>MINUTES</h4>
+      <h1 id="minutes">00</h1>
+    </div>
+    <div class="time">
+            <h4>SECONDS</h4>
+      <h1 id="seconds">00</h1>
+    </div>
+  </div>
+  </div>
+        <script>
+                
+          const newYearDate = new Date("January 1, " + (new Date().getFullYear() + 1) + " 00:00:00").getTime();
+                //Ahem the code bellow this is nothing trust me bro no hidden Easter eggs here...
+          let konamiIndex = 0;
+
+          document.addEventListener("keydown", function (event) {
+            const keyPressed = event.key;
+
+            const yearCode = "2024";
+
+            if (keyPressed === yearCode.charAt(konamiIndex)) {
+              konamiIndex++;
+
+              if (konamiIndex === yearCode.length) {
+                clearInterval(countdownInterval);
+                document.getElementById("countdown").innerHTML = "<h1>Happy New Year!</h1>";
+              }
+            } else {
+              konamiIndex = 0;
+            }
+          });
+
+          const countdownInterval = setInterval(function () {
+            const currentDate = new Date().getTime();
+            const timeDifference = newYearDate - currentDate;
+
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = formatTime(days);
+            document.getElementById("hours").innerText = formatTime(hours);
+            document.getElementById("minutes").innerText = formatTime(minutes);
+            document.getElementById("seconds").innerText = formatTime(seconds);
+
+            document.querySelector(".countdown").style.display = "flex";
+
+            if (timeDifference <= 0) {
+              clearInterval(countdownInterval);
+              document.getElementById("countdown").innerHTML = "<h1>Happy New Year!</h1>";
+            }
+          }, 1000);
+
+          function formatTime(time) {
+            return time < 10 ? "0" + time : time;
+          }
+        </script>
+
+</body>
+</html>

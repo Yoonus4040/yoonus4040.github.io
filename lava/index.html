@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lava.mv</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"><meta property="og:description" content="Lava is not just another music player; it's your personal gateway to an unforgettable auditory journey. With its sleek design and innovative features, Lava redefines the way you experience music online.">
+                <meta name="description" content="Lava is not just another music player; it's your personal gateway to an unforgettable auditory journey. With its sleek design and innovative features, Lava redefines the way you experience music online.">
+        <link rel="icon" type="image/x-icon" href="https://lavaweb.yoonus4040.repl.co/lavaLOADINGSCREEN.png">
+        <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --root-font: "Poppins", sans-serif;
+    --primary-color: #e8051a;
+    --text-color: #FDFDFD;        
+    --background-color: #000000;
+  }
+
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+  }
+  body {
+           background-repeat: no-repeat;
+  background-size: auto;
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+
+  html {
+    box-sizing: border-box;
+     font-family: var(--root-font);
+  }
+
+  .player {
+    position: relative;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .player .icon-pause {
+    display: none;
+  }
+
+  .player.playing .icon-pause {
+    display: inline-block;
+  }
+
+  .player.playing .icon-play {
+    display: none;
+  }
+
+  .dashboard {
+     background-color: rgba(0,0,0, 0.5);
+          backdrop-filter: blur(4px);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    max-width: 480px;
+  }
+
+  /* HEADER */
+  header {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  header h4 {
+    color: var(--primary-color);
+    font-size: 12px;
+  }
+
+  header h2 {
+    color: var(--text-color);
+    font-size: 20px;
+  }
+
+  /* CD */
+  .cd {
+    display: flex;
+    margin: auto;
+    width: 200px;
+  }
+
+  .cd-thumb {
+    width: 100%;
+    padding-top: 100%;
+    border-radius: 5px;
+    background-color: #0d0d0d;
+    background-size: cover;
+    margin: auto;
+  }
+
+  /* CONTROL */
+  .control {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 18px 0 8px 0;
+  }
+
+  .control .btn {
+    color: #666;
+    padding: 18px;
+    font-size: 18px;
+  }
+
+  .control .btn.active {
+    color: var(--primary-color);
+  }
+
+  .control .btn-toggle-play {
+          box-shadow: 0 0 5px 1px  #e8051a;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    font-size: 24px;
+    color: #FDFDFD;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+  }
+.progress {
+  width: 100%;
+  -webkit-appearance: none;
+  height: 6px;
+  background: #171717;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+.progress::-webkit-slider-thumb {
+        box-shadow: 0 0 10px 1px  #e8051a;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 6px;
+  background-color: var(--primary-color);
+  cursor: pointer;
+}
+  /* PLAYLIST */
+  .playlist {
+             background-color: rgba(0,0,0, 0.5);
+          backdrop-filter: blur(4px);
+    margin-top: 372px;
+    padding: 12px;
+  }
+
+  .song {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+  background-color: rgba(0,0,0, 0.3);
+    padding: 8px 16px;
+    border-radius: 5px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  }
+        .loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+
+.loading-screen img {
+  max-width:50%;
+}
+  .song.active {
+          box-shadow: 0 0 10px 1px  #e8051a;
+    background-color: var(--primary-color);
+  }
+
+  .song:active {
+    opacity: 0.8;
+  }
+
+  .song.active .option,
+  .song.active .author,
+  .song.active .title {
+    color: #FDFDFD;
+  }
+
+  .song .thumb {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-size: cover;
+    margin: 0 8px;
+  }
+
+  .song .body {
+    flex: 1;
+    padding: 0 16px;
+  }
+
+  .song .title {
+    font-size: 18px;
+    color: var(--text-color);
+  }
+
+  .song .author {
+    font-size: 12px;
+    color: #A9A9A9;
+  }
+
+  .song .option {
+    padding: 16px 8px;
+    color:  #A9A9A9;
+    font-size: 18px;
+  }
+</style>
+</head>
+<body id="body">
+        <div id="loading-screen" class="loading-screen">
+  <img src="https://lavaweb.yoonus4040.repl.co/lavaLOADINGSCREEN.png" alt="Loading..." />
+</div>
+<div class="player" id="player">
+  <div class="dashboard">
+    <header>
+      <h4>Now Playing</h4>
+      <h2></h2>
+    </header>
+    <div class="cd">
+      <div class="cd-thumb"></div>
+    </div>
+    <div class="control">
+      <div class="btn btn-repeat">
+        <i class="fas fa-redo"></i>
+      </div>
+      <div class="btn btn-prev">
+        <i class="fas fa-step-backward"></i>
+      </div>
+      <div class="btn btn-toggle-play">
+        <i class="fas fa-pause icon-pause"></i>
+        <i class="fas fa-play icon-play"></i>
+      </div>
+      <div class="btn btn-next">
+        <i class="fas fa-step-forward"></i>
+      </div>
+      <div class="btn btn-random">
+        <i class="fas fa-random"></i>
+      </div>
+    </div>
+    <input id="progress" class="progress" type="range" value="0" step="1" min="0" max="100">
+    <audio id="audio" src=""></audio>
+  </div>
+  <div class="playlist">
+  </div>
+</div>
+<script>
+
+const $ = document.querySelector.bind(document);
+const $$ = document.querySelectorAll.bind(document);
+
+const PlAYER_STORAGE_KEY = "F8_PLAYER";
+
+const player = $(".player");
+const cd = $(".cd");
+const heading = $("header h2");
+const cdThumb = $(".cd-thumb");
+const audio = $("#audio");
+const playBtn = $(".btn-toggle-play");
+const progress = $("#progress");
+const prevBtn = $(".btn-prev");
+const nextBtn = $(".btn-next");
+const randomBtn = $(".btn-random");
+const repeatBtn = $(".btn-repeat");
+const playlist = $(".playlist");
+
+const app = {
+  currentIndex: 0,
+  isPlaying: false,
+  isRandom: false,
+  isRepeat: false,
+  config: {},
+  songs: [
+    {
+      name: "Ocean",
+      singer: "Yoonus4040",
+      path: "https://lavaweb.yoonus4040.repl.co/ocean.wav",
+      image: "https://lavadb.yoonus4040.repl.co/cover/ocean.jpg"
+    },
+   {
+      name: "Space",
+      singer: "Yoonus4040",
+      path: "https://lavadb.yoonus4040.repl.co/song/Space.m4a",
+      image: "https://lavadb.yoonus4040.repl.co/cover/space.png"
+    },
+   {
+      name: "Ocean",
+      singer: "Yoonus4040",
+      path: "https://lavaweb.yoonus4040.repl.co/ocean.wav",
+      image: "https://lavadb.yoonus4040.repl.co/cover/ocean.jpg"
+    },
+    {
+      name: "Ocean",
+      singer: "Yoonus4040",
+      path: "https://lavaweb.yoonus4040.repl.co/ocean.wav",
+      image: "https://lavadb.yoonus4040.repl.co/cover/ocean.jpg"
+    },
+    {
+      name: "Ocean",
+      singer: "Yoonus4040",
+      path: "https://lavaweb.yoonus4040.repl.co/ocean.wav",
+      image: "https://lavadb.yoonus4040.repl.co/cover/ocean.jpg"
+    },
+    {
+      name: "Ocean",
+      singer: "Yoonus4040",
+      path: "https://lavaweb.yoonus4040.repl.co/ocean.wav",
+      image: "https://lavadb.yoonus4040.repl.co/cover/ocean.jpg"
+    },
+           {
+      name: "Ocean",
+      singer: "Yoonus4040",
+      path: "https://lavaweb.yoonus4040.repl.co/ocean.wav",
+      image: "https://lavadb.yoonus4040.repl.co/cover/ocean.jpg"
+    },
+    {
+      name: "Ocean",
+      singer: "Yoonus4040",
+      path: "https://lavaweb.yoonus4040.repl.co/ocean.wav",
+      image: "https://lavadb.yoonus4040.repl.co/cover/ocean.jpg"
+    }
+  ],
+  setConfig: function (key, value) {
+    this.config[key] = value;
+  },
+  render: function () {
+    const htmls = this.songs.map((song, index) => {
+      return `
+                        <div class="song ${
+                          index === this.currentIndex ? "active" : ""
+                        }" data-index="${index}">
+                            <div class="thumb"
+                                style="background-image: url('${song.image}')">
+                            </div>
+                            <div class="body">
+                                <h3 class="title">${song.name}</h3>
+                                <p class="author">${song.singer}</p>
+                            </div>
+                        </div>
+                    `;
+    });
+    playlist.innerHTML = htmls.join("");
+  },
+  defineProperties: function () {
+    Object.defineProperty(this, "currentSong", {
+      get: function () {
+        return this.songs[this.currentIndex];
+      }
+    });
+  },
+  handleEvents: function () {
+    const _this = this;
+    const cdWidth = cd.offsetWidth;
+
+
+
+    document.onscroll = function () {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const newCdWidth = cdWidth - scrollTop;
+
+      cd.style.width = newCdWidth > 0 ? newCdWidth + "px" : 0;
+      cd.style.opacity = newCdWidth / cdWidth;
+    };
+
+    playBtn.onclick = function () {
+      if (_this.isPlaying) {
+        audio.pause();
+      } else {
+        audio.play();
+      }
+    };
+
+    audio.onplay = function () {
+      _this.isPlaying = true;
+      player.classList.add("playing");
+      cdThumbAnimate.play();
+    };
+
+    audio.onpause = function () {
+      _this.isPlaying = false;
+      player.classList.remove("playing");
+      cdThumbAnimate.pause();
+    };
+
+    audio.ontimeupdate = function () {
+      if (audio.duration) {
+        const progressPercent = Math.floor(
+          (audio.currentTime / audio.duration) * 100
+        );
+        progress.value = progressPercent;
+      }
+    };
+
+ 
+    progress.onchange = function (e) {
+      const seekTime = (audio.duration / 100) * e.target.value;
+      audio.currentTime = seekTime;
+    };
+
+    nextBtn.onclick = function () {
+      if (_this.isRandom) {
+        _this.playRandomSong();
+      } else {
+        _this.nextSong();
+      }
+      audio.play();
+      _this.render();
+      _this.scrollToActiveSong();
+    };
+
+    prevBtn.onclick = function () {
+      if (_this.isRandom) {
+        _this.playRandomSong();
+      } else {
+        _this.prevSong();
+      }
+      audio.play();
+      _this.render();
+      _this.scrollToActiveSong();
+    };
+
+    randomBtn.onclick = function (e) {
+      _this.isRandom = !_this.isRandom;
+      _this.setConfig("isRandom", _this.isRandom);
+      randomBtn.classList.toggle("active", _this.isRandom);
+    };
+
+    repeatBtn.onclick = function (e) {
+      _this.isRepeat = !_this.isRepeat;
+      _this.setConfig("isRepeat", _this.isRepeat);
+      repeatBtn.classList.toggle("active", _this.isRepeat);
+    };
+
+
+    audio.onended = function () {
+      if (_this.isRepeat) {
+        audio.play();
+      } else {
+        nextBtn.click();
+      }
+    };
+
+
+    playlist.onclick = function (e) {
+      const songNode = e.target.closest(".song:not(.active)");
+
+      if (songNode || e.target.closest(".option")) {
+
+        if (songNode) {
+          _this.currentIndex = Number(songNode.dataset.index);
+          _this.loadCurrentSong();
+          _this.render();
+          audio.play();
+        }
+
+        if (e.target.closest(".option")) {
+        }
+      }
+    };
+  },
+  scrollToActiveSong: function () {
+    setTimeout(() => {
+      $(".song.active").scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+      });
+    }, 300);
+  },
+loadCurrentSong: function () {
+  heading.textContent = this.currentSong.name;
+  cdThumb.style.backgroundImage = `url('${this.currentSong.image}')`;
+  audio.src = this.currentSong.path;
+
+  // Set the background image of the body
+  const body = document.getElementById("body");
+  body.style.backgroundImage = `url('${this.currentSong.image}')`;
+},
+  loadConfig: function () {
+    this.isRandom = this.config.isRandom;
+    this.isRepeat = this.config.isRepeat;
+  },
+  nextSong: function () {
+    this.currentIndex++;
+    if (this.currentIndex >= this.songs.length) {
+      this.currentIndex = 0;
+    }
+    this.loadCurrentSong();
+  },
+  prevSong: function () {
+    this.currentIndex--;
+    if (this.currentIndex < 0) {
+      this.currentIndex = this.songs.length - 1;
+    }
+    this.loadCurrentSong();
+  },
+  playRandomSong: function () {
+    let newIndex;
+    do {
+      newIndex = Math.floor(Math.random() * this.songs.length);
+    } while (newIndex === this.currentIndex);
+
+    this.currentIndex = newIndex;
+    this.loadCurrentSong();
+  },
+  start: function () {
+
+    this.loadConfig();
+
+    this.defineProperties();
+
+    this.handleEvents();
+
+
+    this.loadCurrentSong();
+
+
+    this.render();
+
+
+    randomBtn.classList.toggle("active", this.isRandom);
+    repeatBtn.classList.toggle("active", this.isRepeat);
+  }
+};
+
+app.start();
+
+        window.addEventListener("load", () => {
+  const loadingScreen = document.getElementById("loading-screen");
+  loadingScreen.style.opacity = 0;
+  setTimeout(() => {
+    loadingScreen.style.display = "none";
+  }, 5000); // Adjust the delay as needed
+});
+
+        
+</script>
+</body>
+</html>

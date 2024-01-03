@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Riyaasee Inthihaabu 2023</title>
+        <meta name="description" content="Riyaasee Inthihaabu 2023 - Live Election Results 2023 by Yoonus4040">
+        <meta property="og:description" content="Riyaasee Inthihaabu 2023 - Live Election Results 2023 by Yoonus4040">
+        <meta property="og:image" content="https://electionAPI.yoonus4040.repl.co/banners.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap">
+    <style>
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #0dcaf0;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.poll-box-container {
+    display: flex;
+    height: 100vh;
+}
+
+.poll-box-card {
+        overflow: hidden;
+    flex-grow: 1;
+    padding: 110px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.poll-box-card.PNC {
+    background-color: #0dcaf0;
+    color: #fff;
+}
+
+.poll-box-card.MDP {
+    background-color: #ffc107;
+    color: #333;
+}
+
+#troubleshoot-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    color: #929AAB;
+    border-radius: 50px;
+    border: none;
+}
+
+.watermark {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: right;
+    z-index: 9999;
+}
+
+.watermark a {
+    text-decoration: none;
+    color: #0dcaf0;
+}
+
+.watermark img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.copyright{
+        font-size:10px;
+        margin:0px;
+}
+    </style>
+</head>
+<body>
+    <div class="poll-box-card PNC" id="containerPnc">
+  <h2>Dr. Mohamed Muizzu</h2>
+  <div id="barPncContent"></div>
+</div>
+
+<div class="poll-box-card MDP" id="containerMdp">
+  <h2>
+Ibrahim Mohamed Solih</h2>
+  <div id="barMdpContent"></div>
+</div>
+        <p class="copyright">2023 designed & developed by Yoonus4040</p>
+        
+    <script>
+         const url = "https://mageyvote2023.oneonline.mv/ajax/getWidget";
+  const headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'
+  };
+
+  fetch(url, { headers })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.text();
+    })
+    .then(htmlContent => {
+      if (htmlContent) {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(htmlContent, 'text/html');
+
+        const barPnc = doc.querySelector('.bar.pnc');
+        const barMdp = doc.querySelector('.bar.mdp');
+
+        if (barPnc) {
+          document.getElementById('barPncContent').innerHTML = barPnc.textContent;
+        } else {
+          console.log("Bar PNC element not found.");
+        }
+
+        if (barMdp) {
+          document.getElementById('barMdpContent').innerHTML = barMdp.textContent;
+        } else {
+          console.log("Bar MDP element not found.");
+        }
+      } else {
+        console.log("Empty response content.");
+      }
+    })
+    .catch(error => console.error("Failed:(", error));
+   
+    </script>
+    <div class="watermark">
+        <a href="https://Yoonus4040.com"><img src="https://database.yoonus4040.repl.co/icons/logo.png" alt="Y" width="20" height="20"></a>
+    </div>
+</body>
+</html>

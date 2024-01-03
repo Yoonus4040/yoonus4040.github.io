@@ -1,0 +1,82 @@
+<title>JAMALU SMP</title>
+<style>
+  @font-face {
+    font-family: "Geist";
+    src: url("https://pham.codes/d/GeistVF.woff2") format("woff2");
+  }
+  p {
+    font-family: "Geist";
+    font-size: 128px;
+    margin: 0;
+
+    background-color: white;
+    background-image: linear-gradient(0deg, #111 70%, white);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    filter: drop-shadow();
+
+    --wght-min: 32;
+    --wght-max: 240;
+  }
+
+  p > span {
+    animation: breath 1.5s alternate cubic-bezier(0.37, 0, 0.63, 1);
+    animation-iteration-count: infinite;
+    animation-delay: 1s;
+    animation-fill-mode: both;
+  }
+
+  @keyframes breath {
+    0% {
+      font-variation-settings: "wght" var(--wght-min);
+    }
+    100% {
+      font-variation-settings: "wght" var(--wght-max);
+    }
+  }
+
+  /* Setup */
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Added to arrange elements vertically */
+    height: 100vh; /* Changed from 100% to 100vh for better compatibility */
+  }
+
+  html,
+  body {
+    height: 100%;
+    background: white;
+    color: #111;
+  }
+
+  /* Added new style for the server text */
+  .server-text {
+              text-align: center;
+              font-family:'Arial', sans-serif;
+              font-size: 24px;
+              margin-top: 20px;
+  }
+</style>
+
+<div class="container">
+  <p aria-label="Geist Sans">
+    <span aria-hidden="true">J</span><span aria-hidden="true">A</span><span aria-hidden="true">M</span><span aria-hidden="true">A</span><span aria-hidden="true">L</span><span aria-hidden="true"> </span><span aria-hidden="true">S</span><span aria-hidden="true">M</span><span aria-hidden="true">P</span><span aria-hidden="true"> </span>
+  </p>
+  <div class="server-text">JAMALUSMP2.aternos.me:58136</div>
+</div>
+
+<script>
+  const spans = document.querySelectorAll('p span');
+
+  const numLetters = spans.length;
+
+  spans.forEach(function (span, i) {
+    const mappedIndex = i - numLetters / 2;
+    span.style.animationDelay = mappedIndex * 0.25 + 's';
+  });
+</script>

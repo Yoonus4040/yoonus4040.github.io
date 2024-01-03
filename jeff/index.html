@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Jeff</title>
+        <link rel="icon" type="image/png" href="https://yoonus4040.com/jeff/jeff.png">
+        <meta name="description"
+                content="Jeff is the eraser with a face, tiny arms, and even tinier feet. I'm not your average eraser – I'm here to bring a smile to your face and dance away those pesky pencil marks. I'm not just for erasing; I'm here to make learning a little more fun!">
+        <meta property="og:image" content="https://gregariouspresentleadership.yoonus4040.repl.co/jeff.png">
+        <link rel="icon" type="image/png"
+                href="Jeff is the eraser with a face, tiny arms, and even tinier feet. I'm not your average eraser – I'm here to bring a smile to your face and dance away those pesky pencil marks. I'm not just for erasing; I'm here to make learning a little more fun!">
+        <style>
+                @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400");
+                @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+                @import url("https://fonts.googleapis.com/css2?family=Poiret+One&display=swap");
+                @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900;1000&display=swap");
+                *,
+                @import url('https://fonts.googleapis.com/css?family=Rakkas');
+
+                *::before,
+                *::after {
+                        padding: 0;
+                        margin: 0;
+                        box-sizing: border-box;
+                }
+
+                :root {
+                        --primary-color: black;
+                        --primary-color-alt: black;
+                        --second-color: black;
+                        --second-color-alt: black;
+                        --third-color: white;
+                        --white-color: white;
+                        --white-color-alt: white;
+                        ;
+                        --dark-color: hsl(300, 100%, 0%);
+                }
+
+                ::-moz-selection {
+                        color: white;
+                        background: black;
+                }
+
+                ::selection {
+                        color: white;
+                        background: black;
+                }
+
+                li {
+                        list-style: none;
+                }
+
+                a {
+                        text-decoration: none;
+                }
+
+                img {
+                        width: 100%;
+                        height: 100%;
+                }
+
+                .bx {
+                        font-size: 2.5rem;
+                }
+
+                .container {
+                        padding: 0 2rem;
+                }
+
+                body {
+                        font-family: "Montserrat", sans-serif;
+                        font-size: 1rem;
+                        background-color: var(--white-color);
+                }
+
+                header {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding: 1rem 2rem;
+                }
+
+                .company-logo {
+                        font-weight: bold;
+                        font-family: 'Rakkas';
+                        font-size: 2.5rem;
+                        color: black;
+                }
+
+                .nav-items {
+                        display: flex;
+                }
+
+                .nav-item {
+                        margin: 0 2rem;
+                }
+
+                .nav-link {
+                        font-size: 1.1rem;
+                        letter-spacing: 0.05rem;
+                        position: relative;
+                        color: black;
+                }
+
+                .nav-link::before {
+                        content: "";
+                        width: 100%;
+                        height: 0.05rem;
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        transform: scaleX(0);
+                        transform-origin: bottom right;
+                }
+
+                .nav-link:hover::before {
+                        transform: scaleX(1);
+                        transform-origin: bottom left;
+                }
+
+                .menu-toggle {
+                        display: none;
+                }
+
+                .bx-menu,
+                .bx-x {
+                        cursor: pointer;
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        display: none !important;
+                }
+
+                .section-1 {
+                        background-color: var(--dark-color);
+                        display: grid;
+                }
+
+                .slogan .company-title {
+                        background: -webkit-linear-gradient(120deg,
+                                        var(--primary-color-alt),
+                                        var(--primary-color));
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        margin-top: 2rem;
+                        font-size: 1.5rem;
+                        font-weight: 600;
+                }
+
+                .slogan .company-slogan {
+                        background: -webkit-linear-gradient(120deg,
+                                        var(--primary-color-alt),
+                                        var(--primary-color));
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        margin-top: 1rem;
+                        font-size: 1.2rem;
+                        font-weight: 400;
+                        line-height: 1.8rem;
+                }
+
+                .section-2 {
+                        margin: 2rem 0;
+                }
+
+                .offer {
+                        background-color: white;
+                        margin: 1rem 0;
+                        display: grid;
+                }
+
+                .offer img {
+                        background-color: white;
+                        padding: 2rem 0;
+                }
+
+                .offer-1 img {
+                        background-color: white;
+                        padding: 3rem 0;
+                }
+
+                .offer-description {
+                        background-color: white;
+                        padding: 0 1rem;
+                }
+
+                .offer-description .offer-title {
+                        color: var(--second-color);
+                        font-size: 1.8rem;
+                        font-weight: 400;
+                        padding: 1.5rem 0 0.5rem 0;
+                }
+
+                .offer-description .offer-hook {
+                        color: var(--second-color-alt);
+                        font-size: 1.2rem;
+                }
+
+                .offer-description .cart-btn {
+                        cursor: pointer;
+                        color: var(--second-color-alt);
+                        font-size: 1.1rem;
+                        display: grid;
+                        place-items: center;
+                        margin: 2rem 0 1rem 0;
+                        width: 10rem;
+                        height: 3rem;
+                        background-color: white;
+                }
+
+                .offer-description .cart-btn:hover {
+                        background-color: white;
+                }
+
+                .section-3 {
+                        display: grid;
+                        place-items: center;
+                        justify-content: space-around;
+                        gap: 1rem;
+                        grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
+                }
+
+                .product {
+                        cursor: pointer;
+                        background-color: var(--white-color-alt);
+                        position: relative;
+                }
+
+                .product::before {
+                        content: "";
+                        background-color: white;
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                }
+
+                .product_add_cart {
+                        color: var(--white-color-alt);
+                        font-size: 1.2rem;
+                        background-color: hsl(9, 94%, 65%);
+                        padding: 1rem 0.4rem;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        background-color: white;
+                }
+
+                .product_add_cart:hover {
+                        color: var(--white-color);
+                        background-color: white;
+                }
+
+                .portfolio-link {
+                        display: flex;
+                        justify-content: center;
+                        flex-wrap: wrap;
+                }
+
+                .portfolio-link a {
+                        text-decoration: none;
+                        color: black;
+                        padding: 10px;
+                        margin: 10px;
+                        border-radius: 5px;
+                }
+
+                .section-4 {
+                        margin: 4rem 0;
+                        display: flex;
+                        flex-wrap: wrap;
+                        align-items: center;
+                        justify-content: space-around;
+                }
+
+                .sponsor img {
+                        cursor: pointer;
+                        width: 40px;
+                        height: 40px;
+                        filter: grayscale(100%);
+                        opacity: 0.8;
+                        transition: opacity 300ms;
+                }
+
+                .sponsor img:hover {
+                        opacity: 1;
+                }
+
+                .section-5 {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        margin: 2rem 0;
+                }
+
+                .subscribe-input-label {
+                        margin-bottom: 1rem;
+                        font-size: 1.5rem;
+                        font-weight: 400;
+                        letter-spacing: 0.05rem;
+                        color: var(--second-color);
+                }
+
+                input[type="text"] {
+                        padding: 0 0.5rem;
+                        font-size: 1.1rem;
+                        width: 100%;
+                        height: 3rem;
+                        border: none;
+                        background-color: hsl(220, 33%, 90%);
+                        color: var(--second-color-alt);
+                        transition: background-color 300ms;
+                }
+
+                input[type="text"]:focus {
+                        outline: none;
+                        background-color: hsl(220, 33%, 95%);
+                }
+
+                input[type="text"]::placeholder {
+                        color: var(--second-color-alt);
+                }
+
+                input[type="submit"] {
+                        cursor: pointer;
+                        background-image: linear-gradient(to top,
+                                        var(--primary-color-alt),
+                                        var(--primary-color));
+                        color: var(--white-color-alt);
+                        margin: 1rem 0;
+                        border: none;
+                        width: 100%;
+                        height: 3rem;
+                        font-size: 1.2rem;
+                        transition: color 300ms;
+                }
+
+                input[type="submit"]:hover {
+                        background-image: linear-gradient(to bottom,
+                                        var(--primary-color-alt),
+                                        var(--primary-color));
+                        color: var(--white-color);
+                }
+
+                .top-footer {
+                        background-color: var(--second-color);
+                        display: flex;
+                        flex-direction: column;
+                }
+
+                .footer-title {
+                        font-weight: 500;
+                        font-size: 1.2rem;
+                        padding: 1rem 0;
+                        background-image: -webkit-linear-gradient(120deg,
+                                        var(--primary-color-alt),
+                                        var(--primary-color));
+                        background-clip: text;
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                }
+
+                .footer-items h3 {
+                        cursor: pointer;
+                        font-weight: 300;
+                        font-size: 1.1rem;
+                        padding: 0.1rem 0;
+                        color: var(--white-color-alt);
+                }
+
+                .footer-items h3:hover {
+                        text-decoration: underline;
+                }
+
+                .footer-items h3:last-child {
+                        padding-bottom: 2rem;
+                }
+
+                .end-footer {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        background-color: white;
+                }
+
+                .copyright {
+                        color: var(--white-color-alt);
+                        padding: 1rem 0;
+                        font-size: 0.9rem;
+                }
+
+                .copyright b {
+                        font-weight: inherit;
+                        font-size: 0.9rem;
+                }
+
+                .designer {
+                        color: hsla(0, 0%, 98%, 0.541);
+                        padding-bottom: 0.5rem;
+                        font-size: 0.9rem;
+                }
+
+                .designer:hover {
+                        text-decoration: underline;
+                }
+
+                @media (min-width: 769px) {
+                        header {
+                                padding: 1rem 5rem;
+                        }
+
+                        .section-1 {
+                                justify-content: space-between;
+                                grid-template-columns: 1fr 1fr;
+                                padding: 10rem 5rem 0 5rem;
+                        }
+
+                        .slogan .company-title {
+                                max-width: 30rem;
+                                font-size: 1.8rem;
+                                letter-spacing: 0.5rem;
+                        }
+
+                        .slogan .company-slogan {
+                                max-width: 20rem;
+                                font-size: 1.3rem;
+                        }
+
+                        .section-2 {
+                                margin: 2rem 5rem;
+                        }
+
+                        .offer {
+                                background-color: transparent;
+                                margin: 5rem 0;
+                                align-items: center;
+                                justify-content: space-between;
+                                grid-template-rows: auto auto;
+                        }
+
+                        .offer-1 {
+                                background-color: transparent;
+                                grid-template-areas: "offer-1-img offer-desc-1";
+                                object-fit: cover;
+                        }
+
+                        .offer-1 img {
+                                background-color: transparent;
+                                padding: 2rem 0;
+                        }
+
+                        .offer-2 {
+                                grid-template-areas: "offer-desc-2 offer-2-img";
+                                object-fit: cover;
+                        }
+
+                        .offer-1-img {
+                                background-color: transparent;
+                                grid-area: offer-1-img;
+                        }
+
+                        .offer-2-img {
+                                background-color: transparent;
+                                grid-area: offer-2-img;
+                        }
+
+                        .offer-desc-1 {
+                                background-color: transparent;
+                                grid-area: offer-desc-1;
+                        }
+
+                        .offer-desc-2 {
+                                background-color: transparent;
+                                grid-area: offer-desc-2;
+                        }
+
+                        .offer-description .offer-title {
+                                font-size: 1.9rem;
+                                padding: 1.5rem 0 0.5rem 0;
+                        }
+
+                        .offer-description .offer-hook {
+                                max-width: 30rem;
+                        }
+
+                        .offer-description {
+                                background-color: transparent;
+                                padding: 2rem 1rem;
+                        }
+
+                        .offer-description .offer-title {
+                                padding: 0.5rem 0 1rem 0;
+                        }
+
+                        .offer-description .cart-btn {
+                                margin: 2rem 0 0.5rem 0;
+                        }
+
+                        .section-3 {
+                                gap: 5rem;
+                        }
+
+                        .product::before {
+                                transform: scaleY(0);
+                                transform-origin: bottom;
+                                transition: transform 300ms;
+                        }
+
+                        .product:hover::before {
+                                transform: scaleY(1);
+                                transform-origin: top;
+                                transition: transform 300ms;
+                        }
+
+                        .product_add_cart {
+                                transform: scaleY(0);
+                                transform-origin: bottom;
+                        }
+
+                        .product:hover .product_add_cart {
+                                transform: translate(-50%, -50%) scaleY(1);
+                                transform-origin: top;
+                        }
+
+                        .section-4 {
+                                margin: 5rem 0;
+                        }
+
+                        .section-5 {
+                                padding: 1rem 0;
+                        }
+
+                        .section-5 .subscribe-container {
+                                display: flex;
+                                align-items: center;
+                        }
+
+                        input[type="text"] {
+                                padding: 0 1rem;
+                                width: 15rem;
+                        }
+
+                        input[type="submit"] {
+                                width: 10rem;
+                        }
+
+                        .top-footer {
+                                flex-direction: row;
+                                justify-content: space-around;
+                                padding-bottom: 8rem;
+                                padding-top: 2rem;
+                        }
+
+                        .footer-title {
+                                font-size: 1rem;
+                                padding: 1rem 0;
+                        }
+
+                        .footer-items h3 {
+                                font-size: 0.9rem;
+                        }
+
+                        .end-footer {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content: center;
+                                background-color: var(--third-color);
+                        }
+
+                        .copyright {
+                                color: hsla(0, 0%, 98%, 0.747);
+                                padding: 1rem 0;
+                                font-size: 0.8rem;
+                        }
+
+                        .copyright b {
+                                font-size: 0.7rem;
+                        }
+
+                        .designer {
+                                color: hsla(0, 0%, 98%, 0.322);
+                                font-size: 0.8rem;
+                        }
+                }
+
+                @media screen and (max-width: 768px) {
+                        .nav-link {
+                                font-size: 0.9rem;
+                        }
+
+                        .menu-toggle {
+                                display: block;
+                                cursor: pointer;
+                        }
+
+                        .navbar {
+                                position: absolute;
+                                top: 3.5rem;
+                                right: 0;
+                                width: 100%;
+                                height: auto;
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                transform: scaleY(0);
+                                transform-origin: bottom;
+                                transition: transform 500ms;
+                        }
+
+                        .show-navbar {
+                                display: flex;
+                                transform: scaleY(1);
+                                transform-origin: top;
+                                transition: transform 300ms;
+                        }
+
+                        .nav-items {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: right;
+                        }
+
+                        .bx-menu {
+                                display: block !important;
+                        }
+
+                        .bx-x {
+                                display: block !important;
+                        }
+
+                        .hide-bx {
+                                display: none !important;
+                        }
+                }
+
+                .loading-screen {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: #fff;
+                        /* You can customize the background color */
+                        z-index: 9999;
+                }
+
+                .loading-image {
+                        width: 100px;
+                        /* You can adjust the width of the loading image */
+                        height: auto;
+                        margin-bottom: 20px;
+                        /* You can adjust the margin */
+                }
+
+                .loading-text {
+                        font-size: 16px;
+                        /* You can adjust the font size */
+                        color: #333;
+                        /* You can customize the text color */
+                }
+
+                iframe {
+                        height: 300px;
+                }
+
+                @media only screen and (max-width: 768px) {
+                        iframe {
+                                height: 500px;
+                        }
+                }
+        </style>
+</head>
+
+<body>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-C5GKRH967B"></script>
+        <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag() {dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', 'G-C5GKRH967B');
+        </script>
+        <div id="loading-screen" class="loading-screen">
+                <img src="https://yoonus4040.com/jefflogoblack.png" alt="Loading" class="loading-image">
+        </div>
+        <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                        // Your existing JavaScript code
+
+                        // Add the code for the loading screen
+                        const loadingScreen = document.getElementById("loading-screen");
+
+                        // Initially hide the loading screen after 2 seconds
+                        setTimeout(() => {
+                                loadingScreen.style.display = "none";
+                        }, 2000);
+                });
+        </script>
+        <header>
+                <div class="company-logo"><a href="https://yoonus4040.com/jeff/" style="color:black;"><img
+                                        style="height:2em; width: 100%;" src="https://yoonus4040.com/jefflogoblack.png"
+                                        alt="Jeff" /></a></div>
+                <div class="menu-toggle">
+                        <div class="bx bx-menu"></div>
+                        <div class="bx bx-x"></div>
+                </div>
+                <nav class="navbar">
+                        <ul class="nav-items">
+                                <li class="nav-item"><a href="https://yoonus4040.com/jeff/Create/"
+                                                class="nav-link">HOME</a></li>
+                                <li class="nav-item"><a href="https://yoonus4040.com/jeff/Create/"
+                                                class="nav-link">CREATE</a></li>
+                                <li class="nav-item"><a href="https://yoonus4040.com/jeff/About/"
+                                                class="nav-link">ABOUT</a></li>
+                                <li class="nav-item"><a href="https://yoonus4040.com/jeff/Game/"
+                                                class="nav-link">GAME</a></li>
+                        </ul>
+                </nav>
+        </header>
+        <main>
+                <section class="container section-2">
+                        <div class="offer-description offer-desc-2">
+                                <iframe style="border:none;" width="100%" src="https://yoonus4040.com/2024/"></iframe>
+              </div>
+            </div>
+      <div class=" offer offer-1">
+                                        <img src="https://github.com/Yoonus4040/Datebase/blob/jeffisepik/JeffIsEpik-Img-1.2/ogjeff.png?raw=true" loading="lazy"
+                                                class="">
+                                        <div class="offer-description offer-desc-1">
+                                                <h2 class="offer-title">Jeff</h2>
+                                                <p class="offer-hook">Jeff is the eraser with a face, tiny arms, and
+                                                        even tinier feet. I'm not your average eraser – I'm here to
+                                                        bring a smile to your face and dance away those pesky pencil
+                                                        marks. I'm not just for erasing; I'm here to make learning a
+                                                        little more fun!
+                                                        <br> <br>
+                                                        1/153
+
+                                                </p>
+                                                <div class="cart-btn"></div>
+                                        </div>
+                        </div>
+                        <div class="offer offer-2">
+                                <img src="https://github.com/Yoonus4040/Datebase/blob/jeffisepik/JeffIsEpik-Img-1.2/bigjeff.png?raw=true" alt=""
+                                        loading="lazy" class="offer-img offer-2-img">
+                                <div class="offer-description offer-desc-2">
+                                        <h2 class="offer-title">Big Jeff</h2>
+                                        <p class="offer-hook">Big Jeff, the 16-year-old rap sensation. He's not just big
+                                                in size, with bulging muscles and a beard that means business; he's also
+                                                big on talent. Big Jeff's rhymes hit hard, just like his beats. When he
+                                                steps on stage, you'll feel the power of his music, a reflection of his
+                                                life's journey and experiences. Big Jeff is more than just muscles; he's
+                                                a rising star in the rap game.
+                                                <br> <br>
+                                                5/153
+                                        </p>
+                                        <div class="cart-btn"></div>
+                                </div>
+                        </div>
+                        <div class="offer offer-1">
+                                <img src="https://github.com/Yoonus4040/Datebase/blob/jeffisepik/JeffIsEpik-Img-1.2/roblox.png?raw=true" loading="lazy" class="">
+                                <div class="offer-description offer-desc-1">
+                                        <h2 class="offer-title">Bacon Hair Jeff</h2>
+                                        <p class="offer-hook">Bacon Hair Jeff refers to a simple and recognizable avatar
+                                                hairstyle that resembles strips of bacon. It became iconic due to its
+                                                default status, often given to new players, and its nostalgic appeal.
+                                                Roblox allows users to customize their avatars, but Bacon Hair Jeff
+                                                remains a symbol of early experiences in the game.
+
+                                                <br> <br>
+                                                65/153
+                                        </p>
+                                        <div class="cart-btn"></div>
+                                </div>
+                        </div>
+                        <div class="offer offer-2">
+                                <img src="https://github.com/Yoonus4040/Datebase/blob/jeffisepik/JeffIsEpik-Img-1.2/batjeff.png?raw=true" alt="" loading="lazy"
+                                        class="offer-img offer-2-img">
+                                <div class="offer-description offer-desc-2">
+                                        <h2 class="offer-title">Batman Jeff</h2>
+                                        <p class="offer-hook">I am Batman Jeff, a shadowy figure who emerges from the
+                                                depths of Gotham City when darkness falls. Clad in my signature suit of
+                                                armor, my mission is to protect the innocent and deliver justice to
+                                                criminals
+                                                <br> <br>
+                                                25/153
+                                        </p>
+                                        <div class="cart-btn"></div>
+                                </div>
+                        </div>
+                        <div class="offer offer-1">
+                                <img src="https://github.com/Yoonus4040/Datebase/blob/jeffisepik/JeffIsEpik-Img-1.2/amoung.png?raw=true" loading="lazy"
+                                        class="">
+                                <div class="offer-description offer-desc-1">
+                                        <h2 class="offer-title">Imposter Jeff</h2>
+                                        <p class="offer-hook">I am Imposter Jeff, a mysterious figure who emerges from
+                                                the virtual depths of the spaceship when suspicion fills the air. Clad
+                                                in my iconic spacesuit, I am on a mission to uncover impostors and
+                                                protect the crew from deception and sabotage.
+                                                <br> <br>
+                                                125/153
+                                        </p>
+                                        <div class="cart-btn"></div>
+                                </div>
+                        </div>
+                        <div class="offer offer-2">
+                                <img src="https://github.com/Yoonus4040/Datebase/blob/jeffisepik/JeffIsEpik-Img-1.2/hallaljeff.png?raw=true" alt="" loading="lazy"
+                                        class="offer-img offer-2-img">
+                                <div class="offer-description offer-desc-2">
+                                        <h2 class="offer-title">Sheikh Al-Ghazi Ul-Immam Jefferson</h2>
+                                        <p class="offer-hook">heikh Al-Ghazi Ul-Immam Jefferson Al-Ahmed Muhammad Ali
+                                                Hassan Abdul Rahman Khalil Mustafa Hussein Naser Ibrahim Bin Ramadan Bin
+                                                Shawarma Bin Al-Sayed Bin Ahmed Bin Hassan Bin Abdul Rahman Bin Khalil
+                                                Bin Mustafa Bin Hussein Bin Naser Bin Ibrahim Bin Ramadan Bin Ibrahim
+                                                Yoonus Khalil Bin Mustafa Bin Hussein Bin Naser Bin Ibrahim Bin Ramadan
+                                                Bin Abdullah Bin Al-Sayed Bin Mahmoud Bin Al-Arabi Bin Al-Sharif
+                                                Ul-Alexander The MDCCCLXXXVIII
+                                                <br> <br>
+                                                100/153
+                                        </p>
+                                        <div class="cart-btn"></div>
+                                </div>
+                        </div>
+                        <div class="offer offer-1">
+                                <img src="https://github.com/Yoonus4040/Datebase/blob/jeffisepik/JeffIsEpik-Img-1.2/monajeff.png?raw=true" loading="lazy"
+                                        class="">
+                                <div class="offer-description offer-desc-1">
+                                        <h2 class="offer-title">Mona Jeff</h2>
+                                        <p class="offer-hook">Mona Jeff, digital painting on a poplar wood panel by jeff
+                                                da Vinci, probably the world's most famous painting. It was painted
+                                                sometime 2023, when jeff was living Online, and it now hangs in the Jeff
+                                                Museum, Online, where it remained an png of pilgrimage in the 21st
+                                                century.
+                                                <br> <br>
+                                                63/153
+                                        </p>
+                                        <div class="cart-btn"></div>
+                                </div>
+                        </div>
+                        <div class="offer offer-2">
+                                <img src="https://github.com/Yoonus4040/Datebase/blob/jeffisepik/JeffIsEpik-Img-1.2/JEFF%20WITH%20A%20PEARL%20EARRING.png?raw=true" alt="" loading="lazy"
+                                        class="offer-img offer-2-img">
+                                <div class="offer-description offer-desc-2">
+                                        <h2 class="offer-title">JEFF WITH A PEARL EARRING</h2>
+                                        <p class="offer-hook">Jeff with a Pearl Earring is an digital painting by Jeffs Golden Age painter Yoonus4040, dated c. 2023. Going by various names over the centuries, it became known by its present title towards the end of the 21th century after the earring worn by the girl portrayed there.
+                                                <br> <br>
+                                                129/153
+                                        </p>
+                                        <div class="cart-btn"></div>
+                                </div>
+                        </div>
+                        <div class="offer offer-1">
+                                <img src="https://github.com/Yoonus4040/Datebase/blob/jeffisepik/JeffIsEpik-Img-1.2/Njeff.png?raw=true" loading="lazy" class="">
+                                <div class="offer-description offer-desc-1">
+                                        <h2 class="offer-title">Napoleon Jeff</h2>
+                                        <p class="offer-hook">Napoleon Bonaparte, later known by his regnal name
+                                                Napoleon I, was a French military commander and political leader who
+                                                rose to prominence during the French Revolution and led successful
+                                                campaigns during the Revolutionary Wars.
+                                                <br> <br>
+                                                127/153
+                                        </p>
+                                        <div class="cart-btn"></div>
+                                </div>
+                        </div>
+                        <div class="offer offer-2">
+                                <img src="https://github.com/Yoonus4040/Datebase/blob/jeffisepik/JeffIsEpik-Img-1.2/Sjeff.png?raw=true" alt="" loading="lazy"
+                                        class="offer-img offer-2-img">
+                                <div class="offer-description offer-desc-2">
+                                        <h2 class="offer-title">Smurf Jeff Cat</h2>
+                                        <p class="offer-hook">The blue smurf cat is a creature that looks like a mix of
+                                                a smurf, a cat, and a mushroom and has become a huge meme on social
+                                                media. The creature was created by Nate Hallinan, who, in 2014 wondered
+                                                what Smurfs would look like if they were actually real
+                                                <br> <br>
+                                                128/153
+                                        </p>
+                                        <div class="cart-btn"></div>
+                                </div>
+                        </div>
+
+                </section>
+                <section class="container section-3">
+                </section>
+                </div>
+                </div>
+                </section>
+                </div>
+                </section>
+        </main>
+        <footer>
+                <div class="portfolio-link">
+                        <div class="link-container">
+                                <a href="https://www.instagram.com/yoonuz4040/?igshid=ZDdkNTZiNTM%3D"
+                                        target="_blank">Instagram</a>
+                        </div>
+                        <div class="link-container">
+                                <a href="https://Yoonus4040.com" target="_blank">Yoonus4040</a>
+                        </div>
+                        <div class="link-container">
+                                <a href="https://Youtube.com/@yoonus4040" target="_blank">Youtube</a>
+                        </div>
+                        <div class="link-container">
+                                <a href="https://yoonus4040.com/jeff/Create/" target="_blank">Create</a>
+                        </div>
+                        <div class="link-container">
+                                <a href="https://yoonus4040.com/jeff/Game/" target="_blank">Game</a>
+                        </div>
+                </div>
+                <br>
+                <p style="text-align: center; font-size: 10px;">© 2023 JeffIsEpiK all rights reserved<br>
+                        designed & developed by Yoonus4040</p>
+                <br>
+        </footer>
+</body>
+<script>
+        document.addEventListener("DOMContentLoaded", function () {
+                const menuToggle = document.querySelector(".menu-toggle");
+                const navbar = document.querySelector(".navbar");
+
+                menuToggle.addEventListener("click", function () {
+                        navbar.classList.toggle("show-navbar");
+                });
+        });
+</script>
+
+</html>

@@ -1,0 +1,253 @@
+<html>
+
+<head>
+         <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width">
+        <title>Yoonus Art Gallery Showcase</title>
+        <script src="https://kit.fontawesome.com/3b161c540c.js" crossorigin="anonymous"></script>
+        <link href="style.css" rel="stylesheet" media="all" />
+        <style>
+                body {
+                        font-family: 'Helvetica', sans-serif;
+                        background:white;
+                }
+
+                .rows {
+                        display: flex;
+                        flex-wrap: wrap;
+                        padding: 0 4px;
+                }
+
+                .column {
+                        flex: 25%;
+                        max-width: 33.3%;
+                        padding: 0 4px;
+                }
+
+                .column img {
+                        margin-top: 8px;
+                        vertical-align: middle;
+                        width: 100%;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        transition: 0.3s linear;
+                }
+
+                @media screen and (max-width: 767px) {
+                        .column {
+                                flex: 50%;
+                                max-width: 50%;
+                        }
+                }
+
+                @media screen and (max-width: 767px) {
+                        .column {
+                                flex: 100%;
+                                max-width: 100%;
+                        }
+                }
+                @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+                *,
+                *::before,
+                *::after {
+                        box-sizing: border-box;
+                }
+
+                * {
+                        margin: 0;
+                        padding: 0;
+                }
+
+                body {
+                        line-height: 1.5;
+                        font-family: 'Poppins', sans-serif;
+                }
+
+                .footer {
+                        padding: 80px 0;
+                }
+
+                .container {
+                        max-width: 1170px;
+                        margin: auto;
+                }
+
+                .row {
+                        display: flex;
+                        flex-wrap: wrap;
+                }
+
+                ul {
+                        list-style: none;
+                }
+
+                .footer-col {
+                        width: 25%;
+                        padding: 0 15px;
+                }
+
+                .footer-col h4 {
+                        font-size: 18px;
+                        color: black;
+                        text-transform: capitalize;
+                        margin-bottom: 35px;
+                        font-weight: 500;
+                        position: relative;
+                }
+
+                .footer-col h4::before {
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        bottom: -10px;
+                        width: 50px;
+                        height: 2px;
+                }
+
+                .footer-col ul li:not(:last-child) {
+                        margin-bottom: 10px;
+                }
+
+                .footer-col ul li a {
+                        color: black;
+                        display: block;
+                        font-size: 1rem;
+                        font-weight: 300;
+                        text-transform: capitalize;
+                        text-decoration: none;
+                        transition: all 0.3s ease;
+                }
+
+                .footer-col ul li a:hover {
+                        padding-left: 1px;
+                }
+
+                .footer-col .social-links a {
+                        color: black;
+                        display: inline-block;
+                        height: 40px;
+                        width: 40px;
+                        border-radius: 50%;
+                        text-align: center;
+                        margin: 0 10px 10px 0;
+                        line-height: 40px;
+                        transition: all 0.5s ease;
+                }
+
+                .footer-col .social-links a:hover {
+                        color: darkred;
+                        background-color: #FFF;
+                }
+
+                @media(max-width: 767px) {
+                        .footer-col {
+                                width: 50%;
+                                margin-bottom: 30px;
+                        }
+                }
+
+                @media(max-width: 574px) {
+                        .footer-col {
+                                width: 100%;
+                        }
+                }
+                .top-right-image {
+                        position: fixed;
+                         z-index: 1000;
+                    top: 0;
+                    left: 10;
+                }
+                
+        </style>
+</head>
+
+<body>
+        
+          <img src="https://artgallery.yoonus4040.repl.co/showcase/artfav.png" alt="o-o" class="top-right-image" style="width:50px; height: 50px; opacity: 0.5;">
+        <div class="container-fluid">
+                <div class="rows">
+                        <div class="column">
+                                <img src="https://github.com/Yoonus4040/Datebase/blob/artgallery/ART-GALLERY-ARTWORKS/hey.jpg?raw=true" />
+                                <img src="https://github.com/Yoonus4040/Datebase/blob/artgallery/ART-GALLERY-ARTWORKS/horizons.png?raw=true" />
+                                <img src="https://github.com/Yoonus4040/Datebase/blob/artgallery/ART-GALLERY-ARTWORKS/nose.jpg?raw=true" />
+                                <img src="https://github.com/Yoonus4040/Datebase/blob/artgallery/ART-GALLERY-ARTWORKS/shell.png?raw=true" />
+                                <img src="https://github.com/Yoonus4040/Datebase/blob/artgallery/ART-GALLERY-ARTWORKS/Green.jpg?raw=true" />
+                        </div>
+                        <div class="column">
+                                <img src="https://github.com/Yoonus4040/Datebase/blob/artgallery/ART-GALLERY-ARTWORKS/Duck.png?raw=true" />
+                                <img src="https://github.com/Yoonus4040/Datebase/blob/artgallery/ART-GALLERY-ARTWORKS/ASTRO.png?raw=true" />
+                                <img src="https://github.com/Yoonus4040/Datebase/blob/artgallery/ART-GALLERY-ARTWORKS/Cassette.jpg?raw=true" />
+                                <img src="https://github.com/Yoonus4040/Datebase/blob/artgallery/ART-GALLERY-ARTWORKS/brainless.png?raw=true" />
+                                <img src="https://github.com/Yoonus4040/Datebase/blob/artgallery/ART-GALLERY-ARTWORKS/sky.jpg?raw=true" />
+                        </div>
+                        <div class="column">
+                                <img src="https://github.com/Yoonus4040/Datebase/blob/artgallery/ART-GALLERY-ARTWORKS/joker.png?raw=true" />
+                                <img src="https://github.com/Yoonus4040/Datebase/blob/artgallery/ART-GALLERY-ARTWORKS/fishy.png?raw=true" />
+                                <img src="https://github.com/Yoonus4040/Datebase/blob/artgallery/ART-GALLERY-ARTWORKS/Liyelaa.jpg?raw=true" />
+                                <img src="https://github.com/Yoonus4040/Datebase/blob/artgallery/ART-GALLERY-ARTWORKS/oogway.png?raw=true" />
+                                <img src="https://github.com/Yoonus4040/Datebase/blob/artgallery/ART-GALLERY-ARTWORKS/CATP.jpg?raw=true" />
+                        </div>
+                </div>
+        </div>
+        <footer class="footer">
+                                <div class="container row">
+                                        <div class="footer-col">
+                                                <h4>contact</h4>
+                                                <ul>
+                                                        <li><a href="mailto:eunus4040@gmail.com">Eunus4040@gmail.com</a></li>
+                                                        <li><a href="#">Malé Maldives</a></li>
+                                                        <li><a href="tel:+9609874040">+9609874040</a></li>
+                                                        <li><a href="https://yoonus4040.com/CV/">Curriculum Vitae</a></li>
+                                                </ul>
+                                        </div>
+                                        <div class="footer-col">
+                                                <h4>Social media</h4>
+                                                <ul>
+                                                        <li><a href="https://replit.com/@Yoonus4040">Replit</a></li>
+                                                        <li><a href="https://scratch.mit.edu/users/yunus4040/">Scratch</a></li>
+                                                        <li><a href="https://codepen.io/yunus4040">CodePen</a></li>
+                                                        <li><a href="https://www.roblox.com/users/2568912393/profile">Roblox</a></li>
+                                                </ul>
+                                        </div>
+                                        <div class="footer-col">
+                                                <h4>projects</h4>
+                                                <ul>
+                                                        <li><a href="https://yoonus4040.com/jeff/">JeffIsEpik</a></li>
+                                                        <li><a href="https://yoonus4040.com/">Portfolio</a></li>
+                                                        <li><a href="https://yoonus4040.com/Blog/">Blog Site</a></li>
+                                                        <li><a href="https://yoonus4040.com/Thaana">Thaana</a></li>
+                                                </ul>
+                                        </div>
+                                        <div class="footer-col">
+                                                <h4>follow me</h4>
+                                                <div class="social-links">
+                                                        <a href="https://github.com/Yoonus4040"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+                                                        <a href="https://www.youtube.com/@yoonus4040"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+                                                        <a href="https://www.instagram.com/yoonuz4040/?igshid=ZDdkNTZiNTM%3D"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                                                        <a href="https://soundcloud.com/yoonus-ibrahim-87475059"><i class="fa-brands fa-soundcloud" aria-hidden="true"></i></a>
+                                                         <p class="copyright">designed &amp; developed by Yoonus4040<br></p>
+                                                </div>
+                                        </div>
+                                </div>
+                <article id="wrap">
+                    <article id="lightings">
+                        <section id="one">
+                            <section id="two">
+                                <section id="three">
+                                    <section id="four">
+                                        <section id="five"></section>
+                                    </section>
+                                </section>
+                            </section>
+                        </section>
+                    </article>
+                </article>
+
+                        </footer>
+      
+
+        </script>
+</body>
+
+</html>

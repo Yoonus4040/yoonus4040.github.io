@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JEFF CREATE</title>
+        <meta name="description" content="After making your own jeff submit it by sendng an email to JeffIsEpiK@proton.me and if your jeff is appropriate your jeff will be added the website.">
+        <link rel="icon" type="image/png" href="https://yoonus4040.com/jeff/jeff.png">
+        <meta property="og:image" content="https://gregariouspresentleadership.yoonus4040.repl.co/jeff.png">
+        <style>
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poiret+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900;1000&display=swap");
+*,
+                @import url('https://fonts.googleapis.com/css?family=Rakkas');
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  --primary-color: black;
+  --primary-color-alt: black;
+  --second-color: black;
+  --second-color-alt: black;
+  --third-color: white;
+  --white-color: white;
+  --white-color-alt: white;;
+  --dark-color: hsl(300, 100%, 0%);
+}
+::-moz-selection {
+  color: white;
+  background: black;
+}
+::selection {
+  color: white;
+  background: black;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+img {
+  width: 100%;
+  height: 100%;
+}
+.bx {
+  font-size: 2.5rem;
+}
+.container {
+  padding: 0 2rem;
+}
+body {
+ font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  background-color: var(--white-color);
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+                a{
+                        color:black;
+                }
+.company-logo {
+         font-weight: bold;
+         font-family:'Rakkas';
+  font-size: 2.5rem;
+  color: black;
+}
+.nav-items {
+  display: flex;
+}
+.nav-item {
+  margin: 0 2rem;
+}
+.nav-link {
+  font-size: 1.1rem;
+  letter-spacing: 0.05rem;
+  position: relative;
+color:black;
+}
+                
+.nav-link::before {
+  content: "";
+  background: linear-gradient(var(--primary-color), var(--primary-color-alt));
+  width: 100%;
+  height: 0.05rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 150ms;
+}
+.nav-link:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+.menu-toggle {
+  display: none;
+}
+.bx-menu,
+.bx-x {
+  cursor: pointer;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: none !important;
+}
+
+.section-1 {
+  background-color: var(--dark-color);
+  display: grid;
+}
+                  .img-block {
+                      position: relative;
+                      overflow: hidden;
+                      transition: 0.5s;
+                    }
+
+                    .img-block span {
+                      position: absolute;
+                      width: 100%;
+                      height: 100%;
+                      top: 0;
+                      left: -120%;
+                      background-color: rgba(255, 255, 255, 0.1);
+                      transition: 0.4s;
+                      transform: skewX(10deg);
+                    }
+
+                    .img-block img {
+                      width: 100%;
+                    }
+
+                    .img-block:hover span {
+                      left: 120%;
+                    }
+.slogan .company-title {
+  background: -webkit-linear-gradient(
+    120deg,
+    var(--primary-color-alt),
+    var(--primary-color)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.slogan .company-slogan {
+  background: -webkit-linear-gradient(
+    120deg,
+    var(--primary-color-alt),
+    var(--primary-color)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.8rem;
+}
+
+.section-2 {
+  margin: 2rem 0;
+}
+.offer {
+  background-color: white;
+  margin: 1rem 0;
+  display: grid;
+}
+.offer img {
+  background-color: white;
+  padding: 2rem 0;
+}
+.offer-1 img {
+  background-color: white;
+  padding: 3rem 0;
+}
+.offer-description {
+  background-color: white;
+  padding: 0 1rem;
+}
+.offer-description .offer-title {
+  color: var(--second-color);
+  font-size: 1.8rem;
+  font-weight: 400;
+  padding: 1.5rem 0 0.5rem 0;
+}
+.offer-description .offer-hook {
+  color: var(--second-color-alt);
+  font-size: 1.2rem;
+}
+.offer-description .cart-btn {
+  cursor: pointer;
+  color: var(--second-color-alt);
+  font-size: 1.1rem;
+  display: grid;
+  place-items: center;
+  margin: 2rem 0 1rem 0;
+  width: 10rem;
+  height: 3rem;
+background-color:white;
+}
+.offer-description .cart-btn:hover {
+background-color:white;
+}
+
+.section-3 {
+  display: grid;
+  place-items: center;
+  justify-content: space-around;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
+}
+.product {
+  cursor: pointer;
+  background-color: var(--white-color-alt);
+  position: relative;
+}
+.product::before {
+  content: "";
+background-color:white;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.product_add_cart {
+  color: var(--white-color-alt);
+  font-size: 1.2rem;
+  background-color: hsl(9, 94%, 65%);
+  padding: 1rem 0.4rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+background-color:white;
+}
+.product_add_cart:hover {
+  color: var(--white-color);
+background-color:white;
+}
+.portfolio-link {
+  
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.portfolio-link a{
+  text-decoration: none;
+  color:black;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+}
+.section-4 {
+  margin: 4rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+.sponsor img {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  filter: grayscale(100%);
+  opacity: 0.8;
+  transition: opacity 300ms;
+}
+.sponsor img:hover {
+  opacity: 1;
+}
+
+.section-5 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+}
+.subscribe-input-label {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.05rem;
+  color: var(--second-color);
+}
+input[type="text"] {
+  padding: 0 0.5rem;
+  font-size: 1.1rem;
+  width: 100%;
+  height: 3rem;
+  border: none;
+  background-color: hsl(220, 33%, 90%);
+  color: var(--second-color-alt);
+  transition: background-color 300ms;
+}
+input[type="text"]:focus {
+  outline: none;
+  background-color: hsl(220, 33%, 95%);
+}
+input[type="text"]::placeholder {
+  color: var(--second-color-alt);
+}
+input[type="submit"] {
+  cursor: pointer;
+  background-image: linear-gradient(
+    to top,
+    var(--primary-color-alt),
+    var(--primary-color)
+  );
+  color: var(--white-color-alt);
+  margin: 1rem 0;
+  border: none;
+  width: 100%;
+  height: 3rem;
+  font-size: 1.2rem;
+  transition: color 300ms;
+}
+input[type="submit"]:hover {
+  background-image: linear-gradient(
+    to bottom,
+    var(--primary-color-alt),
+    var(--primary-color)
+  );
+  color: var(--white-color);
+}
+.top-footer {
+  background-color: var(--second-color);
+  display: flex;
+  flex-direction: column;
+}
+.footer-title {
+  font-weight: 500;
+  font-size: 1.2rem;
+  padding: 1rem 0;
+  background-image: -webkit-linear-gradient(
+    120deg,
+    var(--primary-color-alt),
+    var(--primary-color)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.footer-items h3 {
+  cursor: pointer;
+  font-weight: 300;
+  font-size: 1.1rem;
+  padding: 0.1rem 0;
+  color: var(--white-color-alt);
+}
+.footer-items h3:hover {
+  text-decoration: underline;
+}
+.footer-items h3:last-child {
+  padding-bottom: 2rem;
+}
+
+.end-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+.copyright {
+  color: var(--white-color-alt);
+  padding: 1rem 0;
+  font-size: 0.9rem;
+}
+.copyright b {
+  font-weight: inherit;
+  font-size: 0.9rem;
+}
+.designer {
+  color: hsla(0, 0%, 98%, 0.541);
+  padding-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+.designer:hover {
+  text-decoration: underline;
+}
+
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  header {
+    padding: 0.5rem 1rem;
+  }
+  .navbar {
+    background-color:white;
+    position: absolute;
+    top: 3.5rem;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 500ms;
+  }
+  .show-navbar {
+    display: flex;
+    transform: scaleY(1);
+    transform-origin: top;
+    transition: transform 300ms;
+  }
+  .nav-items {
+    display: flex;
+    flex-direction: column;
+  }
+  .nav-item {
+    margin: 0.5rem 0;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .bx-menu {
+    display: block !important;
+  }
+  .show-bx {
+    display: block !important;
+  }
+  .hide-bx {
+    display: none !important;
+  }
+}
+@media (min-width: 769px) {
+  header {
+    padding: 1rem 5rem;
+  }
+
+  .section-1 {
+    justify-content: space-between;
+    grid-template-columns: 1fr 1fr;
+    padding: 10rem 5rem 0 5rem;
+  }
+  .slogan .company-title {
+    max-width: 30rem;
+    font-size: 1.8rem;
+    letter-spacing: 0.5rem;
+  }
+  .slogan .company-slogan {
+    max-width: 20rem;
+    font-size: 1.3rem;
+  }
+
+  .section-2 {
+    margin: 2rem 5rem;
+  }
+  .offer {
+            background-color: transparent;
+    margin: 5rem 0;
+    align-items: center;
+    justify-content: space-between;
+    grid-template-rows: auto auto;
+  }
+  .offer-1 {
+                      background-color: transparent;
+    grid-template-areas: "offer-1-img offer-desc-1";
+  }
+  .offer-1 img {
+    background-color: transparent;
+    padding: 2rem 0;
+  }
+  .offer-2 {
+    grid-template-areas: "offer-desc-2 offer-2-img";
+  }
+  .offer-1-img {
+              background-color: transparent;
+    grid-area: offer-1-img;
+  }
+  .offer-2-img {
+                   background-color: transparent;
+    grid-area: offer-2-img;
+  }
+  .offer-desc-1 {
+                   background-color: transparent;
+    grid-area: offer-desc-1;
+  }
+  .offer-desc-2 {
+    background-color: transparent;
+    grid-area: offer-desc-2;
+  }
+  .offer-description .offer-title {
+    font-size: 1.9rem;
+    padding: 1.5rem 0 0.5rem 0;
+  }
+  .offer-description .offer-hook {
+    max-width: 30rem;
+  }
+  .offer-description {
+    background-color: transparent;
+    padding: 2rem 1rem;
+  }
+  .offer-description .offer-title {
+    padding: 0.5rem 0 1rem 0;
+  }
+  .offer-description .cart-btn {
+    margin: 2rem 0 0.5rem 0;
+  }
+  .section-3 {
+    gap: 5rem;
+  }
+  .product::before {
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 300ms;
+  }
+  .product:hover::before {
+    transform: scaleY(1);
+    transform-origin: top;
+    transition: transform 300ms;
+  }
+  .product_add_cart {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+  .product:hover .product_add_cart {
+    transform: translate(-50%, -50%) scaleY(1);
+    transform-origin: top;
+  }
+  .section-4 {
+    margin: 5rem 0;
+  }
+  .section-5 {
+    padding: 1rem 0;
+  }
+  .section-5 .subscribe-container {
+    display: flex;
+    align-items: center;
+  }
+  input[type="text"] {
+    padding: 0 1rem;
+    width: 15rem;
+  }
+  input[type="submit"] {
+    width: 10rem;
+  }
+  .top-footer {
+    flex-direction: row;
+    justify-content: space-around;
+    padding-bottom: 8rem;
+    padding-top: 2rem;
+  }
+  .footer-title {
+    font-size: 1rem;
+    padding: 1rem 0;
+  }
+  .footer-items h3 {
+    font-size: 0.9rem;
+  }
+
+  .end-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--third-color);
+  }
+  .copyright {
+    color: hsla(0, 0%, 98%, 0.747);
+    padding: 1rem 0;
+    font-size: 0.8rem;
+  }
+  .copyright b {
+    font-size: 0.7rem;
+  }
+  .designer {
+    color: hsla(0, 0%, 98%, 0.322);
+    font-size: 0.8rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  header {
+    padding: 0.5rem 1rem;
+  }
+  .navbar {
+    background-color: white;
+    position: absolute;
+    top: 3.5rem;
+    right: 0;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 500ms;
+  }
+  .show-navbar {
+    display: flex;
+    transform: scaleY(1);
+    transform-origin: top;
+    transition: transform 300ms;
+  }
+  .nav-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .nav-item {
+    margin: 0.5rem 0;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .bx-menu {
+    display: block !important;
+  }
+  .show-bx {
+    display: block !important;
+  }
+  .hide-bx {
+    display: none !important;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+  }
+}
+                
+        </style>
+</head>
+
+<body>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-C5GKRH967B"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-C5GKRH967B');
+        </script>
+  <header>
+           <div class="company-logo"><a href="https://yoonus4040.com/jeff/" style="color:black;"><img
+              style="height:2em; width: 100%;"
+              src="https://yoonus4040.com/jefflogoblack.png"
+              alt="Jeff" /></a></div>
+    <nav class="navbar">
+      <ul class="nav-items">
+        <li class="nav-item"><a href="https://yoonus4040.com/jeff/" class="nav-link">HOME</a></li>
+        <li class="nav-item"><a href="https://yoonus4040.com/jeff/Create/" class="nav-link">CREATE</a></li>
+                    <li class="nav-item"><a href="https://yoonus4040.com/jeff/About/" class="nav-link">ABOUT</a></li>
+              <li class="nav-item"><a href="https://yoonus4040.com/jeff/Game/" class="nav-link">GAME</a></li>
+      </ul>
+    </nav>
+    <div class="menu-toggle">
+      <i class="bx bx-menu"></i>
+      <i class="bx bx-x"></i>
+    </div>
+  </header>
+  <main>
+    <section class="container section-2">
+      <div class="offer offer-1">
+              <div class="img-block">
+                  <span></span>
+                  <img src="https://github.com/Yoonus4040/Datebase/blob/jeffisepik/JeffIsEpik-Img-1.2/JEFF%20WITH%20A%20PEARL%20EARRING.png?raw=true" alt="Jeff Logo">
+                </div>
+        <div class="offer-description offer-desc-1">
+          <h2 class="offer-title">Create Your Own Jeff</h2>
+          <p class="offer-hook">After making your own jeff submit it by sendng an email to <em><a href = "mailto: JeffIsEpiK@proton.me">JeffIsEpiK@proton.me</a></em> with name,image and backstory of your jeff and if your jeff is appropriate your jeff will be added the website.</p>
+          <div class="cart-btn"></div>
+        </div>
+      </div>
+    </section>
+    <section class="container section-3">
+    </section>
+</div>
+</div>
+    </section>
+      </div>
+    </section>
+  </main>
+<footer>
+    <div class="portfolio-link">
+        <div class="link-container">
+            <a href="https://www.instagram.com/yoonuz4040/?igshid=ZDdkNTZiNTM%3D" target="_blank">Instagram</a>
+        </div>
+        <div class="link-container">
+            <a href="https://Yoonus4040.com" target="_blank">Yoonus4040</a>
+        </div>
+        <div class="link-container">
+            <a href="https://Youtube.com/@yoonus4040" target="_blank">Youtube</a>
+        </div>
+            <div class="link-container">
+            <a href="https://yoonus4040.com/jeff/">Home</a>
+        </div>
+            <div class="link-container">
+                            <a href="https://yoonus4040.com/jeff/Game/" target="_blank">Game</a>
+                        </div>
+                </div>
+    </div>
+        <br>
+            <p style="text-align: center; font-size: 10px;">© 2023 JeffIsEpiK all rights reserved<br>
+designed & developed by Yoonus4040</p>
+        <br>
+  </footer>
+</body>
+
+</html>

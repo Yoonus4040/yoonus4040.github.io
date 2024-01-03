@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhivehi Thaana Keyboard</title>
+    <meta property="og:image" content="/Thaana/fontbannerrrr.png">
+    <link rel="icon" type="image/x-icon" href="/Thaana/font.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thaana&display=swap');
+        body {
+            font-family: 'Noto Sans Thaana', sans-serif;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .keyboard-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 800px;
+            width: 90%;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        textarea {
+            padding: 15px;
+            font-size: 18px;
+            width: calc(100% - 30px);
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            border: 1px solid #fff;
+            border-radius: 6px;
+            resize: vertical;
+        }
+
+        .virtual-keyboard {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 10px;
+            max-width: 600px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .key {
+            font-weight: bold;
+            font-size: 18px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50px;
+            background-color: #fff;
+            cursor: pointer;
+            user-select: none;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+
+        .key:hover {
+            background-color: #f4f4f4;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05);
+        }
+
+        @media only screen and (max-width: 600px) {
+            .key {
+                height: 50px;
+                font-size: 20px;
+            }
+
+            .virtual-keyboard {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        #backspaceBtn,
+        #shiftBtn,
+        #copyBtn,
+        #spaceBtn,
+        #doc {
+            background-color: #ffffff;
+            font-weight: bold;
+            border-radius: 10px;
+            height: 30px;
+            border: none;
+            cursor: pointer;
+            user-select: none;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+
+        #backspaceBtn:hover,
+        #shiftBtn:hover,
+        #copyBtn:hover,
+        #spaceBtn:hover,
+        #doc:hover {
+            background-color: #f4f4f4;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+<div class="keyboard-container">
+    <textarea id="inputText" placeholder="ޓެކްސްޓް ލިޔެލާށެވެ" dir="rtl"></textarea>
+    <div>
+        <button style="border:none; background-color: #fff;" id="backspaceBtn">Backspace</button>
+        <button style="border:none; background-color: #fff;" id="shiftBtn">Shift</button>
+        <button style="border:none;background-color: #fff;" id="spaceBtn">Space</button>
+        <button style="border:none;background-color: #fff;" id="copyBtn">Copy to Clipboard</button>
+        <button id="doc"><a href="https://yoonus4040.com/Thaana/Download/" style="text-decoration: none;  font-weight: bold; color:black;" >Read Documentation</a></button>
+    </div>
+    <div id="keyboard" class="virtual-keyboard"></div>
+    <br>
+    <p style="text-align: center; font-size: 10px; color:#919191; text-decoration:none; ">© 2023
+        <a href="https://yoonus4040.com" style=" color:#919191; text-decoration:none; ">Yoonus4040</a> all rights reserved<br>
+        designed & developed by <a href="https://yoonus4040.com" style=" color:#919191; text-decoration: none; ">Yoonus4040</a></p>
+    <br>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const keyboardElement = document.getElementById('keyboard');
+        const inputTextElement = document.getElementById('inputText');
+        const backspaceBtn = document.getElementById('backspaceBtn');
+        const shiftBtn = document.getElementById('shiftBtn');
+        const copyBtn = document.getElementById('copyBtn');
+        const spaceBtn = document.getElementById('spaceBtn');
+
+        let isShift = false;
+
+        const thaanaKeys = [
+            '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
+                'ަ', 'ާ', 'ި', 'ީ', 'ު', 'ޫ', 'ެ',
+                'ޭ', 'ޮ', 'ޯ', 'ް',
+                'ހ', 'ށ', 'ނ', 'ރ', 'ބ',
+            'ޅ', 'ކ', 'އ', 'ވ', 'މ',
+            'ފ', 'ދ', 'ތ', 'ލ', 'ގ',
+            'ޏ', 'ސ', 'ޑ', 'ޒ', 'ޓ',
+            'ޔ', 'ޕ', 'ޖ', 'ޗ', 'ޘ',
+            'ޙ', 'ޚ', 'ޛ', 'ޜ',
+            'ޞ', 'ޟ', 'ޠ', 'ޡ', 'ޢ',
+            'ޣ', 'ޤ', 'ޥ', 'ަ'
+        ];
+
+        const shiftThaanaKeys = [
+            '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'ަ', 'ާ', 'ި', 'ީ', 'ު', 'ޫ', 'ެ',
+                'ޭ', 'ޮ', 'ޯ', 'ް', 'ޤ', 'ޢ', 'ޜ', 'ޓ', 'ޠ', '÷', '}', '{', '|', 'ށ', 'ޑ',
+            'ﷲ', 'ޣ', 'ޙ', 'ޛ', 'ޚ', 'ޅ', ':', '"', '|',
+            'ޡ', 'ޘ', 'ޝ', 'ޥ', 'ޞ', 'ޏ', 'ޟ', '>', '<', '؟'
+        ];
+
+        function updateKeyboard() {
+            const keys = isShift ? shiftThaanaKeys : thaanaKeys;
+            keyboardElement.innerHTML = ''; // Clear existing keys
+
+            keys.forEach(key => {
+                const keyElement = document.createElement('div');
+                keyElement.classList.add('key');
+                keyElement.textContent = key;
+
+                keyElement.addEventListener('click', function () {
+                    inputTextElement.value += key;
+                });
+
+                keyboardElement.appendChild(keyElement);
+            });
+        }
+
+        updateKeyboard();
+
+        // Backspace button for the lazy people
+        backspaceBtn.addEventListener('click', function () {
+            inputTextElement.value = inputTextElement.value.slice(0, -1);
+        });
+
+        // Shift button btn
+        shiftBtn.addEventListener('click', function () {
+            isShift = !isShift;
+            updateKeyboard();
+        });
+
+        // Copy to clipboard button cuz ctrl+c  doesn't exist 
+        copyBtn.addEventListener('click', function () {
+            inputTextElement.select();
+            document.execCommand('copy');
+            window.getSelection().removeAllRanges();
+        });
+
+        // Space button 
+        spaceBtn.addEventListener('click', function () {
+            inputTextElement.value += ' ';
+        });
+    });
+</script>
+</body>
+</html>

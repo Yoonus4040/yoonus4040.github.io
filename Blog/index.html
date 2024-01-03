@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Yoonus4040 Blog</title>
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=65536136006dec00135f4626&product=inline-share-buttons&source=platform" async="async"></script>
+        <link rel="icon" type="image/png" href="https://yoonus4040.com/bloglogo.png">
+         <meta property="og:image" content="https://yoonus4040.com/BANNNER.png">
+        <style>
+                 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  --primary-color: black;
+  --primary-color-alt: black;
+  --second-color: black;
+  --second-color-alt: black;
+  --third-color: white;
+  --white-color: white;
+  --white-color-alt: white;;
+  --dark-color: hsl(300, 100%, 0%);
+}
+::-moz-selection {
+  color: white;
+  background: black;
+}
+::selection {
+  color: white;
+  background: black;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+img {
+  width: 100%;
+  height: 100%;
+}
+.bx {
+  font-size: 2.5rem;
+}
+.container {
+  padding: 0 2rem;
+}
+body {
+ font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  background-color:#e9e6e4;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+.company-logo {
+         font-weight: bold;
+         font-family:"Space Grotesk", sans-serif;
+  font-size: 2.5rem;
+  color: black;
+}
+.nav-items {
+  display: flex;
+}
+.nav-item {
+  margin: 0 2rem;
+}
+.nav-link {
+        font-family:"Space Grotesk", sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.05rem;
+  position: relative;
+  color: black;
+}
+.nav-link::before {
+  content: "";
+  width: 100%;
+  height: 0.05rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+}
+.nav-link:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+.menu-toggle {
+  display: none;
+}
+.bx-menu,
+.bx-x {
+  cursor: pointer;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: none !important;
+}
+.section-1 {
+  background-color: var(--dark-color);
+  display: grid;
+}
+.slogan .company-title {
+  background: -webkit-linear-gradient(
+    120deg,
+    var(--primary-color-alt),
+    var(--primary-color)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.slogan .company-slogan {
+  background: -webkit-linear-gradient(
+    120deg,
+    var(--primary-color-alt),
+    var(--primary-color)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.8rem;
+}
+
+.section-2 {
+  margin: 2rem 0;
+}
+.offer {
+        background-color: #e9e6e4;
+  margin: 1rem 0;
+  display: grid;
+}
+.offer img {
+  background-color: #e9e6e4;
+  padding: 2rem 0;
+}
+.offer-1 img {
+        background-color: #e9e6e4;
+  padding: 3rem 0;
+}
+.offer-description {
+        background-color: #e9e6e4;
+  padding: 0 1rem;
+}
+.offer-description .offer-title {
+  color: var(--second-color);
+  font-size: 1.8rem;
+  font-weight: 400;
+  padding: 1.5rem 0 0.5rem 0;
+}
+.offer-description .offer-hook {
+  color: var(--second-color-alt);
+  font-size: 1.2rem;
+}
+.offer-description .cart-btn {
+  cursor: pointer;
+  color: var(--second-color-alt);
+  font-size: 1.1rem;
+  display: grid;
+  place-items: center;
+  margin: 2rem 0 1rem 0;
+  width: 10rem;
+  height: 3rem;
+  background-color: white;
+}
+.offer-description .cart-btn:hover {
+  background-color: white;
+}
+.section-3 {
+  display: grid;
+  place-items: center;
+  justify-content: space-around;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
+}
+.product {
+  cursor: pointer;
+  background-color: var(--white-color-alt);
+  position: relative;
+}
+.product::before {
+  content: "";
+  background-color: white;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.product_add_cart {
+  color: var(--white-color-alt);
+  font-size: 1.2rem;
+  background-color: hsl(9, 94%, 65%);
+  padding: 1rem 0.4rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: white;
+}
+.product_add_cart:hover {
+  color: var(--white-color);
+  background-color: white;
+}
+.portfolio-link {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.portfolio-link a {
+
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+}
+.section-4 {
+  margin: 4rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+.sponsor img {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  filter: grayscale(100%);
+  opacity: 0.8;
+  transition: opacity 300ms;
+}
+.sponsor img:hover {
+  opacity: 1;
+}
+.section-5 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+}
+.subscribe-input-label {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.05rem;
+  color: var(--second-color);
+}
+input[type="text"] {
+  padding: 0 0.5rem;
+  font-size: 1.1rem;
+  width: 100%;
+  height: 3rem;
+  border: none;
+  background-color: hsl(220, 33%, 90%);
+  color: var(--second-color-alt);
+  transition: background-color 300ms;
+}
+input[type="text"]:focus {
+  outline: none;
+  background-color: hsl(220, 33%, 95%);
+}
+input[type="text"]::placeholder {
+  color: var(--second-color-alt);
+}
+input[type="submit"] {
+  cursor: pointer;
+  background-image: linear-gradient(
+    to top,
+    var(--primary-color-alt),
+    var(--primary-color)
+  );
+  color: var(--white-color-alt);
+  margin: 1rem 0;
+  border: none;
+  width: 100%;
+  height: 3rem;
+  font-size: 1.2rem;
+  transition: color 300ms;
+}
+input[type="submit"]:hover {
+  background-image: linear-gradient(
+    to bottom,
+    var(--primary-color-alt),
+    var(--primary-color)
+  );
+  color: var(--white-color);
+}
+.top-footer {
+  background-color: var(--second-color);
+  display: flex;
+  flex-direction: column;
+}
+.footer-title {
+  font-weight: 500;
+  font-size: 1.2rem;
+  padding: 1rem 0;
+  background-image: -webkit-linear-gradient(
+    120deg,
+    var(--primary-color-alt),
+    var(--primary-color)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.footer-items h3 {
+  cursor: pointer;
+  font-weight: 300;
+  font-size: 1.1rem;
+  padding: 0.1rem 0;
+  color: var(--white-color-alt);
+}
+.footer-items h3:hover {
+  text-decoration: underline;
+}
+.footer-items h3:last-child {
+  padding-bottom: 2rem;
+}
+.end-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+.copyright {
+  color: var(--white-color-alt);
+  padding: 1rem 0;
+  font-size: 0.9rem;
+}
+.copyright b {
+  font-weight: inherit;
+  font-size: 0.9rem;
+}
+.designer {
+  color: hsla(0, 0%, 98%, 0.541);
+  padding-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+.designer:hover {
+  text-decoration: underline;
+}
+@media (min-width: 769px) {
+  header {
+    padding: 1rem 5rem;
+  }
+  .section-1 {
+    justify-content: space-between;
+    grid-template-columns: 1fr 1fr;
+    padding: 10rem 5rem 0 5rem;
+  }
+  .slogan .company-title {
+    max-width: 30rem;
+    font-size: 1.8rem;
+    letter-spacing: 0.5rem;
+  }
+  .slogan .company-slogan {
+    max-width: 20rem;
+    font-size: 1.3rem;
+  }
+  .section-2 {
+    margin: 2rem 5rem;
+  }
+  .offer {
+    background-color: #e9e6e4;
+    margin: 5rem 0;
+    align-items: center;
+    justify-content: space-between;
+    grid-template-rows: auto auto;
+  }
+  .offer-1 {
+    background-color: #e9e6e4;
+    grid-template-areas: "offer-1-img offer-desc-1";
+           object-fit: cover;
+  }
+  .offer-1 img {
+    background-color: #e9e6e4;
+    padding: 2rem 0;
+  }
+  .offer-2 {
+    grid-template-areas: "offer-desc-2 offer-2-img";
+           object-fit: cover;
+  }
+  .offer-1-img {
+    background-color: #e9e6e4;
+    grid-area: offer-1-img;
+  }
+  .offer-2-img {
+    background-color: #e9e6e4;
+    grid-area: offer-2-img;
+  }
+  .offer-desc-1 {
+    background-color: #e9e6e4;
+    grid-area: offer-desc-1;
+  }
+  .offer-desc-2 {
+    background-color: #e9e6e4;
+    grid-area: offer-desc-2;
+  }
+  .offer-description .offer-title {
+          font-family:"Inter", sans-serif;
+    font-size: 1.9rem;
+    padding: 1.5rem 0 0.5rem 0;
+  }
+  .offer-description .offer-hook {
+    max-width: 30rem;
+  }
+  .offer-description {
+    background-color: transparent;
+    padding: 2rem 1rem;
+  }
+  .offer-description .offer-title {
+    padding: 0.5rem 0 1rem 0;
+  }
+  .offer-description .cart-btn {
+    margin: 2rem 0 0.5rem 0;
+  }
+  .section-3 {
+    gap: 5rem;
+  }
+  .product::before {
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 300ms;
+  }
+  .product:hover::before {
+    transform: scaleY(1);
+    transform-origin: top;
+    transition: transform 300ms;
+  }
+  .product_add_cart {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+  .product:hover .product_add_cart {
+    transform: translate(-50%, -50%) scaleY(1);
+    transform-origin: top;
+  }
+  .section-4 {
+    margin: 5rem 0;
+  }
+  .section-5 {
+    padding: 1rem 0;
+  }
+  .section-5 .subscribe-container {
+    display: flex;
+    align-items: center;
+  }
+  input[type="text"] {
+    padding: 0 1rem;
+    width: 15rem;
+  }
+  input[type="submit"] {
+    width: 10rem;
+  }
+  .top-footer {
+    flex-direction: row;
+    justify-content: space-around;
+    padding-bottom: 8rem;
+    padding-top: 2rem;
+  }
+  .footer-title {
+    font-size: 1rem;
+    padding: 1rem 0;
+  }
+  .footer-items h3 {
+    font-size: 0.9rem;
+  }
+  .end-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #e9e6e4;
+  }
+  .copyright {
+    color: hsla(0, 0%, 98%, 0.747);
+    padding: 1rem 0;
+    font-size: 0.8rem;
+  }
+  .copyright b {
+    font-size: 0.7rem;
+  }
+  .designer {
+    color: hsla(0, 0%, 98%, 0.322);
+    font-size: 0.8rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .nav-link {
+    font-size: 0.9rem;
+  }
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+  }
+  .navbar {
+    position: absolute;
+    top: 3.5rem;
+    right: 0;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 500ms;
+  }
+  .show-navbar {
+    display: flex;
+    transform: scaleY(1);
+    transform-origin: top;
+    transition: transform 300ms;
+  }
+  .nav-items {
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+  }
+  .bx-menu {
+    display: block !important;
+  }
+  .bx-x {
+    display: block !important;
+  }
+  .hide-bx {
+    display: none !important;
+  }
+}
+
+                #myBtn {
+                  display: none;
+                  position: fixed;
+                  bottom: 20px;
+                  right: 30px;
+                  z-index: 99;
+                  font-size: 18px;
+                  border: none;
+                  outline: none;
+                        background: linear-gradient(to top, #ef4343, #f26441 80% 80%);
+                        font-family:"Space Grotesk", sans-serif;
+                  color: white;
+                  cursor: pointer;
+                  padding: 15px;
+                  border-radius: 50px;
+                }
+                iframe{
+                        height:300px;
+                }
+                @media only screen and (max-width: 768px) {
+                        iframe{
+                                height:500px;
+                        }
+                }
+        </style>
+</head>
+
+<body>
+        <button onclick="topFunction()" id="myBtn" title="Go to back  top">BACK</button>
+<header>
+  <div class="company-logo"><a href="https://yoonus4040.com/Blog" style="color:black;">YOONUS4040 BLOG</a></div>
+  <div class="menu-toggle">
+    <div class="bx bx-menu"></div>
+    <div class="bx bx-x"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="nav-items">
+      <li class="nav-item"><a href="https://yoonus4040.com" class="nav-link">HOME</a></li>
+      <li class="nav-item"><a href="https://yoonus4040.com/jeff/" class="nav-link">JEFF</a></li>
+            <li class="nav-item"><a href="https://yoonus4040.com/art" class="nav-link">ART</a></li>
+    </ul>
+  </nav>
+</header>
+  <main>
+
+    <section class="container section-2">
+            <div class="offer-description offer-desc-2">
+                <iframe style="border:none;" width="100%" src="https://yoonus4040.com/2024/"></iframe>
+                </div>
+              </div>
+            <div class="offer offer-2">
+                <img src="https://database.yoonus4040.repl.co/jeffgptblogsmall.png" alt="https://database.yoonus4040.repl.co/jeffgptblogsmall.png" loading="lazy" class="offer-img offer-2-img">
+                <div class="offer-description offer-desc-2">
+                  <h2 class="offer-title">JEFFGPT</h2>
+                  <p class="offer-hook">Meet JEFFGPT, a dynamic conversational AI currently in development that sets itself apart from the rest. While it shares some similarities with models like ChatGPT, JEFFGPT is forging its own path with a commitment to versatility and user-centric design. Built on state-of-the-art deep learning techniques, JEFFGPT adapts to various conversational styles, ensuring a seamless and engaging experience. The development team is actively addressing biases and ethical considerations, welcoming user feedback to refine and improve the model. JEFFGPT is not just another copy of ahem ChatGPT ._.</p>
+                        <br>
+                                <p class="date">
+                                        2023-11-20
+                              </p>
+                </div>
+              </div>
+            <div class="offer offer-1">
+                <img src="https://database.yoonus4040.repl.co/horizonblog.png" loading="lazy" class="">
+                <div class="offer-description offer-desc-1">
+                  <h2 class="offer-title">HORIZON</h2>
+                  <p class="offer-hook">Meet 'Horizon,' my latest track. It's a musical journey that captures the feeling of looking towards the unknown. The melody is like a sunrise, spreading warmth and curiosity. 'Horizon' is a simple yet heartfelt invitation to embrace the endless possibilities that lie ahead, wrapped in a tune that lingers in your mind, much like the promise of a new day
+                  <br>
+                    <p class="date">
+                            2023-11-16
+                  </p>
+                </div>
+              </div>
+            <div class="offer offer-2">
+                    <img src="https://personal-blog-site.yoonus4040.repl.co/Untitled-1.png" alt="" loading="lazy" class="offer-img offer-2-img">
+                    <div class="offer-description offer-desc-2">
+                      <h2 class="offer-title">BUBBLE</h2>
+                      <p class="offer-hook">Step into the groove of 'Bubbles,' my latest creation that channels the Rush E vibe. Picture this: a rhythmic dance of beats, each note carefully placed to ignite the Rush E spirit. It's not just a song; it's an experience. Feel the energy surge as the melody weaves through, inviting you to ride the highs and lows. 'Bubbles' is my musical nod to the Rush E legacy a journey that pulsates with life, inviting you to join in and feel the rhythm in your core</p>
+                            <br>
+                                    <p class="date">
+                                            2023-11-13
+                                  </p>
+                    </div>
+                  </div>
+            <div class="offer offer-1">
+                    <img src="https://personal-blog-site.yoonus4040.repl.co/jeffblog.png" loading="lazy" class="">
+                    <div class="offer-description offer-desc-1">
+                      <h2 class="offer-title">Escape from Jeff</h2>
+                      <p class="offer-hook">In the heart of the gaming world, a new sensation has emerged that sends shivers down the spines of players and leaves them on the edge of their seats. "Escape from Jeff" has arrived, an intense and heart-pounding game set in a horror post-apocalyptic city infested with a relentless breed of killers named Jeff.
+                              The premise is simple yet spine-chilling - survive. Players find themselves thrust into a nightmarish world where the once bustling city has turned into a desolate and terrifying landscape, overrun by Jeffs. These killers are not your average foes; they are relentless, cunning, and determined to make you their prey.
+                      <br>
+                        <p class="date">
+                                2023-10-15
+                      </p>
+                    </div>
+                  </div>
+            <div class="offer offer-2">
+                <img src="https://database.yoonus4040.repl.co/ASTRONAUT.png" alt="" loading="lazy" class="offer-img offer-2-img">
+                <div class="offer-description offer-desc-2">
+                  <h2 class="offer-title">ASTRONAUT</h2>
+                  <p class="offer-hook">Dive into 'Astronaut,' my latest musical orbit. This track is a cosmic voyage, where the beats become rocket fuel propelling you into a weightless realm. The melody is a stellar dance, echoing the curiosity of an astronaut exploring the unknown. 'Astronaut' is a musical spacewalk, inviting you to float among the stars and lose yourself in the rhythm of the cosmos. It's a sonic adventure, where each note is a step into the vastness of sound.</p>
+                        <br>
+                                <p class="date">
+                                        2023-10-15
+                              </p>
+                </div>
+              </div>
+    </section>
+    <section class="container section-3">
+    </section>
+</div>
+</div>
+    </section>
+      </div>
+    </section>
+  </main>
+<footer>
+    <div class="portfolio-link">
+        <div class="link-container">
+            <a href="https://www.instagram.com/yoonuz4040/?igshid=ZDdkNTZiNTM%3D" target="_blank">Instagram</a>
+        </div>
+        <div class="link-container">
+            <a href="https://Yoonus4040.com" target="_blank">Yoonus4040</a>
+        </div>
+        <div class="link-container">
+            <a href="https://Youtube.com/@yoonus4040" target="_blank">Youtube</a>
+        </div>
+            <div class="link-container">
+            <a href="https://yoonus4040.com/art/" target="_blank">Art</a>
+        </div>
+            <div class="link-container">
+                <a href="https://soundcloud.com/yoonus-ibrahim-87475059" target="_blank">SoundCloud</a>
+                    
+            </div>
+    </div>
+        <br>
+            <p style="text-align: center; font-size: 10px;  ">© 2023 Yoonus4040 all rights reserved<br>
+designed & developed by Yoonus4040</p>
+        <br>
+  </footer>
+</body>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navbar = document.querySelector(".navbar");
+
+    menuToggle.addEventListener("click", function () {
+      navbar.classList.toggle("show-navbar");
+    });
+  });
+
+        let mybutton = document.getElementById("myBtn");
+
+
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+</script>
+</html>

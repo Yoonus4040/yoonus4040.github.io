@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>ESCAPE FROM JEFF CREDITS</title>
+  <link rel="icon" type="image/png" href="https://yoonus4040.com/jeffbg.png">
+  <style>
+          @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400");
+          @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+          @import url("https://fonts.googleapis.com/css2?family=Poiret+One&display=swap");
+          @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900;1000&display=swap");
+          *,
+                          @import url('https://fonts.googleapis.com/css?family=Rakkas');
+          *::before,
+          *::after {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+          }
+          :root {
+            --primary-color: white;
+            --primary-color-alt: white;
+            --second-color: white;
+            --second-color-alt:white;
+            --third-color: white;
+            --white-color: white;
+            --white-color-alt: white;;
+            --dark-color: hsl(300, 100%, 0%);
+          }
+          ::-moz-selection {
+            color: white;
+            background: black;
+          }
+          ::selection {
+            color: white;
+            background: black;
+          }
+          li {
+            list-style: none;
+          }
+          a {
+            text-decoration: none;
+          }
+          img {
+            width: 100%;
+            height: 100%;
+          }
+          .bx {
+            font-size: 2.5rem;
+          }
+          .container {
+            padding: 0 2rem;
+          }
+          header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+          }
+                          a{
+                                  color: white;
+                          }
+          .company-logo {
+                   font-weight: bold;
+                   font-family:'Rakkas';
+            font-size: 2.5rem;
+            color: white;
+          }
+          .nav-items {
+            display: flex;
+          }
+          .nav-item {
+            margin: 0 2rem;
+          }
+          .nav-link {
+            font-size: 1.1rem;
+            letter-spacing: 0.05rem;
+            position: relative;
+                  color: white;
+          }
+
+          .nav-link::before {
+            content: "";
+            background: linear-gradient(var(--primary-color), var(--primary-color-alt));
+            width: 100%;
+            height: 0.05rem;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 150ms;
+          }
+          .nav-link:hover::before {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+          }
+          .menu-toggle {
+            display: none;
+          }
+          .bx-menu,
+          .bx-x {
+            cursor: pointer;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: none !important;
+          }
+
+          .section-1 {
+            background-color: var(--dark-color);
+            display: grid;
+          }
+
+          .slogan .company-title {
+            background: -webkit-linear-gradient(
+              120deg,
+              var(--primary-color-alt),
+              var(--primary-color)
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-top: 2rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+          }
+          .slogan .company-slogan {
+            background: -webkit-linear-gradient(
+              120deg,
+              var(--primary-color-alt),
+              var(--primary-color)
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            font-weight: 400;
+            line-height: 1.8rem;
+          }
+
+          .section-2 {
+            margin: 2rem 0;
+          }
+          .offer {
+            background-color: white;
+            margin: 1rem 0;
+            display: grid;
+          }
+          .link-container{
+                  color:white;
+          }
+          .offer img {
+            background-color: white;
+            padding: 2rem 0;
+          }
+          .offer-1 img {
+            background-color: white;
+            padding: 3rem 0;
+          }
+          .offer-description {
+            background-color: white;
+            padding: 0 1rem;
+          }
+          .offer-description .offer-title {
+            color: var(--second-color);
+            font-size: 1.8rem;
+            font-weight: 400;
+            padding: 1.5rem 0 0.5rem 0;
+          }
+          .offer-description .offer-hook {
+            color: var(--second-color-alt);
+            font-size: 1.2rem;
+          }
+          .offer-description .cart-btn {
+            cursor: pointer;
+            color: var(--second-color-alt);
+            font-size: 1.1rem;
+            display: grid;
+            place-items: center;
+            margin: 2rem 0 1rem 0;
+            width: 10rem;
+            height: 3rem;
+          background-color:white;
+          }
+          .offer-description .cart-btn:hover {
+          background-color:white;
+          }
+
+          .section-3 {
+            display: grid;
+            place-items: center;
+            justify-content: space-around;
+            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
+          }
+          .product {
+            cursor: pointer;
+            background-color: var(--white-color-alt);
+            position: relative;
+          }
+          .product::before {
+            content: "";
+          background-color:white;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+          }
+          .product_add_cart {
+            color: var(--white-color-alt);
+            font-size: 1.2rem;
+            background-color: hsl(9, 94%, 65%);
+            padding: 1rem 0.4rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+          background-color:white;
+          }
+          .product_add_cart:hover {
+            color: white;
+          background-color:white;
+          }
+          .portfolio-link {
+
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+          }
+          .portfolio-link a{
+            text-decoration: none;
+            color:white;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+          }
+          .section-4 {
+            margin: 4rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-around;
+          }
+          .sponsor img {
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            filter: grayscale(100%);
+            opacity: 0.8;
+            transition: opacity 300ms;
+          }
+          .sponsor img:hover {
+            opacity: 1;
+          }
+
+          .section-5 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+          }
+          .subscribe-input-label {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 400;
+            letter-spacing: 0.05rem;
+            color: var(--second-color);
+          }
+          input[type="text"] {
+            padding: 0 0.5rem;
+            font-size: 1.1rem;
+            width: 100%;
+            height: 3rem;
+            border: none;
+            background-color: hsl(220, 33%, 90%);
+            color: var(--second-color-alt);
+            transition: background-color 300ms;
+          }
+          input[type="text"]:focus {
+            outline: none;
+            background-color: hsl(220, 33%, 95%);
+          }
+          input[type="text"]::placeholder {
+            color: var(--second-color-alt);
+          }
+          input[type="submit"] {
+            cursor: pointer;
+            background-image: linear-gradient(
+              to top,
+              var(--primary-color-alt),
+              var(--primary-color)
+            );
+            color: var(--white-color-alt);
+            margin: 1rem 0;
+            border: none;
+            width: 100%;
+            height: 3rem;
+            font-size: 1.2rem;
+            transition: color 300ms;
+          }
+          input[type="submit"]:hover {
+            background-image: linear-gradient(
+              to bottom,
+              var(--primary-color-alt),
+              var(--primary-color)
+            );
+            color: white;
+          }
+          .top-footer {
+                  color: white;
+            background-color: var(--second-color);
+            display: flex;
+            flex-direction: column;
+          }
+          .footer-title {
+                  color: white;
+            font-weight: 500;
+            font-size: 1.2rem;
+            padding: 1rem 0;
+            background-image: -webkit-linear-gradient(
+              120deg,
+              var(--primary-color-alt),
+              var(--primary-color)
+            );
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+          .footer-items h3 {
+            cursor: pointer;
+            font-weight: 300;
+            font-size: 1.1rem;
+            padding: 0.1rem 0;
+            color: white;
+          }
+          .footer-items h3:hover {
+            text-decoration: underline;
+          }
+          .footer-items h3:last-child {
+            padding-bottom: 2rem;
+          }
+
+          .end-footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+          }
+          .copyright {
+            color: var(--white-color-alt);
+            padding: 1rem 0;
+            font-size: 0.9rem;
+          }
+          .copyright b {
+            font-weight: inherit;
+            font-size: 0.9rem;
+          }
+          .designer {
+            color: hsla(0, 0%, 98%, 0.541);
+            padding-bottom: 0.5rem;
+            font-size: 0.9rem;
+          }
+          .designer:hover {
+            text-decoration: underline;
+          }
+
+
+          @media screen and (max-width: 768px) {
+            .container {
+              padding: 0 1rem;
+            }
+            header {
+              padding: 0.5rem 1rem;
+            }
+            .navbar {
+              background-color:white;
+              position: absolute;
+              top: 3.5rem;
+              right: 0;
+              width: 100%;
+              height: 100vh;
+              display: flex;
+              justify-content: center;
+              transform: scaleY(0);
+              transform-origin: bottom;
+              transition: transform 500ms;
+            }
+            .show-navbar {
+              display: flex;
+              transform: scaleY(1);
+              transform-origin: top;
+              transition: transform 300ms;
+            }
+            .nav-items {
+              display: flex;
+              flex-direction: column;
+            }
+            .nav-item {
+              margin: 0.5rem 0;
+            }
+            .menu-toggle {
+              display: block;
+            }
+            .bx-menu {
+              display: block !important;
+            }
+            .show-bx {
+              display: block !important;
+            }
+            .hide-bx {
+              display: none !important;
+            }
+          }
+          @media (min-width: 769px) {
+            header {
+              padding: 1rem 5rem;
+            }
+
+            .section-1 {
+              justify-content: space-between;
+              grid-template-columns: 1fr 1fr;
+              padding: 10rem 5rem 0 5rem;
+            }
+            .slogan .company-title {
+              max-width: 30rem;
+              font-size: 1.8rem;
+              letter-spacing: 0.5rem;
+            }
+            .slogan .company-slogan {
+              max-width: 20rem;
+              font-size: 1.3rem;
+            }
+
+            .section-2 {
+              margin: 2rem 5rem;
+            }
+            .offer {
+                      background-color: transparent;
+              margin: 5rem 0;
+              align-items: center;
+              justify-content: space-between;
+              grid-template-rows: auto auto;
+            }
+            .offer-1 {
+                                background-color: transparent;
+              grid-template-areas: "offer-1-img offer-desc-1";
+            }
+            .offer-1 img {
+              background-color: transparent;
+              padding: 2rem 0;
+            }
+            .offer-2 {
+              grid-template-areas: "offer-desc-2 offer-2-img";
+            }
+            .offer-1-img {
+                        background-color: transparent;
+              grid-area: offer-1-img;
+            }
+            .offer-2-img {
+                             background-color: transparent;
+              grid-area: offer-2-img;
+            }
+            .offer-desc-1 {
+                             background-color: transparent;
+              grid-area: offer-desc-1;
+            }
+            .offer-desc-2 {
+              background-color: transparent;
+              grid-area: offer-desc-2;
+            }
+            .offer-description .offer-title {
+              font-size: 1.9rem;
+              padding: 1.5rem 0 0.5rem 0;
+            }
+            .offer-description .offer-hook {
+              max-width: 30rem;
+            }
+            .offer-description {
+              background-color: transparent;
+              padding: 2rem 1rem;
+            }
+            .offer-description .offer-title {
+              padding: 0.5rem 0 1rem 0;
+            }
+            .offer-description .cart-btn {
+              margin: 2rem 0 0.5rem 0;
+            }
+            .section-3 {
+              gap: 5rem;
+            }
+            .product::before {
+              transform: scaleY(0);
+              transform-origin: bottom;
+              transition: transform 300ms;
+            }
+            .product:hover::before {
+              transform: scaleY(1);
+              transform-origin: top;
+              transition: transform 300ms;
+            }
+            .product_add_cart {
+              transform: scaleY(0);
+              transform-origin: bottom;
+            }
+            .product:hover .product_add_cart {
+              transform: translate(-50%, -50%) scaleY(1);
+              transform-origin: top;
+            }
+            .section-4 {
+              margin: 5rem 0;
+            }
+            .section-5 {
+              padding: 1rem 0;
+            }
+            .section-5 .subscribe-container {
+              display: flex;
+              align-items: center;
+            }
+            input[type="text"] {
+              padding: 0 1rem;
+              width: 15rem;
+            }
+            input[type="submit"] {
+              width: 10rem;
+            }
+            .top-footer {
+              flex-direction: row;
+              justify-content: space-around;
+              padding-bottom: 8rem;
+              padding-top: 2rem;
+            }
+            .footer-title {
+              font-size: 1rem;
+              padding: 1rem 0;
+            }
+            .footer-items h3 {
+              font-size: 0.9rem;
+            }
+
+            .end-footer {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              background-color: var(--third-color);
+            }
+            .copyright {
+              color: hsla(0, 0%, 98%, 0.747);
+              padding: 1rem 0;
+              font-size: 0.8rem;
+            }
+            .copyright b {
+              font-size: 0.7rem;
+            }
+            .designer {
+              color: hsla(0, 0%, 98%, 0.322);
+              font-size: 0.8rem;
+            }
+          }
+          @media screen and (max-width: 768px) {
+            .container {
+              padding: 0 1rem;
+            }
+            header {
+              padding: 0.5rem 1rem;
+            }
+            .navbar {
+              background-color: white;
+              position: absolute;
+              top: 3.5rem;
+              right: 0;
+              width: 100%;
+              height: auto;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              transform: scaleY(0);
+              transform-origin: bottom;
+              transition: transform 500ms;
+            }
+            .show-navbar {
+              display: flex;
+              transform: scaleY(1);
+              transform-origin: top;
+              transition: transform 300ms;
+            }
+            .nav-items {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+            }
+            .nav-item {
+              margin: 0.5rem 0;
+            }
+            .menu-toggle {
+              display: block;
+            }
+            .bx-menu {
+              display: block !important;
+            }
+            .show-bx {
+              display: block !important;
+            }
+            .hide-bx {
+              display: none !important;
+            }
+
+            .nav-link {
+              font-size: 0.9rem;
+            }
+          }
+          * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+          }
+          .flip-container {
+            -webkit-perspective: 1000;
+            -moz-perspective: 1000;
+            -o-perspective: 1000;
+            perspective: 1000;
+          }
+
+                  .flip-container:hover .flipper,  
+            .flip-container.hover .flipper {
+                          -webkit-transform: rotateY(180deg);
+                          -moz-transform: rotateY(180deg);
+              -o-transform: rotateY(180deg);
+                          transform: rotateY(180deg);
+                  }
+
+          .flip-container, .front, .back {
+                  width: 400px;
+                  height: 400px;
+          }
+
+          .flipper {
+                  -webkit-transition: 0.6s;
+                  -webkit-transform-style: preserve-3d;
+
+                  -moz-transition: 0.6s;
+                  -moz-transform-style: preserve-3d;
+
+            -o-transition: 0.6s;
+                  -o-transform-style: preserve-3d;
+
+                  transition: 0.6s;
+                  transform-style: preserve-3d;
+
+                  position: relative;
+          }
+
+          .front, .back {
+                  -webkit-backface-visibility: hidden;
+                  -moz-backface-visibility: hidden;
+            -o-backface-visibility: hidden;
+                  backface-visibility: hidden;
+
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+          }
+
+          .front {
+                  z-index: 2;
+          }
+
+          .back {
+                  -webkit-transform: rotateY(180deg);
+                  -moz-transform: rotateY(180deg);
+            -o-transform: rotateY(180deg);
+                  transform: rotateY(180deg);
+          }
+
+          body {
+                  background-image: url('https://yoonus4040.com/jeffbg.png');
+            font-family: 'Catamaran', sans-serif;
+            line-height: 1.6;
+            color: white;
+            font-size: 1.1rem;
+          }
+
+          h1,
+          h2,
+          h3,
+          h4 {
+            line-height: 1.3;
+          }
+
+          a {
+            color: #444;
+            text-decoration: none;
+          }
+
+          ul {
+            list-style: none;
+          }
+
+          img {
+            width: 100%;
+          }
+
+          .container {
+            max-width: 1100px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 2rem;
+          }
+
+          .navbar {
+            font-size: 1.2rem;
+            padding-top: 0.3rem;
+            padding-bottom: 0.3rem;
+          }
+
+          .navbar .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 2rem;
+          }
+
+          .navbar .logo {
+            font-size: 2rem;
+          }
+
+          .navbar ul {
+            justify-self: flex-end;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          .navbar a {
+            padding: 0 1rem;
+          }
+
+          .navbar a:hover {
+           color: white;
+          }
+
+          .section-a {
+            margin: 2rem 0;
+          }
+
+          .section-a .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 3rem;
+            align-items: center;
+            justify-content: center;
+          }
+
+          .section-a h1 {
+                  
+            font-size: 4rem;
+            color: white;
+          }
+
+          .section-a p {
+            margin: 1rem 0;
+          }
+
+          .section-b {
+            position: relative;
+            background: url('https://gregariouspresentleadership.yoonus4040.repl.co/jeff.png') no-repeat bottom center/cover;
+            height: 600px;
+          }
+          .section-b-inner {
+            color: #fff;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: auto;
+            max-width: 860px;
+            padding: 5rem 0;
+          }
+
+          .section-b-inner h3 {
+            font-size: 2rem;
+          }
+
+          .section-b-inner h2 {
+            font-size: 5rem;
+            margin-top: 1rem;
+          }
+
+          .section-b-inner p {
+            margin-top: 1rem;
+            font-size: 1.5rem;
+          }
+
+          .section-c .gallery {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+          }
+          .section-c .gallery a:first-child {
+            /* grid-row-start: 1;
+            grid-row-end: 3; */
+            grid-row: 1/3;
+            grid-column: 1/3;
+          }
+
+          .section-c .gallery a:nth-child(2) {
+            grid-column-start: 3;
+            grid-column-end: 5;
+          }
+
+          .section-c .gallery img,
+          .section-c .gallery a {
+            width: 100%;
+            height: 100%;
+          }
+
+          .section-footer {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 4rem 0;
+          }
+
+          .section-footer .container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 1rem;
+          }
+
+          .section-footer h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+          }
+
+          .section-footer h3 {
+            margin-bottom: 0.7rem;
+          }
+
+          .section-footer a {
+            line-height: 1.9;
+            color: #ccc;
+          }
+
+          .section-footer a > i {
+           color: white;
+            margin-right: 0.5rem;
+          }
+
+          .email-form {
+            width: 100%;
+            display: inline-block;
+            background-color: #555;
+            position: relative;
+            border-radius: 20px;
+            line-height: 0;
+            margin-top: 1rem;
+          }
+
+          /* // .form-control-wrap {
+          // 	position: relative;
+          // 	display: inline-block;
+          // 	width: 100%;
+          // } */
+
+          .email-form .form-control {
+            display: inline-block;
+            border: 0;
+            outline: 0;
+            font-size: 1rem;
+            color: #ddd;
+            background-color: transparent;
+            font-family: inherit;
+            margin: 0;
+            padding: 0 3rem 0 1.5rem;
+            width: 100%;
+            height: 45px;
+            border-radius: 20px;
+          }
+
+          .email-form .submit {
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 45px;
+            height: 45px;
+            background-color: #eee;
+            font-size: 1rem;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            outline: 0;
+            border: 0;
+            color: white;
+            cursor: pointer;
+            border-radius: 0 20px 20px 0;
+          }
+
+          .btn {
+            display: inline-block;
+            background: white;
+            color: black;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            border-radius: 30px;
+          }
+          .overlay {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: var(--overlay-color);
+          }
+
+          @media (max-width: 700px) {
+            .section-a .container {
+              grid-template-columns: 1fr;
+              text-align: center;
+            }
+
+            .section-a .container div:first-child {
+              order: 2;
+            }
+
+            .section-a .container div:nth-child(2) {
+              order: -1;
+            }
+
+            .section-a img {
+              width: 80%;
+              margin: auto;
+            }
+
+            .section-c .gallery {
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+            }
+            .section-c .gallery a:first-child {
+              grid-row: 1/1;
+              grid-column: 1/1;
+            }
+
+            .section-c .gallery a:nth-child(2) {
+              grid-column: 2/4;
+              grid-row: 2/2;
+            }
+
+            .section-c .gallery a:last-child {
+              display: none;
+            }
+
+            .section-footer {
+              padding: 2rem 0;
+            }
+            .section-footer .container {
+              grid-template-columns: 1fr;
+              text-align: center;
+            }
+
+            .section-footer div:nth-child(2),
+            .section-footer div:nth-child(3) {
+              display: none;
+            }
+          }
+          .loading-screen {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background-color: black; /* You can customize the background color */
+              z-index: 9999;
+            }
+
+            .loading-image {
+              width: 100px; /* You can adjust the width of the loading image */
+              height: auto;
+              margin-bottom: 20px; /* You can adjust the margin */
+            }
+
+            .loading-text {
+              font-size: 16px; /* You can adjust the font size */
+              color: #333; /* You can customize the text color */
+            }
+  </style>
+</head>
+
+<body>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-C5GKRH967B"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-C5GKRH967B');
+        </script>
+        <div id="loading-screen" class="loading-screen">
+          <img src="https://yoonus4040.com/jefflogo.png" alt="Loading" class="loading-image">
+        </div>
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            // Your existing JavaScript code
+
+            // Add the code for the loading screen
+            const loadingScreen = document.getElementById("loading-screen");
+
+            // Initially hide the loading screen after 2 seconds
+            setTimeout(() => {
+              loadingScreen.style.display = "none";
+            }, 2000);
+          });
+        </script>
+        <header>
+                 <div class="company-logo"><a href="https://yoonus4040.com/jeff/" style="color:black;"><img
+                    style="height:2em; width: 100%;"
+                    src="https://yoonus4040.com/jefflogo.png"
+                    alt="Jeff" /></a></div>
+            <nav class="navbar">
+              <ul class="nav-items">
+                <li class="nav-item"><a href="https://yoonus4040.com/jeff/" class="nav-link">HOME</a></li>
+                <li class="nav-item"><a href="https://yoonus4040.com/jeff/Create/" class="nav-link">CREATE</a></li>
+                            <li class="nav-item"><a href="https://yoonus4040.com/jeff/About/" class="nav-link">ABOUT</a></li>
+                      <li class="nav-item"><a href="https://yoonus4040.com/jeff/Game/" class="nav-link">GAME</a></li>
+              </ul>
+            </nav>
+            <div class="menu-toggle">
+              <i class="bx bx-menu"></i>
+              <i class="bx bx-x"></i>
+            </div>
+          </header>
+            <section class="section-a">
+              <div class="container">
+                <div>
+                  <h1>CREDITS</h1>
+                  <p>
+                         <b> Models And Scripts: </b>
+                          Yoonus4040
+                          <br>
+                          <b> GUI: </b>
+                          euvuls
+                          <br>
+                         <b> Art: </b>
+                          Yoonus4040
+                          <br>
+                         <b> Vocals: </b>
+                          Yoonus4040
+                          <br>
+
+                          <b>Idea by:  </b>
+                          Alex_darknite, 
+                          N0tBis
+
+                          <br>
+                          <b>Inspiration: </b>
+                          Garry's Mod
+                          <br>
+                          <b>Play testers: </b>
+                          ijvieysejsj, 
+                          Alex_darknite,  
+                          N0tBis, 
+                          Scuffedacid, 
+                          Libra_20111, 
+                          Thunda1130, 
+                          <br>
+                          <b>Game Made And Published By:</b> 
+                          Yoonus4040 On Roblox 
+                  </p>
+                  <a href="https://yoonus4040.com/jeff/Game/" class="btn">Back</a>
+                </div>
+                      <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                        <div class="flipper">
+                          <div class="front">
+                                         <img src="https://gregariouspresentleadership.yoonus4040.repl.co/jeff.png" alt="" class="uh"/>
+                          </div>
+                          <div class="back">
+                                         <img src="https://gregariouspresentleadership.yoonus4040.repl.co/jeff.png" alt="" class="uh"/>
+                          </div>
+                        </div>
+                      </div>
+              </div>
+            </section>
+        <footer>
+            <div class="portfolio-link">
+                <div class="link-container">
+                    <a href="https://www.instagram.com/yoonuz4040/?igshid=ZDdkNTZiNTM%3D" target="_blank">Instagram</a>
+                </div>
+                <div class="link-container">
+                    <a href="https://Yoonus4040.com" target="_blank">Yoonus4040</a>
+                </div>
+                <div class="link-container">
+                    <a href="https://Youtube.com/@yoonus4040" target="_blank">Youtube</a>
+                </div>
+                    <div class="link-container">
+                    <a href="https://yoonus4040.com/jeff/">Home</a>
+                </div>
+                    <div class="link-container">
+                                    <a href="https://yoonus4040.com/jeff/Create" target="_blank">Create</a>
+                                </div>
+                        </div>
+            </div>
+                <br>
+                    <p style="text-align: center; font-size: 10px;">© 2023 JeffIsEpiK all rights reserved<br>
+        designed & developed by Yoonus4040</p>
+                <br>
+          </footer>
+</body>
+
+</html>

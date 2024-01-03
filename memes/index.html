@@ -1,0 +1,402 @@
+<html>
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900,400italic,700italic,900italic|Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="styles/newspaper.css">
+    <title>THE MEME TIMES - A NEWSPAPER STYLED MEME SITE FOR GEN Z</title>
+    <meta name="viewport" content="width=device-width">
+<style>
+        body{
+            font-family: 'Droid Serif', serif;
+            font-size: 14px;
+            color: #2f2f2f;   
+                  background-color: #f9f7f1;
+        }
+        header{
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 80px;
+            text-transform: uppercase;
+            display: inline-block;
+            line-height: 72px;
+            margin-bottom: 20px;
+
+        }
+        p{
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .head{
+            text-align: center;
+            position: relative;
+
+
+        }
+
+        .headerobjectswrapper{
+        }
+
+        .subhead{
+            text-transform: uppercase;
+            border-bottom: 2px solid #2f2f2f;
+            border-top: 2px solid #2f2f2f;
+            padding: 12px 0 12px 0;
+
+        }
+        .weatherforcastbox{
+            position: relative;
+            width: 12%;
+            left: 10px;
+            border: 3px double #2f2f2f;
+            padding: 10px 15px 10px 15px;
+            line-height: 20px;
+            display: inline-block;
+            margin: 0 50px 20px -360px;
+        }
+        .content{
+            font-size: 0;
+            line-height: 0;
+            word-spacing: -.31em;
+            display: inline-block;
+            margin: 30px 2% 0 2%;
+
+
+        }
+        .collumns{
+
+        }
+
+        .collumn{
+            font-size: 14px;
+            line-height: 20px;
+            width: 17.5%;
+            display: inline-block;
+            padding: 0 1% 0 1%;
+            vertical-align: top;
+            margin-bottom: 50px;
+            transition: all .7s;
+        }
+        .collumn + .collumn { 
+          border-left: 1px solid #2f2f2f;
+        }
+        .collumn .headline{
+            text-align: center;
+            line-height: normal;
+            font-family: 'Playfair Display', serif;
+            display: block;
+            margin: 0 auto;
+
+
+        }
+        .collumn .headline.hl1{
+            font-weight: 700;
+            font-size: 30px;
+            text-transform: uppercase;
+            padding: 10px 0 10px 0;
+
+        }
+
+        .collumn .headline.hl2{
+            font-weight: 400;
+            font-style: italic;
+            font-size: 24px;
+            box-sizing: border-box;
+            padding: 10px 0 10px 0;
+        }
+
+        .collumn .headline.hl2:before{
+            border-top: 1px solid #2f2f2f;
+            content: '';
+            width: 100px;
+            height: 7px;
+            display: block;
+            margin: 0 auto;
+        }
+        .collumn .headline.hl2:after{
+            border-bottom: 1px solid #2f2f2f;
+            content: '';
+            width: 100px;
+            height: 13px;
+            display: block;
+            margin: 0 auto;
+
+        }
+
+        .collumn .headline.hl3{
+            font-weight: 400;
+            font-style: italic;
+            font-size: 36px;
+            box-sizing: border-box;
+            padding: 10px 0 10px 0;
+        }
+        .collumn .headline.hl4{
+            font-weight: 700;
+            font-size: 12px;
+            box-sizing: border-box;
+            padding: 10px 0 10px 0;
+        }
+        .collumn .headline.hl4:before{
+            border-top: 1px solid #2f2f2f;
+            content: '';
+            width: 100px;
+            height: 7px;
+            display: block;
+            margin: 0 auto;
+        }
+        .collumn .headline.hl4:after{
+            border-bottom: 1px solid #2f2f2f;
+            content: '';
+            width: 100px;
+            height: 10px;
+            display: block;
+            margin: 0 auto;
+
+        }
+
+        .collumn .headline.hl5{
+            font-weight: 400;
+            font-size: 42px;
+            text-transform: uppercase;
+            font-style: italic;
+            box-sizing: border-box;
+            padding: 10px 0 10px 0;
+        }
+        .collumn .headline.hl6{
+            font-weight: 400;
+            font-size: 18px;
+            box-sizing: border-box;
+            padding: 10px 0 10px 0;
+        }
+        .collumn .headline.hl6:before{
+            border-top: 1px solid #2f2f2f;
+            content: '';
+            width: 100px;
+            height: 7px;
+            display: block;
+            margin: 0 auto;
+        }
+        .collumn .headline.hl6:after{
+            border-bottom: 1px solid #2f2f2f;
+            content: '';
+            width: 100px;
+            height: 10px;
+            display: block;
+            margin: 0 auto;
+
+        }
+        .collumn .headline.hl7{
+            font-weight: 700;
+            font-size: 12px;
+            box-sizing: border-box;
+            display: block;
+            padding: 10px 0 10px 0;
+        }
+        .collumn .headline.hl8{
+            font-weight: 700;
+            font-size: 12px;
+            box-sizing: border-box;
+            padding: 10px 0 10px 0;
+        }
+        .collumn .headline.hl9{
+            font-weight: 700;
+            font-size: 12px;
+            box-sizing: border-box;
+            padding: 10px 0 10px 0;
+        }
+        .collumn .headline.hl10{
+            font-weight: 700;
+            font-size: 12px;
+            box-sizing: border-box;
+            padding: 10px 0 10px 0;
+        }
+        .collumn .citation{
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            line-height: 44px;
+            /*font-style: italic;*/
+            text-align: center;
+            font-weight: 400;
+            display: block;
+            margin: 40px 0 40px 0;
+            font-feature-settings: "liga", "dlig";
+
+        }
+        .collumn .citation:before{
+            border-top: 1px solid #2f2f2f;
+            content: '';
+            width: 100px;
+            height: 16px;
+            display: block;
+            margin: 0 auto;
+        }
+        .collumn .citation:after{
+            border-bottom: 1px solid #2f2f2f;
+            content: '';
+            width: 100px;
+            height: 16px;
+            display: block;
+            margin: 0 auto;
+        }
+        .collumn .figure {
+                  margin: 0 0 20px;
+        }
+        .collumn .figcaption{
+                font-style: italic;
+                font-size: 12px;
+        }
+        .media {
+            -webkit-filter: sepia(80%) contrast(1) opacity(0.8);
+            filter: sepia(80%) grayscale(1) contrast(1) opacity(0.8);
+            mix-blend-mode: multiply;
+            width: 100%;
+                border-radius: 5px;
+            transition: all 0.3s ease; /* Add transition for a smooth effect */
+        }
+
+        .media:hover {
+            -webkit-filter: sepia(0) contrast(1) opacity(1); /* Adjusted properties */
+            filter: sepia(0) grayscale(0) contrast(1) opacity(1); /* Adjusted properties */
+            mix-blend-mode: normal;
+            width: 100%;
+        }
+        /*________________________________________________________________________________________________________________________________*/
+        /*MEDIAQUERIES*/
+        @media only all and (max-width: 1300px) {
+            .weatherforcastbox{
+                display: none;
+            }
+
+        }
+        @media only all and (max-width: 1200px) {
+            .collumn{
+                width: 31%;
+            }
+
+        }
+            @media only all and (max-width: 900px) {
+            .collumn{
+                width: 47%;
+            }
+
+        }
+        @media only all and (max-width: 600px) {
+            .collumn{
+                width: 100%;
+            }
+                .collumn + .collumn {
+                                        border-left: none;
+                border-bottom: 1px solid #2f2f2f;
+                }
+            header{
+                max-width: 320px;
+                font-size: 60px;
+                line-height: 54px;
+                overflow: hidden;
+            }
+
+        }
+        .loading-screen {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                  background-color: #f9f7f1;
+                z-index: 9999;
+        }
+
+        .loading-image {
+                width: 100px;
+                height: auto;
+                margin-bottom: 20px;
+                font-family: 'Playfair Display', serif;
+                    font-weight: 900;
+                    font-size: 80px;
+                    text-transform: uppercase;
+                    display: inline-block;
+                    line-height: 72px;
+                    margin-bottom: 20px;
+        }
+
+        .loading-text {
+                font-size: 16px;
+                color: #333;
+        }
+</style>
+</head>
+<body>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Your existing JavaScript code
+
+                // Add the code for the loading screen
+                const loadingScreen = document.getElementById("loading-screen");
+
+                // Initially hide the loading screen after 2 seconds
+                setTimeout(() => {
+                    loadingScreen.style.display = "none";
+                }, 2000);
+            });
+        </script>
+        <div id="loading-screen" class="loading-screen">
+               <h1>M</h1>
+        </div>
+<div class="head">
+    <div class="headerobjectswrapper">
+        <header>THE MEME TIMES</header>
+    </div>
+
+    <div class="subhead">Maldives, Malé - Tuesday January 1, 2024</div>
+</div>
+<div class="content">
+    <div class="collumns">
+        <div class="collumn">
+            <div class="head"><span class="headline hl3">E3 Is Shutting Down for Good</span><p><span class="headline hl4">by yoonus4040</span></p></div>
+                It's game over for E3, the Electronic Entertainment Expo. The Entertainment Software Association (ESA) announced the closure of the iconic gaming convention, citing the challenges it faced in recent years.
+                E3, which started in 1995, was canceled in 2020 due to COVID, and the attempt to go virtual in 2021 couldn't revive its former glory. The ESA's partnership with ReedPop for E3 2023 also failed to attract enough exhibitors, leading to the decision to bring the event to a close.
+                Even before the pandemic, E3 was losing momentum, facing competition from online events like Geoff Keighley's Summer Game Fest. In its last in-person appearance in 2019, E3 drew 66,100 attendees.
+                The ESA shared a farewell message on social media, saying, "After more than two decades of E3, each one bigger than the last, the time has come to say goodbye. Thanks for the memories."</p></div>
+        <div class="collumn">
+            <div class="head"><span class="headline hl5">Dancing Toothless</span><p><span class="headline hl6">by yoonus4040</span></p></div>
+        In December 29 2023, YouTuber Cas van de Pol introduced the world to "Dancing Toothless," an animated sensation born from a scene in his video titled "The Ultimate 'How To Train Your Dragon' Recap Cartoon." In this captivating moment, Toothless, the iconic dragon from "How to Train Your Dragon," showcases his dance moves to the infectious beats of "Driftveil City" from Pokémon: Black & White. The video quickly gained traction, amassing over 4 million views in just two weeks, setting the stage for the emergence of a widespread meme.</p>
+                        <figure class="figure">
+                                                                <img class="media" src="https://media1.tenor.com/m/-9lHctoXbJkAAAAC/toothless-toothless-dragon.gif" alt="">
+                                                </figure>
+
+            <p>Building upon the foundation laid by the 2018 "Dancing Lizard" meme, "Dancing Toothless" became a cultural phenomenon, spreading beyond YouTube to platforms like TikTok. Content creators on TikTok embraced the trend, with users such as @uwaa.w and @igreenscreenthings sharing their own renditions and edits, garnering millions of views within a matter of days. As "Dancing Toothless" continues to captivate online audiences, it serves as a testament to the unpredictable and delightful nature of internet culture, where animated dragons can take center stage and inspire a wave of creativity across various digital platforms.</p>
+
+            </div>
+        <div class="collumn"><div class="head"><span class="headline hl1">The Pompeii Ash Baby Is Disturbing</span><p><span class="headline hl2">By Yoonus4040</span></p></div>
+                In October 2022, the internet witnessed the rise of the "Ash Baby" meme, an AI-generated image of a crying infant covered in ashes, initially shared on Reddit by u/HyperCool27. The post, titled "Screaming baby made of ash," gained traction with over 1,800 upvotes and 95 comments within a year, showcasing the fascination with unconventional and digitally created content.
+</p>
+        <figure class="figure">
+                                                                <img class="media" src="https://media1.tenor.com/m/djotyd8bis4AAAAC/ash-baby-ash.gif" alt="">
+                                                </figure>
+            <p>The meme's journey took an unexpected turn in October 2023 when it found a new home on TikTok. User @inert_malice played a pivotal role in popularizing the meme with an animated video, garnering over 5 million plays and 1.2 million likes within a month. The Ash Baby meme became a notable presence on TikTok, particularly in ironic duets featuring bright lights burning people. This unexpected fusion of AI-generated imagery and short-form video content exemplifies the ever-evolving nature of internet culture, where the bizarre can quickly transform into a viral sensation across different online platforms.
+
+                    <span class="citation">Goku "Party Party"</span>The "Goku Party Party" meme emerged from a TikTok trend where players incorporated the "Celebrate Me" dance emote, also known as "Party Party," while playing Fortnite with the Goku skin. The meme originated from a video posted on September 9th, 2023, by TikToker @standwithfalasteen, featuring a glitch where a knocked-down Goku character unexpectedly stands up to perform the emote before being eliminated by a shotgun blast. This unusual behavior, not typical in Fortnite, contributed to the video's rapid popularity, garnering over 9 million views in just three months.</p>
+            <p>The meme's widespread dissemination followed, with TikTok users creating their own videos referencing and replicating the glitched emote scenario. Notably, on November 29th, 2023, TikToker @eldon_xoca2.0 posted a video captioned "party party.exe," adding to the meme's momentum and accumulating over 5.5 million views in five days.</p></div>
+
+        <div class="collumn"><div class="head"><span class="headline hl3">What Is Mogging And Mewing? </span><p><span class="headline hl4">by yoonus4040</span></p></div>
+                <p>Mewing, a term coined by British orthodontist Mike Mew, has gained popularity as a tongue exercise believed to influence the shape of the jawline. Mew introduced the concept through his Orthotropics YouTube channel in 2011, with a video titled "What Is Orthotropics" uploaded in 2012. The practice involves placing the tongue against the roof of the mouth, and enthusiasts claim it can contribute to jawline improvements.
+
+                The spread of mewing took a notable turn in June 2014 when a thread discussing Mew's video surfaced on the RedPillTalk Forums. Mew himself responded to this thread with a video on June 17th, engaging with the online community. Subsequently, discussions about the effectiveness of "Mike Mewing" continued, leading to increased interest and participation in the practice.
+
+                In October 2014, a RedPillTalk Forums post questioned the potential benefits of mewing for adults. The concept gained further attention in April 2018 when YouTuber Astro Sky uploaded a video emphasizing the importance of mewing for enhancing the jawline. Additionally, another YouTuber, Orthotropics, provided insights into mewing techniques in a video titled "Doing Mewing," posted on September 22nd, 2018.
+
+                The online discourse surrounding mewing has contributed to its visibility, with individuals sharing their experiences and opinions on the effectiveness of this tongue exercise in achieving desired changes to facial aesthetics, particularly the jawline.</p></div>
+
+        <div class="collumn"><div class="head"><span class="headline hl1">Josh Hutcherson "Whistle" Edit</span><p><span class="headline hl4">by yoons4040</span></p></div>
+                <p>The Josh Hutcherson "Whistle" Edit gained notoriety in late 2023, becoming a viral trend on TikTok. The edit features actor Josh Hutcherson set to the song "Whistle" by Joel Merry, creating a humorous and provocative video that gained popularity, especially following the release of the Five Nights at Freddy's movie, in which Hutcherson was involved. The trend involved users playing the edit on unconventional devices or revealing it as hidden in various objects, similar to bait-and-switch pranks. This phenomenon drew parallels to memes surrounding the Josh Hutcherson Chair Scene.
+
+                The origin of this trend can be traced back to a video titled "JOSH HUTCHERSON // WHISTLE" posted by YouTuber mariela5511 in 2012. However, it wasn't until October 12, 2014, when YouTuber MetroGirlzStation uploaded a similar fan-made edit that the meme gained momentum. The discourse around the "Whistle" edit surged in November 2023, sparked by non-viral tweets likely responding to a now-deleted TikTok video. The trend picked up on TikTok, with users playing the video on unusual devices, starting a humorous and widespread online phenomenon. </p>
+
+                                        <p>One notable early upload of the "Whistle" edit on TikTok was by user @misowenfr on November 8, 2023. The trend escalated as users like @dirty_floor_marshmallow projected the video on unconventional surfaces, accumulating thousands of plays and likes. The viral nature of the Josh Hutcherson "Whistle" Edit showcases the unpredictable and humorous ways internet culture can evolve, tying it to both celebrity fandom and popular memes of the time. </p></div>
+    </div>
+</div>
+</body>
+</html>
