@@ -66,10 +66,39 @@
                         body {
                                 overflow-x: hidden;
                                 font-family: 'Helvetica', sans-serif;
-
-                                background: linear-gradient(to top, #ef4343, #f26441 85%, #f79641 95%);
+                 background-image: 
+                                  radial-gradient(at 30% 70%, #ef4343 0, transparent 100%),
+                                  radial-gradient(at 75% 25%, #ef4343 0, transparent 100%),
+                                  radial-gradient(at 10% 50%, #f79641 0, transparent 100%),
+                                  radial-gradient(at 80% 35%, #f79641 0, transparent 100%),
+                                  radial-gradient(at 20% 100%, #f26441 0, transparent 100%),
+                                  radial-gradient(at 94% 99%, #f79641 0, transparent 100%),
+                                  radial-gradient(at 0% 0%, #f79641 0, transparent 100%),
+                                  radial-gradient(at 50% 50%, #ef4343 0, transparent 100%),
+                                  radial-gradient(at 75% 25%, #f79641 0, transparent 100%),
+                                  radial-gradient(at 20% 80%, #f79641 0, transparent 50%),
+                                  radial-gradient(at 30% 70%, #f79641 0, transparent 80%),
+                                  radial-gradient(at 60% 40%, #f79641 0, transparent 60%),
+                                  radial-gradient(at 10% 90%, #f79641 0, transparent 70%);
+                                animation: moveGradients 20s linear infinite;
                         }
+                        @keyframes moveGradients {
+                                0% {
+                                    background-position-x: 0%, 0%, 0%, 0%, 0%, 0%, 0%;
+                                    background-position-y: 0%, 0%, 0%, 0%, 0%, 0%, 0%;
+                                }
 
+                                50% {
+                                    background-position-x: 100%, 100%, 100%, 100%, 100%, 100%, 100%;
+                                    background-position-y: 100%, 100%, 100%, 100%, 100%, 100%, 100%;
+                                }
+
+                                0% {
+                                    background-position-x: 0%, 0%, 0%, 0%, 0%, 0%, 0%;
+                                    background-position-y: 0%, 0%, 0%, 0%, 0%, 0%, 0%;
+                                }
+                            }
+                        
                         ::-moz-selection {
                                 /* Code For Firefoxy  */
                                 color: white;
