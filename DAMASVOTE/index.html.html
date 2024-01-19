@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Damas e Vote</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" rel="stylesheet">
+    <style>
+            @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;700&display=swap');
+
+            body {
+                margin: 0;
+                padding: 0;
+                color: #fff;
+                height: 100vh;
+                font-family: "Titillium Web", sans-serif;
+                font-weight: 300;
+                background-image: radial-gradient(at 26% 66%, hsla(206, 100%, 28%, 1) 0, transparent 50%),
+                    radial-gradient(at 94% 18%, hsla(206, 100%, 20%, 1) 0, transparent 50%),
+                    radial-gradient(at 0% 50%, hsla(206, 100%, 20%, 1) 0, transparent 50%),
+                    radial-gradient(at 88% 35%, hsla(206, 100%, 20%, 1) 0, transparent 50%),
+                    radial-gradient(at 0% 100%, hsla(206, 100%, 20%, 1) 0, transparent 50%),
+                    radial-gradient(at 94% 99%, hsla(206, 100%, 20%, 1) 0, transparent 50%),
+                    radial-gradient(at 0% 0%, hsla(206, 100%, 20%, 1) 0, transparent 50%);
+                animation: moveGradients 40s linear infinite;
+                background-size: 120% 120%;
+            }
+
+            @keyframes moveGradients {
+                0% {
+                    background-position-x: 0%, 0%, 0%, 0%, 0%, 0%, 0%;
+                    background-position-y: 0%, 0%, 0%, 0%, 0%, 0%, 0%;
+                }
+
+                50% {
+                    background-position-x: 100%, 100%, 100%, 100%, 100%, 100%, 100%;
+                    background-position-y: 100%, 100%, 100%, 100%, 100%, 100%, 100%;
+                }
+
+                0% {
+                    background-position-x: 0%, 0%, 0%, 0%, 0%, 0%, 0%;
+                    background-position-y: 0%, 0%, 0%, 0%, 0%, 0%, 0%;
+                }
+            }
+
+            html,
+            body {
+                height: 100%;
+                margin: 0;
+            }
+
+            header {
+                padding: 10px;
+                text-align: center;
+            }
+
+            header img {
+                max-width: 100px;
+                height: auto;
+                float: left;
+                margin-right: 10px;
+            }
+
+            form {
+                max-width: 70%;
+                margin: 20px auto;
+                padding: 20px;
+                border-radius: 10px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+
+            h3 {
+                font-weight: 300;
+                font-size: 18px;
+                text-align: center;
+                color: #fff;
+            }
+
+            label {
+                display: flex;
+                flex-direction: column;
+                width: 150px;
+                height: 150px;
+                margin: 10px;
+                background-color: #F4F4F6;
+                box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+                cursor: pointer;
+                border-radius: 50%;
+                align-items: center;
+                justify-content: center;
+                transition: transform 0.2s ease-in-out;
+            }
+            ::-moz-selection {
+                    /* Code For Firefox  */
+                    color: white;
+                    background-color: rgba(0, 0, 0, 0.1);
+            }
+
+            ::selection {
+                    color: white;
+                    background-color: rgba(0, 0, 0, 0.1);
+            }
+
+        
+            label:hover {
+                box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+            }
+
+            input[type="radio"] {
+                display: none;
+            }
+
+            input[type="submit"] {
+                display: block;
+                margin: 0 auto;
+                font-family: "Titillium Web", sans-serif;
+                font-weight: 300;
+                height: 50px;
+                width: 50%;
+                padding: 10px;
+                    margin-top:40px;
+                font-size: 15px;
+                background-color: white;
+                color: black;
+                border: none;
+                border-radius: 50px;
+                cursor: pointer;
+            }
+
+            input[type="submit"]:hover {
+                     box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+            }
+
+
+            .candidate-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 150px;
+                margin: 10px;
+                position: relative;
+            }
+
+            .candidate-container span {
+                text-align: center;
+            }
+
+
+            .candidate-container .department {
+                font-size: 12px;
+                color: rgba(255, 255, 255, 0.7); 
+                margin-top: 2px;
+                position: absolute;
+                top: calc(100% + 2px); 
+                left: 0;
+                width: 100%;
+                transform: translateY(0);
+            }
+
+            .loading-screen {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: white;
+                z-index: 9999;
+            }
+
+            .loading-image {
+                width: 100px;
+                height: auto;
+                margin-bottom: 20px;
+            }
+
+            .loading-text {
+                font-size: 16px;
+                color: #333;
+            }
+            .candidate-wrapper {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+    </style>
+</head>
+
+<body>
+    <div id="loading-screen" class="loading-screen">
+        <img src="https://damas.com.mv/public/images/logo_new.png" alt="Loading" class="loading-image">
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const loadingScreen = document.getElementById("loading-screen");
+
+            setTimeout(() => {
+                loadingScreen.style.display = "none";
+            }, 2000);
+        });
+    </script>
+    <div class="loader-container" id="loader-container">
+        <div class="loader"></div>
+    </div>
+
+    <header>
+        <img src="DAMASLOGO.png" alt="Logo">
+    </header>
+
+    <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfx_nzou0KgNsHRnimb_ZvssdyB9UT6RZhxt4jy2P654u452w/formResponse"
+        method="post">
+        <h3>Tap On The Candidate You Would like To Vote</h3>
+                <div class="candidate-wrapper">
+            <div class="candidate-container">
+                <label for="1">
+                    <input type="radio" name="entry.1424663685" id="1" value="1" onclick="changeColor(this)">
+                </label>
+                <span>Candidate 1</span>
+                     <span class="department">Accountant</span>
+
+            </div>
+
+            <div class="candidate-container">
+                <label for="2">
+                    <input type="radio" name="entry.1424663685" id="2" value="2" onclick="changeColor(this)">
+                </label>
+                <span>Candidate 2</span>
+                     <span class="department">Accountant</span>
+            </div>
+
+            <div class="candidate-container">
+                <label for="3">
+                    <input type="radio" name="entry.1424663685" id="3" value="3" onclick="changeColor(this)">
+                </label>
+                <span>Candidate 3</span>
+                     <span class="department">Accountant</span>
+            </div>
+            <div class="candidate-container">
+        <label for="4">
+            <input type="radio" name="entry.1424663685" id="4" value="4" onclick="changeColor(this)">
+        </label>
+        <span>Candidate 4</span>
+                     <span class="department">Accountant</span>
+            </div>
+            <div class="candidate-container">
+        <label for="5">
+            <input type="radio" name="entry.1424663685" id="5" value="5" onclick="changeColor(this)">
+        </label>
+        <span>Candidate 5</span>
+                     <span class="department">Accountant</span>
+            </div>
+            <div class="candidate-container">
+        <label for="6">
+            <input type="radio" name="entry.1424663685" id="6" value="6" onclick="changeColor(this)">
+        </label>
+        <span>Candidate 6</span>
+                     <span class="department">Accountant</span>
+            </div>
+            <div class="candidate-container">
+        <label for="7">
+            <input type="radio" name="entry.1424663685" id="7" value="7" onclick="changeColor(this)">
+        </label>
+        <span>Candidate 7</span>
+                     <span class="department">Accountant</span>
+            </div>
+            <div class="candidate-container">
+        <label for="8">
+            <input type="radio" name="entry.1424663685" id="8" value="8" onclick="changeColor(this)">
+        </label>
+        <span>Candidate 8</span>
+                     <span class="department">Accountant</span>
+            </div>
+            <div class="candidate-container">
+        <label for="9">
+            <input type="radio" name="entry.1424663685" id="9" value="9" onclick="changeColor(this)">
+        </label>
+        <span>Candidate 9</span>
+                     <span class="department">Accountant</span>
+            </div>
+            <div class="candidate-container">
+        <label for="10">
+            <input type="radio" name="entry.1424663685" id="10" value="10" onclick="changeColor(this)">
+        </label>
+        <span>Candidate 10</span>
+                     <span class="department">Accountant</span>
+            </div>
+            <div class="candidate-container">
+        <label for="11">
+            <input type="radio" name="entry.1424663685" id="11" value="11" onclick="changeColor(this)">
+        </label>
+        <span>Candidate 11</span>
+                     <span class="department">Accountant</span>
+            </div>
+            <div class="candidate-container">
+        <label for="12">
+            <input type="radio" name="entry.1424663685" id="12" value="12" onclick="changeColor(this)">
+        </label>
+        <span>Candidate 12</span>
+                     <span class="department">Accountant</span>
+            </div>
+                        </div>
+        <br><br>
+        <input type="submit" value="Submit &rarr;">
+    </form>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const loadingScreen = document.getElementById("loading-screen");
+
+            setTimeout(() => {
+                loadingScreen.style.display = "none";
+            }, 2000);
+        });
+
+        function changeColor(selectedRadio) {
+            var labels = document.querySelectorAll('label');
+            labels.forEach(function (label) {
+                if (label.querySelector('input') !== selectedRadio) {
+                    label.style.boxShadow = 'none';
+                    label.style.opacity = '0.2';
+                } else {
+                    label.style.boxShadow = '0 0 40px rgba(0, 0, 0, 0.5)';
+                    label.style.opacity = '1';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
