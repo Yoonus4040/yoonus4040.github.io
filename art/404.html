@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>replit</title>
+        <style>
+
+                :root {
+                        --bg: #000000;
+                        --text: #ffffff;
+                        --yellow: #EDB74D;
+                        --red: #EB6666;
+                        --green: #6FB18A;
+                }
+
+                body {
+                        height: 100vh;
+                        margin: 0;
+                        transition: background-color 0.5s ease;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        align-items: center;
+                        gap: 3em;
+                        background-position: center;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        background-image: url("flashlightsartworkbg.png");
+                        font-family: 'Helvetica', sans-serif;
+                        margin: 0 10em;
+                        color: var(--text);
+                        background-color: var(--bg);
+                }
+
+                h1 {
+                        font-size: 60px;
+                        font-weight: normal;
+                        margin: 0;
+                }
+
+                h2 {
+                        font-size: 32px;
+                }
+
+                p {
+                        font-size: 20px;
+                }
+
+                a {
+                        text-decoration: none;
+                        color: inherit;
+                }
+
+                .hero {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        align-items: center;
+                        width: 100%;
+                        height: 130%;
+                }
+
+                .hero-text {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        align-items: flex-start;
+                }
+
+                .buttons {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-start;
+                        align-items: center;
+                        border-radius: 50px;
+                        gap: 2em;
+                }
+
+                .button {
+                        padding: 1em 3em;
+                        border-radius: 50px;
+                        border: 1px solid var(--text);
+                        font-size: 18px;
+                        
+                        transition: background-color 0.5s ease;
+                        color: var(--text);
+                }
+
+                .primary {
+                        background-color: var(--text);
+                        color: var(--bg);
+                        transition: background-color 0.5s ease;
+                }
+
+                .primary:hover {
+                            background-color: rgba(0, 0, 0, 0.2);
+                            -webkit-backdrop-filter: blur(5px);
+                            backdrop-filter: blur(5px);
+                        color: var(--text);
+                }
+
+                #btn2:hover {
+                        background-color: var(--text);
+                        color: var(--bg);
+                }
+                #btn2 {
+                        background-color: rgba(0, 0, 0, 0.2);
+                            -webkit-backdrop-filter: blur(5px);
+                            backdrop-filter: blur(5px);
+                }
+
+                @media only screen and (max-width: 1000px) {
+                        body {
+                                margin: 1em;
+                                
+                                 background-image: none;
+                        }
+                }
+                
+        </style>
+</head>
+
+<body>
+
+        <div class="hero">
+                <div class="hero-text">
+                        <h1>PAGE 404</h1>
+                        <p>Im Still Painting This Page</p>
+                        <div class="buttons">
+                                <a class="button primary"
+                                        href=""
+                                        target="_blank">Give Me Ideas</a>
+                                <a id="btn2" class="button secondary" href="https://yoonus4040.com/art/" target="_blank">Go
+                                        Back Home</a>
+                        </div>
+                        
+</body>
+</html>
