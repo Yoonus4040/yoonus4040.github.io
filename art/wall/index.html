@@ -42,6 +42,7 @@
                 .gallery {
                         display: flex;
                         gap: 1vw;
+                           overflow: hidden;
                         max-width: 1200px;
                         min-width: 500px;
                         height: 100vh;
@@ -50,6 +51,7 @@
 
                 .gallery_line {
                         display: flex;
+                           overflow: hidden;
                         flex-direction: column;
                         gap: 1vw;
                         height: fit-content;
@@ -57,10 +59,12 @@
                 }
 
                 .gallery_line:nth-child(2) {
+                           overflow: hidden;
                         animation-direction: reverse;
                 }
 
                 .gallery_line img {
+                           overflow: hidden;
                         flex: 1 1 auto;
                         width: 100%;
                         object-fit: cover;
