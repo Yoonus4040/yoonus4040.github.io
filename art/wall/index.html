@@ -93,6 +93,17 @@
                         opacity: 0.5;
                 }
                 @media only screen and (min-width: 767px) {
+                      body::before {
+                        opacity: 1;      
+                        top: 0;
+                        background: linear-gradient(5deg, rgba(0, 0, 0, 0) 30%, #fff);
+                }
+
+                body::after {
+                         opacity: 1;   
+                        bottom: 0;
+                        background: linear-gradient(-5deg, #fff, rgba(0, 0, 0, 0) 70%);
+                }        
 }
         </style>
 </head>
