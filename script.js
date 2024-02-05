@@ -1,69 +1,18 @@
-$(document).ready(function() {
-        $(window).scroll(function() {
-                if (this.scrollY > 20) {
-                        $('.navbar').addClass("sticky");
-                } else {
-                        $('.navbar').removeClass("sticky");
-                }
+document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll("section");
 
-                if (this.scrollY > 500) {
-                        $('.scroll-up-btn').addClass("show");
-                } else {
-                        $('.scroll-up-btn').removeClass("show");
-                }
+    window.addEventListener("scroll", function () {
+        let currentSection = null;
+
+        sections.forEach((section) => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                currentSection = section;
+            }
         });
 
-        $('.scroll-up-btn').click(function() {
-                $('html').animate({ scrollTop: 0 });
-         
-                $('html').css("scrollBehavior", "auto");
-        });
-
-        $('.navbar .menu li a').click(function() {
-          
-                $('html').css("scrollBehavior", "smooth");
-        });
-
-        // toggle menu/navbar script
-        $('.menu-btn').click(function() {
-                $('.navbar .menu').toggleClass("active");
-                $('.menu-btn i').toggleClass("active");
-        });
-
-        var typed = new Typed(".typing", {
-                strings: ["Web designer.", "Web Developer.", "Graphic Designer."],
-                typeSpeed: 200,
-                backSpeed: 200,
-                loop: true
-        });
-
-        var typed = new Typed(".typing-2", {
-                strings: ["Web designer.", "Web Developer.", "Graphic Designer."],
-                typeSpeed: 200,
-                backSpeed: 200,
-                loop: true
-        });
-
-       
-        $('.carousel').owlCarousel({
-                margin: 20,
-                loop: true,
-                autoplay: true,
-                autoplayTimeOut: 2000,
-                autoplayHoverPause: true,
-                responsive: {
-                        0: {
-                                items: 1,
-                                nav: false
-                        },
-                        600: {
-                                items: 2,
-                                nav: false
-                        },
-                        1000: {
-                                items: 3,
-                                nav: false
-                        }
-                }
-        });
+        if (currentSection) {
+            currentSection.scrollIntoView({ behavior: "smooth" });
+        }
+    });
 });
