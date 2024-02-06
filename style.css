@@ -402,7 +402,6 @@ nav {
         backdrop-filter: blur(15px);
         z-index: 2;
 }
-
 nav a:hover {
         background: hsla(0, 0%, 0%, 0.3);
 }
