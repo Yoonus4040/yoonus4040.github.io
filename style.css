@@ -403,6 +403,9 @@ nav {
         z-index: 2;
 }
 
+nav a:hover {
+        background: hsla(0, 0%, 0%, 0.3);
+}
 
 .nav__content {
         display: flex;
