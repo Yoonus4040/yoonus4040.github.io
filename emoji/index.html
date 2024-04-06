@@ -1,211 +1,268 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-        body {
-  background-color: #F7F7F7;
-     font-family: Arial, sans-serif;
-  text-align: center;
-}
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+<meta charset="UTF-8">
+<link rel="icon"  href="https://em-content.zobj.net/source/microsoft-teams/363/see-no-evil-monkey_1f648.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Match The Emoji - Yoonus4040</title>
+        <style>
+                   @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap');
 
-::-moz-selection {
-        color: #F7F7F7;
-  background: #929AAB;
-}
+                    body {
+                        font-family: Arial, sans-serif;
+                        text-align: center;
+                        display: flex;
+                          justify-content: center;
+                        align-items: center;
+                        height: 100vh;
+                         background-color:#F8E559;
+                        flex-direction: column; 
+                    }
 
-::selection {
-        color: #F7F7F7;
-  background: #929AAB;
-}
+                    .container {
+                        max-width: 600px;
+                    }
 
-h1 {
-        color: #393E46;
-  margin-top: 40px;
-     font-size: 36px;
-}
+                    .grid {
+                        display: grid;
+                        grid-template-columns: repeat(4, 100px);
+                        grid-gap: 5px;
+                        margin-top: 20px;
+                        justify-content: center;
+                    }
 
-p {
-        color: #393E46;
-    font-size: 18px;
-  line-height: 1.5;
-  margin: 20px 0;
-}
+                    .emoji {
+                        width: 100px;
+                        height: 100px;
+                        font-size: 40px;
+                        cursor: pointer;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: #F8E559;
+                        border: 2px solid transparent; 
+                    }
 
-button {
-         margin-right: 10px;
-  border-radius: 50px;
-  background-color: #929AAB;
-     color: #EEEEEE;
-  border: none;
-    padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
+                    .modal {
+                        display: none;
+                        position: fixed;
+                        top: 30%;
+                            font-size:25px;
+                            width: 180px;
+                            height: 40px;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        z-index: 9999;
+                        justify-content: center;
+                        align-items: center;
+                    }
 
-button:hover {
-  background-color: #8a93a6;
-}
+                    .modal-content {
+                             background: rgba(255, 255, 255, 0.7); 
+                                border: 1px solid rgba(0, 0, 0, 0.2); 
+                                  backdrop-filter: blur(10px);
+                        padding: 20px;
+                             width: 180px;
+                        border-radius: 30px;
+                    }
 
-.emoji{
-    font-size: 100px;
-  margin-top: 40px;
-}
+                    .restart-button {
+                        background-color: #D04848;
+                        color: white;
+                        padding: 10px 20px;
+                        border: none;
+                        border-radius: 50px;
+                        cursor: pointer;
+                        margin-top: 10px;
+                    }
 
-.watermark {
-    position: fixed;
-  bottom: 0;
-  right: 0;
-  padding: 10px;
-  font-size: 14px;
-  font-weight: bold;
-  text-align: right;
-  z-index: 9999;
-margin-bottom:10;
-}
-input{
-           background-color: #F7F7F7;
-          color: #393E46;
-        border: 2px solid #929AAB;
-  border-radius: 50px;
-  padding: 8.5px;
-  font-size: 16px;
-  margin-bottom: 10px;
-  width: 200px;
-}
-.no-emoji {
-  font-size: 16px;
-  color: #929AAB;
-  display: none;
-}
-p.copyright {
-  font-size: 10px;
-  color:  #929AAB;
-  margin-top: 10px;
-}
+                    .restart-button:hover {
+                        background-color: #c14343;
+                    }
 
-</style>
-  <title>💀 Emoji Generator</title>
-         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-</head>
-<body>
-  <h1><br>💀</br>Emoji Generator</h1>
-  <p>type a word and click the button below to generate a random emoji related to that word</p>
-  <input type="text" id="word-input" placeholder="enter a word...">
-  <button onclick="generateEmoji()">Generate</button>
-  <p class="emoji" id="emoji"></p>
-  <p class="no-emoji" id="no-emoji">no set of emojis found in the database for the entered word...</p>
-        <p class="copyright">© 2023 Yoonus4040 all rights reserved<br>designed & developed by Yoonus4040</br></p>
-  <script>
-          const emojiMap = {
-happy: ["😄", "😃", "😊", "😁", "😆", "🙂"],
-sad: ["😔", "😢", "😭", "😞", "🙁"],
-angry: ["😡", "😠", "🤬", "😤", "👿"],
-devil: ["😡", "😠", "🤬", "😤", "👿"],
-mad: ["😡", "😠", "🤬", "😤", "👿"],
-love: ["😍", "😘", "😻", "💖", "💘", "❤️"],
-surprised: ["😱", "😮", "😯", "🤯", "😳"],
-laughing: ["😂", "🤣", "😆", "💀", "😄", "😃"],
-alphabet: ["🇦", "🇧", "🇨", "🇩", "🇪", "🇫", "🇬", "🇭", "🇮", "🇯", "🇰", "🇱", "🇲", "🇳", "🇴", "🇵", "🇶", "🇷", "🇸", "🇹", "🇺", "🇻", "🇼", "🇽", "🇾", "🇿"],
-letter: ["🇦", "🇧", "🇨", "🇩", "🇪", "🇫", "🇬", "🇭", "🇮", "🇯", "🇰", "🇱", "🇲", "🇳", "🇴", "🇵", "🇶", "🇷", "🇸", "🇹", "🇺", "🇻", "🇼", "🇽", "🇾", "🇿"],
-letters: ["🇦", "🇧", "🇨", "🇩", "🇪", "🇫", "🇬", "🇭", "🇮", "🇯", "🇰", "🇱", "🇲", "🇳", "🇴", "🇵", "🇶", "🇷", "🇸", "🇹", "🇺", "🇻", "🇼", "🇽", "🇾", "🇿"],
-numbers: ["0️⃣", "1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣"],
-number: ["0️⃣", "1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣"],
-lol: ["😂", "🤣", "😆", "💀", "😄", "😃"],
-funny: ["😂", "🤣", "😆", "💀", "😄", "😃"],
-cool: ["😎", "🕶️", "😏", "👍", "🔥"],
-crying: ["😢", "😭", "😿", "💧", "😥"],
-cry: ["😢", "😭", "😿", "💧", "😥"],
-worried: ["😟", "😕", "😖", "😨", "😰"],
-arrows: ["➡️", "⬅️", "⬆️", "⬇️", "↗️", "↘️", "↙️", "↖️", "↕️", "↔️", "🔼", "🔽", "↩️", "↪️", "⤴️", "⤵️", "🔄", "🔀", "🔁", "🔂"],
-arrow: ["➡️", "⬅️", "⬆️", "⬇️", "↗️", "↘️", "↙️", "↖️", "↕️", "↔️", "🔼", "🔽", "↩️", "↪️", "⤴️", "⤵️", "🔄", "🔀", "🔁", "🔂"],
-signs: ["🚧", "⛔️", "🚫", "🛑", "🚱", "🚳", "🚭", "🚯", "🚷", "🚸", "⚠️", "🚸", "⚠️", "🚻", "🚮", "🈲", "🈚️", "🈯️", "🈳", "🈴", "🈵", "🈹", "🉐", "🈺", "🈷️", "🆚", "🔞", "📵", "🚯", "🚱", "🚳"],
-sign: ["🚧", "⛔️", "🚫", "🛑", "🚱", "🚳", "🚭", "🚯", "🚷", "🚸", "⚠️", "🚸", "⚠️", "🚻", "🚮", "🈲", "🈚️", "🈯️", "🈳", "🈴", "🈵", "🈹", "🉐", "🈺", "🈷️", "🆚", "🔞", "📵", "🚯", "🚱", "🚳"],
-sleepy: ["😴", "🛌", "💤", "😪", "😫"],
-shocked: ["😱", "😳", "😮", "🙀", "😲"],
-scared: ["😱", "😳", "😮", "🙀", "😲"],
-party: ["🎉", "🥳", "🎊", "🎈", "🍾"],
-creatures: ["🐶", "🐱", "🐭", "🐹", "🐰"],
-pets: ["🐶", "🐱", "🐭", "🐹", "🐰"],
-heart: ["❤️", "💜", "💙", "💚", "💛", "🧡"],
-star: ["⭐", "🌟", "✨", "💫", "🌠"],
-money: ["💰", "💵", "💲", "🤑", "💸"],
-success: ["🎉", "🎊", "🏆", "🥇", "🎖️"],
-music: ["🎵", "🎶", "🎼", "🎤", "🎧"],
-apple: ["🫨", "😶‍🌫️", "🫥", "🫠", ""],
-sports: ["⚽", "🏀", "🏈", "⚾", "🎾", "🏐", "🏓", "🏸", "🏒", "🏹", "🥊", "⛳", "🏇", "🏊", "🚴", "🤸‍♀️"],
-activities: ["🚣", "🏋️‍♂️", "⛷️", "🏄‍♂️", "🤽‍♀️", "🧗‍♂️", "🎳", "🏸", "🏓", "🏒", "🏹", "🚴", "🎣", "🏋️‍♀️"],
-sport: ["⚽", "🏀", "🏈", "⚾", "🎾", "🏐", "🏓", "🏸", "🏒", "🏹", "🥊", "⛳", "🏇", "🏊", "🚴", "🤸‍♀️"],
-activitie: ["🚣", "🏋️‍♂️", "⛷️", "🏄‍♂️", "🤽‍♀️", "🧗‍♂️", "🎳", "🏸", "🏓", "🏒", "🏹", "🚴", "🎣", "🏋️‍♀️"],
-places: ["🗽", "⛲️", "🗼", "🏰", "🏯", "🏟", "🎡", "🎢", "🎠", "⛱", "🏖", "🏝", "⛰", "🏔", "🗻", "🌋", "🏜", "🏕", "⛺️", "🛤", "🛣", "🏗", "🏭", "🏠", "🏡", "🏘", "🏚", "🏢", "🏬", "🏣", "🏤", "🏥", "🏦", "🏨", "🏪", "🏫", "🏩", "💒", "🏛", "⛪️", "🕌", "🕍", "🕋", "🛕", "⛩"],
-cat: ["😺", "😸", "😹", "😻", "😼", "😽"],
-dog: ["🐶", "🐕", "🦴", "🐾"],
-weather: ["☀️", "🌤️", "⛅", "🌦️", "🌧️", "⛈️"],
-nature: ["🌸", "🌳", "🌺", "🌼", "🌻", "🌿"],
-travel: ["✈️", "🚗", "⛵", "🚀", "🚲", "🚁"],
-faces: ["😀", "😃", "😄", "😊", "☺️", "😉", "😍", "😘", "😚", "😗", "😙", "😜", "😝", "😛", "🤑", "😎", "🤓", "😏", "😒", "😞", "😔", "😟", "😕", "🙃", "🤔", "🤨", "😳", "😬", "😧", "😮", "😱", "😲", "😵", "😡", "😠", "🤯", "😤", "😪", "😴", "🥱", "😷", "🤒", "🤕", "🤢", "🤮", "🤧", "🥸"],
-instruments: ["🎹", "🎸", "🎺", "🥁", "🎻", "🎷", "🎤", "🎵", "🎶"],
-technology: ["📱", "💻", "🖥️", "⌚", "📷", "🔋"],
-random: ["😀", "😃", "😄", "😊", "☺️", "😉", "😍", "😘", "😚", "😗", "😙", "😜", "😝", "😛", "🤑", "😎", "🤓", "😏", "😒", "😞", "😔", "😟", "😕", "🙃", "🤔", "🤨", "😳", "😬", "😧", "😮", "😱", "😲", "😵", "😡", "😠", "🤯", "😤", "😪", "😴", "🥱", "😷", "🤒", "🤕", "🤢", "🤮", "🤧", "🥸"],
-flag: [
-"🇦🇫", "🇦🇽", "🇦🇱", "🇩🇿", "🇦🇸", "🇦🇩", "🇦🇴", "🇦🇮", "🇲🇻", "🇦🇬", "🇦🇷", "🇦🇲", "🇦🇼", "🇦🇺", "🇦🇹", "🇦🇿", "🇧🇸", "🇧🇭",    "🇧🇩", "🇧🇧", "🇧🇾", "🇧🇪", "🇧🇿", "🇧🇯", "🇧🇲", "🇧🇹", "🇧🇴", "🇧🇦", "🇧🇼", "🇧🇷", "🇮🇴", "🇻🇬", "🇧🇳", "🇧🇬", "🇧🇫", "🇧🇮", "🇰🇭", "🇨🇲", "🇨🇦", "🇮🇨", "🇨🇻", "🇰🇾", "🇨🇫", "🇹🇩", "🇨🇱", "🇨🇳", "🇨🇽", "🇨🇨", "🇨🇴", "🇰🇲", "🇨🇬", "🇨🇩", "🇨🇰", "🇨🇷", "🇭🇷", "🇨🇺", "🇨🇼", "🇨🇾", "🇨🇿", "🇩🇰", "🇩🇯", "🇩🇲", "🇩🇴", "🇪🇨", "🇪🇬", "🇸🇻", "🇬🇶", "🇪🇷", "🇪🇪", "🇸🇿", "🇪🇹", "🇫🇰", "🇫🇴", "🇫🇯", "🇫🇮", "🇫🇷", "🇬🇫", "🇵🇫", "🇹🇫", "🇬🇦", "🇬🇲", "🇬🇪", "🇩🇪", "🇬🇭", "🇬🇮", "🇬🇷", "🇬🇱", "🇬🇩", "🇬🇵", "🇬🇺", "🇬🇹",],
-flags: [
-"🇦🇫", "🇦🇽", "🇦🇱", "🇩🇿", "🇦🇸", "🇦🇩", "🇦🇴", "🇦🇮", "🇲🇻", "🇦🇬", "🇦🇷", "🇦🇲", "🇦🇼", "🇦🇺", "🇦🇹", "🇦🇿", "🇧🇸", "🇧🇭",    "🇧🇩", "🇧🇧", "🇧🇾", "🇧🇪", "🇧🇿", "🇧🇯", "🇧🇲", "🇧🇹", "🇧🇴", "🇧🇦", "🇧🇼", "🇧🇷", "🇮🇴", "🇻🇬", "🇧🇳", "🇧🇬", "🇧🇫", "🇧🇮", "🇰🇭", "🇨🇲", "🇨🇦", "🇮🇨", "🇨🇻", "🇰🇾", "🇨🇫", "🇹🇩", "🇨🇱", "🇨🇳", "🇨🇽", "🇨🇨", "🇨🇴", "🇰🇲", "🇨🇬", "🇨🇩", "🇨🇰", "🇨🇷", "🇭🇷", "🇨🇺", "🇨🇼", "🇨🇾", "🇨🇿", "🇩🇰", "🇩🇯", "🇩🇲", "🇩🇴", "🇪🇨", "🇪🇬", "🇸🇻", "🇬🇶", "🇪🇷", "🇪🇪", "🇸🇿", "🇪🇹", "🇫🇰", "🇫🇴", "🇫🇯", "🇫🇮", "🇫🇷", "🇬🇫", "🇵🇫", "🇹🇫", "🇬🇦", "🇬🇲", "🇬🇪", "🇩🇪", "🇬🇭", "🇬🇮", "🇬🇷", "🇬🇱", "🇬🇩", "🇬🇵", "🇬🇺", "🇬🇹",],
-object: [
-"🎁", "🎈", "🎉", "🎊", "🎎", "🎏", "🎐", "🎀", "🧧", "📦", "📫", "📯", "📮", "📪", "📬", "📭", "📌", "📍", "🖇️", "📎", "📐", "📏", "📌", "📍", "🔒", "🔓", "🔏", "🔐", "🔑", "🗝️", "🔨", "🛠️", "🪓", "⛏️", "⚒️", "🔧", "🔩", "🪛", "🔫", "🪒", "🌡️", "💉", "💊", "🩺", "🧸", "🎈", "🎀", "🎁", "📸", "📷", "📽️", "🎥", "🎞️", "🎬", "🎭", "🎨", "🖌️", "🖍️", "🎼", "🎵", "🎶", "🎤", "🎧", "🎷", "🎸", "🪕", "🎺", "🎻", "🥁", "🪘", "🎹", "🎺", "🎻", "🎬", "🎮", "🕹️", "🎳", "🎯", "🎲", "🧩", "♟️", "🎰", "🧸", "🖼️", "🎨", "📚", "📖", "📔", "📒", "📓", "📃", "📜", "📄", "📰", "🗞️", "📑", "🔖", "🔗", "📚", "📖", "📕", "📗", "📘", "📙", "📓", "📔", "📒", "📑", "📃", "📜", "📄", "📰", "🗞️", "📑", "🔖", "🔗", "🏺", "🗺️", "🗿", "⌛", "⏳", "⌚", "⏰", "⏱️", "⏲️", "🕰️", "🌡️", "🎛️", "📻", "🧯", "🔥", "💡", "🛢️", "💣", "🔔", "🧲", "🧪", "🧫", "🧬", "🔬", "🔭", "📡", "💊", "💉", "🦠", "🧴", "🛀", "🪒", "🪠", "🪣", "🧽", "🧼", "🪥", "🧻", "🪧", "🚽", "🚰", "🛎️", "🧸", "🎈", "🎀", "🎁", "📸", "📷", "📽️", "🎥", "🎞️", "🎬", "🎭", "🎨", "🖌️", "🖍️", "🎼", "🎵", "🎶", "🎤", "🎧", "🎷", "🎸", "🪕", "🎺", "🎻", "🥁", "🪘", "🎹", "🎺", "🎻", "🎬", "🎮", "🕹️", "🎳", "🎯", "🎲", "🧩", "♟️", "🎰", "🧸", "🖼️", "🎨", "📚", "📖", "📔", "📒", "📓", "📃", "📜", "📄", "📰", "🗞️", "📑", "🔖", "🔗", "📚", "📖", "📕", "📗", "📘", "📙", "📓", "📔", "📒", "📑", "📃", "📜", "📄", "📰", "🗞️", "📑", "🔖", "🔗", "🏺", "🗺️", "🗿", "⌛", "⏳", "⌚", "⏰", "⏱️", "⏲️", "🕰️", "🌡️", "🎛️", "📻", "🧯", "🔥", "💡", "🛢️", "💣", "🔔", "🧲", "🧪", "🧫", "🧬", "🔬", "🔭", "📡", "💊", "💉", "🦠", "🧴", "🛀", "🪒", "🪠", "🪣", "🧽", "🧼", "🪥", "🧻", "🪧", "🚽", "🚰", "🛎️", "🧺", "🗑️", "🧹", "🧼", "🧽", "🧴", "🛀", "🚿", "🪠", "🪣", "🪣", "🪥", "🛒", "🚬", "⚰️", "🪦", "⚱️", "🗿", "🏺", "🔮", "🧿", "🕳️", "🪧"],
-objects: [
-"🎁", "🎈", "🎉", "🎊", "🎎", "🎏", "🎐", "🎀", "🧧", "📦", "📫", "📯", "📮", "📪", "📬", "📭", "📌", "📍", "🖇️", "📎", "📐", "📏", "📌", "📍", "🔒", "🔓", "🔏", "🔐", "🔑", "🗝️", "🔨", "🛠️", "🪓", "⛏️", "⚒️", "🔧", "🔩", "🪛", "🔫", "🪒", "🌡️", "💉", "💊", "🩺", "🧸", "🎈", "🎀", "🎁", "📸", "📷", "📽️", "🎥", "🎞️", "🎬", "🎭", "🎨", "🖌️", "🖍️", "🎼", "🎵", "🎶", "🎤", "🎧", "🎷", "🎸", "🪕", "🎺", "🎻", "🥁", "🪘", "🎹", "🎺", "🎻", "🎬", "🎮", "🕹️", "🎳", "🎯", "🎲", "🧩", "♟️", "🎰", "🧸", "🖼️", "🎨", "📚", "📖", "📔", "📒", "📓", "📃", "📜", "📄", "📰", "🗞️", "📑", "🔖", "🔗", "📚", "📖", "📕", "📗", "📘", "📙", "📓", "📔", "📒", "📑", "📃", "📜", "📄", "📰", "🗞️", "📑", "🔖", "🔗", "🏺", "🗺️", "🗿", "⌛", "⏳", "⌚", "⏰", "⏱️", "⏲️", "🕰️", "🌡️", "🎛️", "📻", "🧯", "🔥", "💡", "🛢️", "💣", "🔔", "🧲", "🧪", "🧫", "🧬", "🔬", "🔭", "📡", "💊", "💉", "🦠", "🧴", "🛀", "🪒", "🪠", "🪣", "🧽", "🧼", "🪥", "🧻", "🪧", "🚽", "🚰", "🛎️", "🧸", "🎈", "🎀", "🎁", "📸", "📷", "📽️", "🎥", "🎞️", "🎬", "🎭", "🎨", "🖌️", "🖍️", "🎼", "🎵", "🎶", "🎤", "🎧", "🎷", "🎸", "🪕", "🎺", "🎻", "🥁", "🪘", "🎹", "🎺", "🎻", "🎬", "🎮", "🕹️", "🎳", "🎯", "🎲", "🧩", "♟️", "🎰", "🧸", "🖼️", "🎨", "📚", "📖", "📔", "📒", "📓", "📃", "📜", "📄", "📰", "🗞️", "📑", "🔖", "🔗", "📚", "📖", "📕", "📗", "📘", "📙", "📓", "📔", "📒", "📑", "📃", "📜", "📄", "📰", "🗞️", "📑", "🔖", "🔗", "🏺", "🗺️", "🗿", "⌛", "⏳", "⌚", "⏰", "⏱️", "⏲️", "🕰️", "🌡️", "🎛️", "📻", "🧯", "🔥", "💡", "🛢️", "💣", "🔔", "🧲", "🧪", "🧫", "🧬", "🔬", "🔭", "📡", "💊", "💉", "🦠", "🧴", "🛀", "🪒", "🪠", "🪣", "🧽", "🧼", "🪥", "🧻", "🪧", "🚽", "🚰", "🛎️", "🧺", "🗑️", "🧹", "🧼", "🧽", "🧴", "🛀", "🚿", "🪠", "🪣", "🪣", "🪥", "🛒", "🚬", "⚰️", "🪦", "⚱️", "🗿", "🏺", "🔮", "🧿", "🕳️", "🪧"],
-animal: [
-"🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐨", "🐯", "🦁", "🐮", "🐷", "🐽", "🐸", "🐵", "🙈", "🙉", "🙊", "🐒", "🐔", "🐧", "🐦", "🐤", "🐣", "🐥", "🦆", "🦅", "🦉", "🦇", "🐺", "🐗", "🐴", "🦄", "🐝", "🐛", "🦋", "🐌", "🐚", "🐞", "🐜", "🪲", "🐍", "🦎", "🦖", "🦕", "🐢", "🐠", "🐟", "🐡", "🐬", "🦈", "🐳", "🐋", "🐊", "🐆", "🐅", "🐃", "🐂", "🐄", "🦌", "🐪", "🐫", "🦙", "🐘", "🦏", "🦛", "🐐", "🐏", "🐑", "🐎", "🐖", "🐀", "🐁", "🐓", "🦃", "🦚", "🦜", "🦢", "🕊️", "🐇", "🦝", "🦡", "🐾", "🐉", "🐲",],
-animals: [
-"🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐨", "🐯", "🦁", "🐮", "🐷", "🐽", "🐸", "🐵", "🙈", "🙉", "🙊", "🐒", "🐔", "🐧", "🐦", "🐤", "🐣", "🐥", "🦆", "🦅", "🦉", "🦇", "🐺", "🐗", "🐴", "🦄", "🐝", "🐛", "🦋", "🐌", "🐚", "🐞", "🐜", "🪲", "🐍", "🦎", "🦖", "🦕", "🐢", "🐠", "🐟", "🐡", "🐬", "🦈", "🐳", "🐋", "🐊", "🐆", "🐅", "🐃", "🐂", "🐄", "🦌", "🐪", "🐫", "🦙", "🐘", "🦏", "🦛", "🐐", "🐏", "🐑", "🐎", "🐖", "🐀", "🐁", "🐓", "🦃", "🦚", "🦜", "🦢", "🕊️", "🐇", "🦝", "🦡", "🐾", "🐉", "🐲",],
-symbol: [
-"❤️", "💛", "💚", "💙", "💜", "🖤", "🤍", "🤎", "💔", "❣️", "💕", "💞", "💓", "💗", "💖", "💘", "💝", "💟", "☮️", "✝️", "☪️", "🕉️", "☸️", "✡️", "🔯", "🕎", "☯️", "☦️", "🛐", "⛎", "♈", "♉", "♊", "♋", "♌", "♍", "♎", "♏", "♐", "♑", "♒", "♓", "🆔", "⚛️", "🉑", "☢️", "☣️", "📴", "📳", "🈶", "🈚", "🈸", "🈺", "🈷️", "✴️", "🆚", "🉐", "💮", "🉑", "㊙️", "㊗️", "🈴", "🈵", "🈹", "🈲", "🅰️", "🅱️", "🆎", "🆑", "🅾️", "🆘", "❌", "⭕", "🛑", "⛔", "📛", "🚫", "💯", "💢", "♨️", "🚷", "🚯", "🚳", "🚱", "🔞", "📵", "🚭", "❗", "❕", "❓", "❔", "‼️", "⁉️", "🔅", "🔆", "〽️", "⚠️", "🚸", "🔱", "⚜️", "🔰", "♻️", "✅", "🈯️", "💹", "❇️", "✳️", "❎", "🌐", "💠", "Ⓜ️", "🌀", "💤", "🏧", "🚾", "♿", "🅿️", "🈳", "🈂️", "🛂", "🛃", "🛄", "🛅", "🚹", "🚺", "🚼", "🚻", "🚮", "🎦", "📶", "🈁", "🆖", "🆗", "🆙", "🆒", "🆕", "🆓", "0️⃣", "1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣", "🔟", "🔢", "🔤", "🔡", "🔠", "🆑", "🆔", "🆚", "🆘", "🅰️", "🅱️", "🆎", "🅾️", "💠", "➕", "➖", "➗", "✖️", "♾️", "💲", "💱", "©️", "®️", "™️", "#️⃣", "🔚", "🔙", "🔛", "🔝", "🔜", "✔️", "☑️", "🔘", "⚪", "⚫", "🔴", "🔵", "🔺", "🔻", "🔸", "🔹", "🔶", "🔷", "🔳", "🔲", "▪️", "▫️", "◾", "◽", "◼️", "◻️", "⬛", "⬜", "🟥", "🟧", "🟨", "🟩", "🟦", "🟪", "🟫", "⬛", "⬜", "🔈", "🔇", "🔉", "🔊", "🔔", "🔕", "📣", "📢", "👁️‍🗨️", "💬", "💭", "🗯️", "🃏", "🎴", "🀄", "🕐", "🕑", "🕒", "🕓", "🕔", "🕕", "🕖", "🕗", "🕘", "🕙", "🕚", "🕛", "🕜", "🕝", "🕞", "🕟", "🕠", "🕡", "🕢", "🕣", "🕤", "🕥", "🕦", "🕧"
-],
-symbols: [
-"❤️", "💛", "💚", "💙", "💜", "🖤", "🤍", "🤎", "💔", "❣️", "💕", "💞", "💓", "💗", "💖", "💘", "💝", "💟", "☮️", "✝️", "☪️", "🕉️", "☸️", "✡️", "🔯", "🕎", "☯️", "☦️", "🛐", "⛎", "♈", "♉", "♊", "♋", "♌", "♍", "♎", "♏", "♐", "♑", "♒", "♓", "🆔", "⚛️", "🉑", "☢️", "☣️", "📴", "📳", "🈶", "🈚", "🈸", "🈺", "🈷️", "✴️", "🆚", "🉐", "💮", "🉑", "㊙️", "㊗️", "🈴", "🈵", "🈹", "🈲", "🅰️", "🅱️", "🆎", "🆑", "🅾️", "🆘", "❌", "⭕", "🛑", "⛔", "📛", "🚫", "💯", "💢", "♨️", "🚷", "🚯", "🚳", "🚱", "🔞", "📵", "🚭", "❗", "❕", "❓", "❔", "‼️", "⁉️", "🔅", "🔆", "〽️", "⚠️", "🚸", "🔱", "⚜️", "🔰", "♻️", "✅", "🈯️", "💹", "❇️", "✳️", "❎", "🌐", "💠", "Ⓜ️", "🌀", "💤", "🏧", "🚾", "♿", "🅿️", "🈳", "🈂️", "🛂", "🛃", "🛄", "🛅", "🚹", "🚺", "🚼", "🚻", "🚮", "🎦", "📶", "🈁", "🆖", "🆗", "🆙", "🆒", "🆕", "🆓", "0️⃣", "1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣", "🔟", "🔢", "🔤", "🔡", "🔠", "🆑", "🆔", "🆚", "🆘", "🅰️", "🅱️", "🆎", "🅾️", "💠", "➕", "➖", "➗", "✖️", "♾️", "💲", "💱", "©️", "®️", "™️", "#️⃣", "🔚", "🔙", "🔛", "🔝", "🔜", "✔️", "☑️", "🔘", "⚪", "⚫", "🔴", "🔵", "🔺", "🔻", "🔸", "🔹", "🔶", "🔷", "🔳", "🔲", "▪️", "▫️", "◾", "◽", "◼️", "◻️", "⬛", "⬜", "🟥", "🟧", "🟨", "🟩", "🟦", "🟪", "🟫", "⬛", "⬜", "🔈", "🔇", "🔉", "🔊", "🔔", "🔕", "📣", "📢", "👁️‍🗨️", "💬", "💭", "🗯️", "🃏", "🎴", "🀄", "🕐", "🕑", "🕒", "🕓", "🕔", "🕕", "🕖", "🕗", "🕘", "🕙", "🕚", "🕛", "🕜", "🕝", "🕞", "🕟", "🕠", "🕡", "🕢", "🕣", "🕤", "🕥", "🕦", "🕧"
-],
-fruits: ["🍎", "🍌", "🍇", "🍓", "🍊", "🍉", "🍍", "🍑", "🍒", "🥝", "🍐", "🥭", "🍋", "🍏", "🍈", "🥥", "🍅", "🥑", "🍑", "🍈", "🍆", "🌽", "🥕", "🥦", "🍠", "🌶", "🍄"],
-food: [
-"🍔", "🍕", "🌮", "🍣", "🍦", "🍩", "🍪", "🍫", "🍭", "🍿", "🍺", "🍷", "🍹", "🍸", "🍺", "🍻", "🥂", "🥃", "🍶", "🍵", "☕", "🍴", "🍽️", "🥄", "🍽️", "🍴", "🥢", "🥡", "🥤", "🧃", "🧉", "🧊", "🥮", "🍱", "🥘", "🍲", "🥗", "🥙", "🥪", "🌯", "🌭", "🍕", "🍔", "🍟", "🍗", "🍖", "🍝", "🍜", "🍛", "🍣", "🍱", "🍤", "🍙", "🍚", "🍘", "🍥", "🥠", "🥟", "🥡", "🍦", "🍧", "🍨", "🍩", "🍪", "🎂", "🍰", "🧁", "🥧", "🍫", "🍬", "🍭", "🍮", "🍯", "🍼", "🥛", "☕", "🍵", "🍶", "🍾"
-],
-time: ["🕐", "🕑", "🕒", "🕓", "🕔", "🕕", "🕖", "🕗", "🕘", "🕙", "🕚", "🕛", "🕜", "🕝", "🕞", "🕟", "🕠", "🕡", "🕢", "🕣", "🕤", "🕥", "🕦", "🕧"],
-foods: [
-"🍔", "🍕", "🌮", "🍣", "🍦", "🍩", "🍪", "🍫", "🍭", "🍿", "🍺", "🍷", "🍹", "🍸", "🍺", "🍻", "🥂", "🥃", "🍶", "🍵", "☕", "🍴", "🍽️", "🥄", "🍽️", "🍴", "🥢", "🥡", "🥤", "🧃", "🧉", "🧊", "🥮", "🍱", "🥘", "🍲", "🥗", "🥙", "🥪", "🌯", "🌭", "🍕", "🍔", "🍟", "🍗", "🍖", "🍝", "🍜", "🍛", "🍣", "🍱", "🍤", "🍙", "🍚", "🍘", "🍥", "🥠", "🥟", "🥡", "🍦", "🍧", "🍨", "🍩", "🍪", "🎂", "🍰", "🧁", "🥧", "🍫", "🍬", "🍭", "🍮", "🍯", "🍼", "🥛", "☕", "🍵", "🍶", "🍾"
-],
-hand: [
- "👋", "🤚", "🖐️", "✋", "🖖", "👌", "🤏", "✌️", "🤞", "🤟", "🤘", "🤙", "👈", "👉", "👆", "👇", "☝️", "👍", "👎", "✊", "👊", "🤛", "🤜", "👏", "🙌", "👐", "🤲", "🙏", "✍️", "💅", "🤳", "💪", "🦾", "🦵", "🦶", "🦿",],
-all: ["😀 😃 😄 😁 😆 🤩 😅 😂 🤣 ☺️ 😊 😇 🙂 🙃 😉 😌 😍 😘 😗 😙 😚 😋 🤪 😜 😝 😛 🤑 🤗 🤓 😎 🤡 🤠 😏 😒 😞 😔 😟 😕 🙁 ☹️ 😣 😖 😫 😩 😤 😠 😡 🤬 😶 😐 😑 😯 😦 😧 😮 😲 😵 🤯 😳 😱 😨 😰 😢 😥 🤤 😭 😓 😪 😴 🥱 🙄 🤨 🧐 🤔 🤫 🤭 🤥 😬 🤐 🤢 🤮 🤧 😷 🤒 🤕 😈 👿 👹 👺 💩 👻 💀 ☠️ 👽 👾 🤖 🎃 😺 😸 😹 😻 😼 😽 🙀 😿 😾 👐 🙌 👏 🙏 🤲 🤝 👍 👎 👊 ✊ 🤛 🤜 🤞 ✌️ 🤘 🤏 👌 👈 👉 👆 👇 ☝️ ✋ 🤚 🖐 🖖 👋 🤙 💪 🤟 ✍️ 🤳 💅 🖖 💄 💋 👄 👅 👂 🦻 👃 🦵 🦶 🦾 🦿 👣 👁 👀 🗣 👤 👥 👶 👦 👧 🧒 👨 👩 🧑 👱‍♀️ 👱 🧔 👴 👵 🧓 👲 👳‍♀️ 👳 🧕 👮‍♀️ 👮 👷‍♀️ 👷 💂‍♀️ 💂 🕵️‍♀️ 🕵️ 👩‍⚕️ 👨‍⚕️ 👩‍🌾 👨‍🌾 👩‍🍳 👨‍🍳 👩‍🎓 👨‍🎓 👩‍🎤 👨‍🎤 👩‍🏫 👨‍🏫 👩‍🏭 👨‍🏭 👩‍💻 👨‍💻 👩‍💼 👨‍💼 👩‍🔧 👨‍🔧 👩‍🔬 👨‍🔬 👩‍🎨 👨‍🎨 👩‍🚒 👨‍🚒 👩‍✈️ 👨‍✈️ 👩‍🚀 👨‍🚀 👩‍⚖️ 👨‍⚖️ 🤶 🎅 👸 🤴 👰 🤵 👼 🤰 🤱 🙇‍♀️ 🙇 💁 💁‍♂️ 🙅 🙅‍♂️ 🙆 🙆‍♂️ 🙋 🙋‍♂️ 🤦‍♀️ 🤦‍♂️ 🤷‍♀️ 🤷‍♂️ 🙎 🙎‍♂️ 🙍 🙍‍♂️ 💇 💇‍♂️ 💆 💆‍♂️ 🧖‍♀️ 🧖‍♂️ 🧏 🧏‍♂️ 🧏‍♀️ 🧙‍♀️ 🧙‍♂️ 🧛‍♀️ 🧛‍♂️ 🧟‍♀️ 🧟‍♂️ 🧚‍♀️ 🧚‍♂️ 🧜‍♀️ 🧜‍♂️ 🧝‍♀️ 🧝‍♂️ 🧞‍♀️ 🧞‍♂️ 🕴 💃 🕺 👯 👯‍♂️ 🚶‍♀️ 🚶 🏃‍♀️ 🏃 🧍 🧍‍♂️ 🧍‍♀️ 🧎 🧎‍♂️ 🧎‍♀️ 👨‍🦯 👩‍🦯 👨‍🦼 👩‍🦼 👨‍🦽 👩‍🦽 🧑‍🤝‍🧑 👫 👭 👬 💑 👩‍❤️‍👩 👨‍❤️‍👨 💏 👩‍❤️‍💋‍👩 👨‍❤️‍💋‍👨 👪 👨‍👩‍👧 👨‍👩‍👧‍👦 👨‍👩‍👦‍👦 👨‍👩‍👧‍👧 👩‍👩‍👦 👩‍👩‍👧 👩‍👩‍👧‍👦 👩‍👩‍👦‍👦 👩‍👩‍👧‍👧 👨‍👨‍👦 👨‍👨‍👧 👨‍👨‍👧‍👦 👨‍👨‍👦‍👦 👨‍👨‍👧‍👧 👩‍👦 👩‍👧 👩‍👧‍👦 👩‍👦‍👦 👩‍👧‍👧 👨‍👦 👨‍👧 👨‍👧‍👦 👨‍👦‍👦 👨‍👧‍👧 👚 👕 👖 👔 👗 👘 👠 👡 👢 👞 👟 👒 🎩 🎓 👑 ⛑ 🎒 👝 👛 👜 💼 👓 🕶 🤿 🌂 ☂️ 🧣 🧤 🧥 🦺 🥻 🩱 🩲 🩳 🩰 🧦 🧢 ⛷ 🏂 🏋️‍♀️ 🏋️ 🤺 🤼‍♀️ 🤼‍♂️ 🤸‍♀️ 🤸‍♂️ ⛹️‍♀️ ⛹️ 🤾‍♀️ 🤾‍♂️ 🏌️‍♀️ 🏌️ 🏄‍♀️ 🏄 🏊‍♀️ 🏊 🤽‍♀️ 🤽‍♂️ 🚣‍♀️ 🚣 🏇 🚴‍♀️ 🚴 🚵‍♀️ 🚵 🤹‍♀️ 🤹‍♂️ 🧗‍♀️ 🧗‍♂️ 🧘‍♀️ 🧘‍♂️ 🥰 🥵 🥶 🥳 🥴 🥺 🐶 🐱 🐭 🐹 🐰 🦊 🐻 🐼 🐨 🐯 🦁 🐮 🐷 🐽 🐸 🐵 🙊 🙉 🙊 🐒 🐔 🐧 🐦 🐤 🐣 🐥 🦆 🦩 🦅 🦉 🦇 🐺 🐗 🐴 🦄 🐝 🐛 🦋 🐌 🐚 🦗 🐞 🐜 🕷 🕸 🐢 🐍 🦎 🦂 🦀 🦑 🐙 🦐 🐠 🐟 🐡 🐬 🦈 🐳 🐋 🐊 🐆 🐅 🐃 🐂 🐄 🦌 🐪 🐫 🐘 🦏 🦍 🐎 🐖 🐐 🐏 🐑 🐕 🐩 🦮 🐕‍🦺 🐈 🐓 🦃 🕊 🐇 🐁 🐀 🐿 🦓 🦒 🦔 🦧 🦥 🦦 🦨 🦕 🦖 🦪 🐾 🐉 🐲 🌵 🎄 🌲 🌳 🌴 🌱 🌿 ☘️ 🍀 🎍 🎋 🍃 🍂 🍁 🍄 🌾 💐 🌷 🌹 🥀 🌻 🌼 🌸 🌺 🌎 🌍 🌏 🌕 🌖 🌗 🌘 🌑 🌒 🌓 🌔 🌚 🌝 🌞 🌛 🌜 🌙 🪐 💫 ⭐️ 🌟 ✨ ⚡️ 🔥 💥 ☄️ ☀️ 🌤 ⛅️ 🌥 🌦 🌈 ☁️ 🌧 ⛈ 🌩 🌨 ☃️ ⛄️ ❄️ 🌬 💨 🌪 🌫 🌊 💧 💦 🍏 🍎 🍐 🍊 🍋 🍌 🍉 🍇 🍓 🍈 🍒 🍑 🍍 🥝 🥑 🍅 🍆 🥒 🥕 🌽 🌶 🧄 🧅 🥔 🍠 🌰 🥜 🍯 🥐 🍞 🥖 🧀 🥚 🍳 🥓 🥞 🍤 🍗 🍖 🍕 🌭 🍔 🍟 🥙 🌮 🌯 🥗 🥘 🍝 🍜 🍲 🍥 🍣 🍱 🍛 🍚 🍙 🍘 🍢 🍡 🍧 🍨 🍦 🍰 🎂 🍮 🍭 🍬 🍫 🍿 🍩 🍪 🥛 🍼 ☕️ 🍵 🍶 🍺 🍻 🥂 🍷 🥃 🍸 🍹 🍾 🧃 🧉 🧊 🥄 🍴 🍽 🥥 🥨 🥩 🥪 🥣 🥫 🧇 🧆 🧈 🥟 🥠 🥡 🥧 🥤 🥢 ⚽️ 🏀 🏈 ⚾️ 🎾 🏐 🏉 🎱 🏓 🏸 🥅 🏒 🏑 🏏 ⛳️ 🏹 🎣 🥊 🥋 ⛸ 🎿 ⛷ 🏂 🏋️‍♀️ 🏋️ 🤺 🤼‍♀️ 🤼‍♂️ 🤸‍♀️ 🤸‍♂️ ⛹️‍♀️ ⛹️ 🤾‍♀️ 🤾‍♂️ 🏌️‍♀️ 🏌️ 🏄‍♀️ 🏄 🏊‍♀️ 🏊 🤽‍♀️ 🤽‍♂️ 🚣‍♀️ 🚣 🏇 🚴‍♀️ 🚴 🚵‍♀️ 🚵 🪂 🎽 🏅 🎖 🥇 🥈 🥉 🏆 🏵 🎗 🎫 🎟 🎪 🤹‍♀️ 🤹‍♂️ 🎭 🎨 🎬 🎤 🎧 🎼 🎹 🥁 🎷 🎺 🎸 🎻 🪕 🎲 🎯 🎳 🎮 🎰 🛷 🥌 🪀 🪁🚗 🚕 🚙 🚌 🚎 🏎 🚓 🚑 🚒 🚐 🚚 🚛 🚜 🛴 🚲 🛵 🛺 🏍 🦽 🦼 🚨 🚔 🚍 🚘 🚖 🚡 🚠 🚟 🚃 🚋 🚞 🚝 🚄 🚅 🚈 🚂 🚆 🚇 🚊 🚉 🚁 🛩 ✈️ 🛫 🛬 🚀 🛰 💺 🛶 ⛵️ 🛥 🚤 🛳 ⛴ 🚢 ⚓️ 🚧 ⛽️ 🚏 🚦 🚥 🗺 🗿 🗽 ⛲️ 🗼 🏰 🏯 🏟 🎡 🎢 🎠 ⛱ 🏖 🏝 ⛰ 🏔 🗻 🌋 🏜 🏕 ⛺️ 🛤 🛣 🏗 🏭 🏠 🏡 🏘 🏚 🏢 🏬 🏣 🏤 🏥 🏦 🏨 🏪 🏫 🏩 💒 🏛 ⛪️ 🕌 🕍 🕋 🛕 ⛩ 🗾 🎑 🏞 🌅 🌄 🌠 🎇 🎆 🌇 🌆 🏙 🌃 🌌 🌉 🌁 🛸 ⌚️ 📱 📲 💻 ⌨️ 🖥 🖨 🖱 🖲 🕹 🗜 💽 💾 💿 📀 📼 📷 📸 📹 🎥 📽 🎞 📞 ☎️ 📟 📠 📺 📻 🎙 🎚 🎛 ⏱ ⏲ ⏰ 🕰 ⌛️ ⏳ 📡 🔋 🔌 💡 🔦 🕯 🗑 🛢 💸 💵 💴 💶 💷 💰 💳 💎 ⚖️ 🔧 🔨 ⚒ 🛠 ⛏ 🔩 ⚙️ ⛓ 🔫 💣 🔪 🗡 ⚔️ 🪓 🦯 🛡 🚬 ⚰️ ⚱️ 🏺 🔮 📿 💈 ⚗️ 🔭 🔬 🕳 💊 💉 🩸 🩹 🩺 🌡 🪒 🚽 🚰 🚿 🛁 🛀 🛎 🔑 🗝 🚪 🪑 🛋 🛏 🛌 🖼 🛍 🛒 🎁 🎈 🎏 🎀 🎊 🎉 🎎 🏮 🎐 ✉️ 📩 📨 📧 💌 📥 📤 📦 🏷 📪 📫 📬 📭 📮 📯 📜 📃 📄 📑 📊 📈 📉 🗒 🗓 📆 📅 📇 🗃 🗳 🗄 📋 📁 📂 🗂 🗞 📰 📓 📔 📒 📕 📗 📘 📙 📚 📖 🔖 🔗 📎 🖇 📐 📏 📌 📍 📌 🎌 🏳️ 🏴 🏁 🪔 ✂️ 🖊 🖋 ✒️ 🖌 🖍 📝 ✏️ 🔍 🔎 🔏 🔐 🔒 🔓❤️ 🧡 💛 💚 💙 💜 🖤 🤍 🤎 💔 ❣️ 💕 💞 💓 💗 💖 💘 💝 ❌ ⭕️ 🛑 ⛔️ 📛 🚫 💯 💢 ♨️ 🚷 🚯 🚳 🚱 🔞 📵 🚭 ❗️ ❕ ❓ ❔ ‼️ ⁉️ 🔅 🔆 〽️ ⚠️ 🚸 🔱 ⚜️ 🔰 ♻️ ✅ 🈯️ 💹 ❇️ ✳️ ❎ 🌐 💠 Ⓜ️ 🌀 💤 🏧 🔈 🔇 🔉 🔊 🔔 🔕 📣 📢 👁‍🗨 💬 💭 🗯 ♠️ ♣️ ♥️ ♦️ 🃏 🎴 🀄️ 🕐 🕑 🕒 🕓 🕔 🕕 🕖 🕗 🕘 🕙 🕚 🕛 🕜 🕝 🕞 🕟 🕠 🕡 🕢 🕣 🕤 🕥 🕦 🕧"]
-};
+                    h1 {
+                        font-size: 30px;
+                        font-weight: 600;
+                                color:#938835;
+                        margin-top: 0;
+                        margin-bottom: 20px; 
+                    }
+                #hint {
+                        background-color: #938835;
+                        color: white;
+                        font-size: 10px;
+                        font-weight: 600;
+                        padding: 10px 15px;
+                        border: 1.7px solid rgba(248,229,89);
+                        border-radius: 50px;
+                        cursor: pointer;
+                        margin-top: 10px;
+                }
+                #hint:hover {
+                        color: #938835;
+                        background-color: #F8E559;
+                        border: 1.7px solid rgba(147,136,53);
+                }
+        #timer{
+         font-size: 20px;
+        font-weight: 600;
+          color:#938835;
+                }
+        </style>
+        </head>
+        <body>
+          <div class="container">
+              <h1>MATCH THE EMOJI</h1>
+           <div class="grid" id="grid"></div>
+        <button id="hint" onclick="showHint()">Hint</button>
+           <p id="timer">Time remaining: 30</p>
+ <div id="winModal" class="modal">
+          <div class="modal-content">
+            <p>YOU WIN</p>
+              <p id="score">Score: <span id="scoreValue">0</span></p>
+            <button class="restart-button" onclick="restartGame()">Restart Game</button>
+          </div>
+                 </div>
 
-function generateEmoji() {
-  const wordInput = document.getElementById("word-input");
-  const emojiElement = document.getElementById("emoji");
-  const noEmojiElement = document.getElementById("no-emoji");
-  const copyButton = document.getElementById("copy-btn");
+        <div id="timeUpModal" class="modal">
+               <div class="modal-content">
+            <p>Time's up!</p>
+            <button class="restart-button" onclick="restartGame()">Restart Game</button>
+          </div>
+              </div>
 
-  const word = wordInput.value.toLowerCase();
-  const emojis = emojiMap[word] || [];
+        </div>
 
-  if (emojis.length > 0) {
-    const randomIndex = Math.floor(Math.random() * emojis.length);
-    const randomEmoji = emojis[randomIndex];
-    emojiElement.textContent = randomEmoji;
-    emojiElement.style.display = "block";
-    noEmojiElement.style.display = "none";
-    copyButton.style.display = "inline";
-  } else {
-    emojiElement.style.display = "none";
-    noEmojiElement.style.display = "block";
-    copyButton.style.display = "none";
-  }
-}
+        <script>
+                const emojis = ['🔥', '💀', '🐵', '⚽', '🐐', '🎱', '🤖', '🔫', '🚀', '⏰', '🪁', '🌈', '🧸', '🎈', '🎸', '🍦'];
+                const grid = document.getElementById('grid');
+                let firstCard = null;
+                let secondCard = null;
+                let timer;
+                let secondsLeft = 31;
+                let score = 0;
 
-  </script>
-  <div class="watermark">
-    <a href="https://Yoonus4040.com"><img src="https://database.yoonus4040.repl.co/icons/logo.png" alt="Y" width="20" height="20"></a>
-  </div>
+                function createBoard() {
+                    const boardSize = 16;
+                    const uniqueEmojis = emojis.slice();
+                    const randomIndex = Math.floor(Math.random() * uniqueEmojis.length);
+                    const matchEmoji = uniqueEmojis[randomIndex];
+                    uniqueEmojis.splice(randomIndex, 1);
+
+                    const emojisForBoard = [...uniqueEmojis, matchEmoji, matchEmoji];
+                    emojisForBoard.sort(() => Math.random() - 0.5);
+
+                    for (let i = 0; i < boardSize; i++) {
+                        const card = document.createElement('div');
+                        card.classList.add('emoji');
+                        card.dataset.value = emojisForBoard[i];
+                        card.addEventListener('click', handleCardClick);
+                        card.textContent = emojisForBoard[i]; 
+                        grid.appendChild(card);
+                    }
+                }
+
+                function handleCardClick(event) {
+                    const clickedCard = event.target;
+                    if (clickedCard === firstCard || clickedCard === secondCard) return;
+                    if (firstCard && secondCard) return;
+
+                    clickedCard.style.borderColor = '#c4b547';
+
+                    if (!firstCard) {
+                        firstCard = clickedCard;
+                    } else {
+                        secondCard = clickedCard;
+
+                        if (firstCard.dataset.value === secondCard.dataset.value) {
+                            setTimeout(() => {
+                                firstCard.removeEventListener('click', handleCardClick);
+                                secondCard.removeEventListener('click', handleCardClick);
+                                firstCard.style.backgroundColor = '#e5d452';
+                                secondCard.style.backgroundColor = '#e5d452';
+                                firstCard = null;
+                                secondCard = null;
+                                checkWin();
+                                score += secondsLeft; 
+                                document.getElementById('scoreValue').textContent = score;
+                            }, 1000);
+                        } else {
+                            setTimeout(() => {
+                                firstCard.style.borderColor = 'transparent';
+                                secondCard.style.borderColor = 'transparent';
+                                firstCard = null;
+                                secondCard = null;
+                            }, 1000);
+                        }
+                    }
+                }
+
+                function showHint() {
+                    if (!firstCard) return;
+                    const matchingEmojis = document.querySelectorAll(`[data-value='${firstCard.dataset.value}']`);
+                    matchingEmojis.forEach(card => {
+                        card.style.backgroundColor = '#ddd';
+                    });
+                    setTimeout(() => {
+                        matchingEmojis.forEach(card => {
+                            card.style.backgroundColor = '#fff';
+                        });
+                    }, 1500);
+                }
+
+                function checkWin() {
+                    const matchedCards = document.querySelectorAll('.emoji:not([style*="background-color: #f0f0f0"])');
+                    if (matchedCards.length === 16) {
+                        clearInterval(timer);
+                        document.getElementById('winModal').style.display = "block";
+                    }
+                }
+
+                function countdown() {
+                    timer = setInterval(() => {
+                        secondsLeft--;
+                        document.getElementById('timer').textContent = `Time remaining: ${secondsLeft}`;
+                        if (secondsLeft === 0) {
+                            clearInterval(timer);
+                            document.getElementById('timeUpModal').style.display = "block";
+                        }
+                    }, 1000);
+                }
+
+                function restartGame() {
+                    document.getElementById('winModal').style.display = "none";
+                    document.getElementById('timeUpModal').style.display = "none";
+                    document.getElementById('scoreValue').textContent = "0";
+                    score = 0;
+                    resetCards();
+                    shuffleEmojis();
+                    resetBoard();
+                    secondsLeft = 31;
+                    countdown();
+                }
+
+                function resetCards() {
+                    const cards = document.querySelectorAll('.emoji');
+                    cards.forEach(card => {
+                        card.style.backgroundColor = '#f0f0f0';
+                        card.addEventListener('click', handleCardClick);
+                    });
+                }
+
+                function shuffleEmojis() {
+                    emojis.sort(() => Math.random() - 0.5);
+                }
+
+                function resetBoard() {
+                    grid.innerHTML = '';
+                    createBoard();
+                }
+
+                createBoard();
+                countdown();
+
+</script>
+
 </body>
 </html>
