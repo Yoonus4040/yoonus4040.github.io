@@ -1,1 +1,367 @@
-KOBA JEFF???
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JeffIsEpik</title>
+ <style>
+         :root{
+           --text-color:#474747;
+         }
+         *{
+           box-sizing:border-box;
+         }
+         body{
+           font-family:system-ui;
+           background-color:#1B1B1B;
+         }
+         .wraper{
+           max-width:1200px;
+           margin:auto;
+         }
+         .header{
+
+           align-items:center;
+           line-height:1.5;
+           background-color:#F7F2EF;
+           border-radius:0.5rem;
+           display:flex;
+           justify-content:space-between;
+           padding: 1rem 1.3rem;
+         }
+         .navbar,.menu{
+           display:flex;
+           align-items:center;
+         }
+         .navbar{
+           gap:1rem;
+         }
+         .menu{
+           font-weight:500;
+           display:none;
+           gap:0.5rem;
+           font-size:15px;
+         }
+
+         .contact-btn{
+           background-color:#FFED4F;
+           padding:0.2rem 1rem;
+           border-radius:1rem;
+           border:1px solid black;
+           box-shadow: 2px 2px 0px 0px black;
+           font-weight:500;
+           transition: transform 0.25s;
+           &:hover{
+            transform:scale(1.1);
+             cursor:pointer;
+           }
+         }
+
+
+
+         .font-w-500{
+           font-weight:500;
+         }
+         .logo{
+           font-weight:800;
+           display:flex;
+           align-items:center;
+           gap:0.2rem;
+         }
+
+         section{
+           margin-top:0.5rem;
+         }
+         .icon-burger{
+           display:block;
+         }
+         .section-img{
+           position:relative;
+           overflow:hidden;
+           column-gap:2rem;
+           border-radius:0.5rem;
+           background-color:#f5f4f3;
+           padding:clamp(1rem,3vw,3rem) clamp(2rem,5vw,5rem);
+           display:grid;
+           grid-template-columns:repeat(auto-fit,minmax(min(400px,100%),1fr));
+         }
+         .footer-buttons {
+           display: flex;
+           justify-content: center;
+           gap: 1rem; /* Adjust as needed */
+         }
+
+         img{
+
+           height:auto;
+           width:100%;
+           object-fit:cover;
+           clip-path: polygon(0 44%, 15% 15%, 37% 34%, 61% 9%, 89% 11%, 100% 31%, 100% 85%, 80% 89%, 63% 98%, 38% 84%, 7% 95%, 0% 85%);
+         }
+
+         .image{
+           filter:drop-shadow(6px 12px 0px black) drop-shadow(-1px -1px 0px black)  drop-shadow(1px 2px 0px black);
+           DISPLAY:grid;
+           place-items:center;
+           position:relative;
+
+         }
+
+         h1{
+           font-size:clamp(20px,5vw + 10px,50px);
+           line-height: 1;
+           margin-bottom:0.5rem;
+         }
+         p{
+           color: var(--text-color);
+         }
+
+         .texto{
+           display:grid;
+           align-items:center;
+           JUSTIFY-ITEMS:START;
+           GAP:1REM;
+         }
+
+
+         svg{
+           height:20px;
+           width:20px;
+         }
+
+         .icon-card{
+           height:30px;
+           width:30px;
+         }
+         .title-card{
+           font-weight:600;
+           font-size:20px;
+         }
+         .p-card{
+           font-size:15px;
+           color:var(--text-color);
+         }
+         .reset-section{
+           grid-template-columns:auto;
+           gap:1rem;
+         }
+         .yellow{
+           background-color:#FFED4F;
+         }
+         .green{
+           background-color:#0DFFA8;
+         }
+         .violet{
+           background-color:#FFD9FE;
+         }
+
+         .section-img > * {
+           z-index: 3;
+         }
+         .section-img::after{
+           /*content:'';
+           height:10rem;
+           width:10rem;
+           background-color:#c099ff;
+           border-radius:50%;
+           filter:blur(80px);
+           position:absolute;
+           left:70%;
+           top:40%;
+           z-index:0; */
+         }
+
+         .section-img::before{
+
+           content:'';
+           height:10rem;
+           width:10rem;
+           background-color:#f6cd6d;
+           border-radius:50%;
+           filter:blur(80px);
+           position:absolute;
+           right:3%;
+           top:50%;
+           z-index:0;
+         }
+
+         .card{
+
+           border-radius:0.5rem;
+           padding:1rem 1rem;
+           display:grid;
+           gap:1rem;
+           justify-items:start;
+         }
+         .section-tres-columnas{
+           gap:0.5rem;
+           display:grid;
+           grid-template-columns:repeat(1,1fr);
+         }
+
+         .btn-card{
+           display:flex;
+           align-items:center;
+           gap: 1rem;
+           padding: 0.2rem 0.5rem;
+           border-radius:1rem;
+           background-color:black;
+           color:white;
+           border:none;
+           transition:filter 0.2s;
+           cursor:pointer;
+           padding: 0.3rem 1rem;
+         }
+         .btn-card:hover{
+           filter:drop-shadow(2px 2px 0px lightgrey);
+         }
+
+         .btn-card svg{
+           fill:white;
+         }
+
+         .clip-path-square{
+          clip-path: polygon(0 45%, 40% 0, 82% 6%, 100% 25%, 100% 57%, 89% 68%, 100% 85%, 100% 97%, 85% 100%, 27% 100%, 12% 89%, 0% 85%);
+         }
+
+         .brutal-btn{
+           COLOR:BLACK;
+           FONT-WEIGHT:700;
+           PADDING:0.5REM 2REM;
+           BORDER-RADIUS:2REM;
+           BACKGROUND-COLOR:TRANSPARENT;
+           BORDER:1PX SOLID BLACK;
+           BOX-SHADOW:2PX 4PX 0PX 0PX BLACK;
+           transition: transform 0.25s;
+           &:hover{
+            transform:scale(1.1);
+             cursor:pointer;
+           }
+         }
+         .centrado{
+           place-items:Center;
+         }
+
+         .blanco{
+           background-color:white;
+         }
+         .menu>div:hover{
+               text-decoration: underline;
+             text-underline-offset: 0.3rem;
+           cursor:pointer;
+               text-decoration-thickness: 0.2rem;
+         }
+
+
+         .borde-negro{
+           border-radius:1rem;
+           border:3px solid black;
+           clip-path:none;
+         }
+         @media (min-width: 750px){
+           .menu{
+             display:flex;
+           }
+           .section-tres-columnas{
+              grid-template-columns:repeat(3,1fr);
+           }
+           .icon-burger{
+             display:none;
+           }
+         }
+
+
+ </style>
+</head>
+
+<body>
+        <div class='wraper'>
+        <div class='header'> 
+          <div class='logo'>
+          
+            <span>JEFFISEPIK ™</span>
+          </div>
+          <div class='navbar'>
+            <div class='contact-btn'>FOLLOW US</div>
+            <svg class='icon-burger' viewBox="0 0 448 512" width="100" title="bars">
+          <path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" />
+        </svg>
+
+          </div>
+        </div>
+
+          <section>
+            <div class='section-img'>
+              <div class='texto'>
+                <h1>A CREATIVE COLLECTIVE MADE TO UNLOCK OUR POTENTIAL
+                        BY HELPING YOU!</h1>
+                <p> We are JEFF, We craft captivating art pieces. With a highly personalized approach, we specialize in graphic design and digital art. Born in Maldives and we serving clients nationwide.</p>
+              </div>
+              <div class='image'>
+                <img src='monalisasjeff.png' >
+              </div>
+            </div>
+          </section>
+
+          <section >
+            <div class='section-tres-columnas'>
+
+              <div class='card yellow'>
+           <DIV class='title-card'>GRAPHICS DESIGN</DIV>
+           <DIV class='p-card'>We Do Graphics Design Using Adobe Photoshop & Adobe Illustrator</DIV>
+              </div>
+
+               <div class='card green'>
+           <DIV class='title-card'>DIGITAL ART</DIV>
+           <DIV class='p-card'>We Do Digital Art Using Adobe Illustrator And AutoDesk SketchBook</DIV> 
+              </div>  
+
+
+                 <div class='card violet'>
+           <DIV class='title-card'>MUSIC</DIV>
+           <DIV class='p-card'>We Make Music In Many Ways Likr BeepBox And We Can Make Any Genre Of Music</DIV>
+             
+              </div>  
+
+
+            </div>  
+          </section>
+
+
+
+           <section>
+            <div class='section-img'>
+              <div class='texto'>
+                <h1>WE ALSO MAKE MEMES ON INSTAGRAM</h1>
+               
+                <button class='brutal-btn'>CHECK IT OUT</button>
+              </div>
+              <div class='image'>
+                <img  class='clip-path-square' src='marc-newberry-xKnUnPEUiWA-unsplash (1).jpg' >
+              </div>
+            </div>
+          </section>
+
+
+
+                <section>
+                  <div class='section-img reset-section centrado yellow'>
+                    <h1>CONTACT US</h1>
+                    <div class="footer-buttons">
+                      <button class='brutal-btn blanco'>INSTAGRAM</button>
+                      <button class='brutal-btn blanco'>YOUTUBE</button>
+                      <button class='brutal-btn blanco'>EMAIL</button>
+                    </div>
+                    <p style="font-weight:500;">© 2024 JeffIsEpik all rights reserved designed & developed by xyz studios</p>
+                  </div>
+                </section>
+
+
+
+
+          </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
