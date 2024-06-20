@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UEFA EURO 2024 • beta</title>
+    <title>UEFA EURO 2024</title>
     <meta property="og:image" content="eurobanner.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
     <link rel="icon" type="image/x-icon" href="https://64.media.tumblr.com/3746b501fac22062dc20132e18a32551/b1a34612e5bde968-ba/s400x600/2c5a9a17cf4331c5c10721a4cde2616541e4f8c2.gif">
@@ -37,6 +37,13 @@
             height: auto;
         }
 
+        #matchContainer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+        }
+
         .container {
             width: 25%;
             margin: 1%;
@@ -65,21 +72,6 @@
             width: 100%;
         }
 
-        .container-gap {
-            width: 25%;
-            margin: 1%;
-            padding: 20px;
-            height: 200px;
-            border-radius: 20px;
-            background-color: transparent;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
         .country {
             display: flex;
             flex-direction: column;
@@ -88,8 +80,8 @@
         }
 
         .country img {
-            width: 20px;
-            height: 20px;
+            width: 40px;
+            height: 40px;
             margin-bottom: 5px;
         }
 
@@ -98,7 +90,7 @@
         }
 
         .goals {
-            font-size: 14px;
+            font-size: 18px;
             font-weight: bold;
         }
 
@@ -408,650 +400,7 @@ i{
         <img src="https://64.media.tumblr.com/3746b501fac22062dc20132e18a32551/b1a34612e5bde968-ba/s400x600/2c5a9a17cf4331c5c10721a4cde2616541e4f8c2.gif" alt="Loading Image" id="loading-image">
         <p id="loading-text"></p>
     </div>
-    <h1>Group Stage Match Day 1 Of 3</h1>
-    <div class="container">
-       <div class="status" id="status"></div> 
-        <h2 id="date">15 Jun 2024</h2>
-        <small>Fußball Arena München</small>
-        <div class="content">
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_25.png" alt="Germany">
-                <p>Germany</p>
-            </div>
-            <p class="goals">5 - 1</p>
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_1108.png" alt="Scotland">
-                <p>Scotland</p>
-            </div>
-        </div>
-       <small id="time">00:00</small>
-    </div>
-    <div class="container">
-       <div class="status" id="status"></div> 
-        <h2 id="date">15 Jun 2024</h2>
-        <small>Cologne Stadium</small>
-        <div class="content">
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_769.png" alt="Hungary">
-                <p>Hungary</p>
-            </div>
-            <p class="goals">0 - 1</p>
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_15.png" alt="Switzerland">
-                <p>Switzerland</p>
-            </div>
-        </div>
-         <small id="time">18:00</small>
-    </div>
-    <div class="container" id="groupF1">
-       <div class="status" id="status"></div> 
-        <h2 id="date">15 Jun 2024</h2>
-         <small>Olympiastadion Berlinn</small>
-        <div class="content">
-            <div class="country" id="country1">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_9.png" alt="Spain">
-                <p>Spain</p>
-            </div>
-            <p class="goals"> 3 - 1 </p>
-            <div class="country" id="country2">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_3.png" alt="Croatia">
-                <p>Croatia</p>
-            </div>
-        </div>
-       <small id="time">21:00</small>
-    </div>
-    <div class="container">
-       <div class="status" id="status"></div> 
-        <h2 id="date">16 Jun 2024</h2>
-        <small>BVB Stadion Dortmund</small>
-        <div class="content">
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_768.png" alt="Italy">
-                <p>Italy</p>
-            </div>
-            <p class="goals">2 - 1</p>
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_778.png" alt=" Albania">
-                <p> Albania</p>
-            </div>
-        </div>
-         <small id="time">00:00</small>
-    </div>
-    <div class="container">
-       <div class="status" id="status"></div> 
-        <h2 id="date">16 Jun 2024</h2>
-        <small>Stuttgart Arena</small>
-        <div class="content">
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_1091.png" alt="Slovenia">
-                <p>Slovenia</p>
-            </div>
-            <p class="goals">1 - 1</p>
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_21.png" alt="Denmark">
-                <p>Denmark</p>
-            </div>
-        </div>
-       <small id="time">21:00</small>
-    </div>
-    <div class="container" id="groupF1">
-       <div class="status" id="status"></div> 
-        <h2 id="date">16 Jun 2024</h2>
-        <small>Volksparkstadion</small>
-        <div class="content">
-            <div class="country" id="country1">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_24.png" alt="Poland">
-                <p>Poland</p>
-            </div>
-            <p class="goals">1 - 2</p>
-            <div class="country" id="country2">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_1118.png" alt="Netherlands">
-                <p>Netherlands</p>
-            </div>
-        </div>
-            <small id="time">18:00</small>
-    </div>
-    <div class="container">
-       <div class="status" id="status"></div> 
-        <h2 id="date">17 Jun 2024</h2>
-        <small>Arena AufSchalke</small>
-        <div class="content">
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_14.png" alt="Serbia">
-                <p>Serbia</p>
-            </div>
-            <p class="goals">0 - 1</p>
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_10.png" alt="England">
-                <p>England</p>
-            </div>
-        </div>
-            <small id="time">18:00</small>
-    </div>
-    <div class="container">
-       <div class="status" id="status"></div> 
-        <h2 id="date">17 Jun 2024</h2>
-        <small>Frankfurt Arena</small>
-        <div class="content">
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_1.png" alt="Belgium ">
-                <p>Belgium</p>
-            </div>
-            <p class="goals">0 - 1</p>
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_773.png" alt="Slovakia">
-                <p>Slovakia</p>
-            </div>
-        </div>
-      <small id="time">21:00</small>
-    </div>
-    <div class="container" id="groupF1">
-       <div class="status" id="status"></div> 
-        <h2 id="date">17 Jun 2024</h2>
-        <small>Fußball Arena München</small>
-        <div class="content">
-            <div class="country" id="country1">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_774.png" alt="Romania">
-                <p>Romania</p>
-            </div>
-            <p class="goals">3 - 0</p>
-            <div class="country" id="country2">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_772.png" alt="Ukraine">
-                <p>Ukraine</p>
-            </div>
-        </div>
-           <small id="time">18:00</small>
-    </div>
-    <div class="container">
-       <div class="status" id="status"></div> 
-        <h2 id="date">18 Jun 2024</h2>
-        <small>Düsseldorf Arena</small>
-        <div class="content">
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_775.png" alt="Austria">
-                <p>Austria</p>
-            </div>
-            <p class="goals">
-                0 - 1</p>
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_2.png" alt=" France">
-                <p> France</p>
-            </div>
-        </div>
-       <small id="time">00:00</small>
-    </div>
-    <div class="container">
-       <div class="status" id="status"></div> 
-        <h2 id="date">18 Jun 2024</h2>
-        <small>BVB Stadion Dortmund</small>
-        <div class="content">
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_777.png" alt="Türkiye">
-                <p>Türkiye</p>
-            </div>
-            <p class="goals">3 - 1
-</p>
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_1104.png" alt="Georgia">
-                <p>Georgia</p>
-            </div>
-        </div>
-       <small id="time">21:00</small>
-    </div>
-    <div class="container" id="groupF1">
-       <div class="status" id="status"></div> 
-        <h2 id="date">19 Jun 2024</h2>
-        <small>Leipzig Stadium</small>
-        <div class="content">
-            <div class="country" id="country1">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_27.png" alt="Portugal">
-                <p>Portugal</p>
-            </div>
-            <p class="goals">2 - 1</p>
-            <div class="country" id="country2">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_770.png" alt="Czech Republic">
-                <p>Czech Republic</p>
-            </div>
-        </div>
-      <small id="time">00:00</small>
-    </div>
-    <div class="container-gap">
-        </div>
-    <div class="container-gap">
-        </div>
-    <h1>Group Stage Match Day 2 Of 3</h1>
-    <div class="container">
-       <div class="status" id="status"></div> 
-        <h2 id="date">19 Jun 2024</h2>
-        <small>Stuttgart Arena</small>
-        <div class="content">
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_25.png" alt="Germany">
-                <p>Germany</p>
-            </div>
-            <p class="goals">2 - 0</p>
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_769.png" alt="Hungary">
-                <p>Hungary</p>
-            </div>
-        </div>
-       <small id="time">21:00</small>
-    </div>
-    <div class="container">
-       <div class="status" id="status"></div> 
-        <h2 id="date">19 Jun 2024</h2>
-        <small>Volksparkstadion</small>
-        <div class="content">
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_3.png" alt="Hungary">
-                <p>Croatia</p>
-            </div>
-            <p class="goals">2 - 2</p>
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_778.png" alt="Albania">
-                <p>Albania</p>
-            </div>
-        </div>
-            <small id="time">18:00</small>
-    </div>
-    <div class="container" id="groupF1">
-       <div class="status" id="status"></div> 
-        <h2 id="date">20 Jun 2024</h2>
-         <small>Cologne Stadium</small>
-        <div class="content">
-            <div class="country" id="country1">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_1108.png" alt="Scotland">
-                <p>Scotland</p>
-            </div>
-            <p class="goals">1 - 1</p>
-            <div class="country" id="country2">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_15.png" alt="Switzerland">
-                <p>Switzerland</p>
-            </div>
-        </div>
-       <small id="time">00:00</small>
-    </div>
-    <div class="container">
-         <div class="status" id="status"></div> 
-        <h2 id="date">20 Jun 2024</h2>
-        <small>Frankfurt Arena</small>
-        <div class="content">
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_21.png" alt="Denmark">
-                <p>Denmark</p>
-            </div>
-            <p class="goals"> - </p>
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_10.png" alt=" England">
-                <p> England</p>
-            </div>
-        </div>
-       <small id="time">21:00</small>
-    </div>
-    
-    <div class="container">
-         <div class="status" id="status"></div> 
-        <h2 id="date">20 Jun 2024</h2>
-        <small>Fußball Arena München</small>
-        <div class="content">
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_1091.png" alt="Slovenia">
-                <p>Slovenia</p>
-            </div>
-            <p class="goals"> - </p>
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_14.png" alt="Serbia">
-                <p>Serbia</p>
-            </div>
-        </div>
-            <small id="time">18:00</small>
-    </div>
-    
-    <div class="container">
-         <div class="status" id="status"></div> 
-        <h2 id="date">21 Jun 2024</h2>
-        <small>Arena AufSchalke</small>
-        <div class="content">
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_9.png" alt="Spain">
-                <p>Spain</p>
-            </div>
-            <p class="goals"> - </p>
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_768.png" alt="Italy">
-                <p>Italy</p>
-            </div>
-        </div>
-      <small id="time">00:00</small>
-    </div>
-
-    <div class="container">
-         <div class="status" id="status"></div> 
-        <h2 id="date">21 Jun 2024</h2>
-        <small>Düsseldorf Arena</small>
-        <div class="content">
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_773.png" alt="Slovakia">
-                <p>Slovakia</p>
-            </div>
-            <p class="goals"> - </p>
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_772.png" alt="Ukraine">
-                <p>Ukraine</p>
-            </div>
-        </div>
-           <small id="time">18:00</small>
-    </div>
-
-    <div class="container">
-         <div class="status" id="status"></div> 
-        <h2 id="date">21 Jun 2024</h2>
-        <small>Olympiastadion Berlin</small>
-        <div class="content">
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_24.png" alt="Poland">
-                <p>Poland</p>
-            </div>
-            <p class="goals"> - </p>
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_775.png" alt="Austria">
-                <p>Austria</p>
-            </div>
-        </div>
-      <small id="time">21:00</small>
-    </div>
-
-    <div class="container">
-         <div class="status" id="status"></div> 
-        <h2 id="date"> 22 Jun 2024</h2>
-        <small>Leipzig Stadium</small>
-        <div class="content">
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_1118.png" alt="Netherlands">
-                <p>Netherlands</p>
-            </div>
-            <p class="goals"> - </p>
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_2.png" alt="France">
-                <p>France</p>
-            </div>
-        </div>
-      <small id="time">00:00</small>
-    </div>
-
-    <div class="container">
-         <div class="status" id="status"></div> 
-        <h2 id="date">22 Jun 2024</h2>
-        <small>BVB Stadion Dortmund</small>
-        <div class="content">
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_777.png" alt="Türkiye">
-                <p>Türkiye</p>
-            </div>
-            <p class="goals"> - </p>
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_27.png" alt="Portugal">
-                <p>Portugal</p>
-            </div>
-        </div>
-      <small id="time">21:00</small>
-    </div>
-
-    <div class="container">
-         <div class="status" id="status"></div> 
-        <h2 id="date">22 Jun 2024</h2>
-        <small>Volksparkstadion</small>
-        <div class="content">
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_1104.png" alt="Georgia">
-                <p>Georgia</p>
-            </div>
-            <p class="goals"> - </p>
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_770.png" alt="Czech Republic">
-                <p>Czech Republic</p>
-            </div>
-        </div>
-           <small id="time">18:00</small>
-    </div>
-
-    <div class="container">
-         <div class="status" id="status"></div> 
-        <h2 id="date" >23 Jun 2024</h2>
-        <small>Cologne Stadium</small>
-        <div class="content">
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_1.png" alt="Belgium">
-                <p>Belgium</p>
-            </div>
-            <p class="goals"> - </p>
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_774.png" alt="Romania">
-                <p>Romania</p>
-            </div>
-        </div>
-      <small id="time">00:00</small>
-    </div>
-    <div class="container-gap">
-        </div>
-    <div class="container-gap">
-        </div>
-    <h1>Group Stage Match Day 3 Of 3</h1>
-    <div class="container">
-          <div class="status" id="status"></div> 
-        <h2 id="date">24 Jun 2024</h2>
-        <small>Frankfurt Arena</small>
-        <div class="content">
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_15.png" alt="Switzerland">
-                <p>Switzerland</p>
-            </div>
-            <p class="goals">-</p>
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_25.png" alt="Germany">
-                <p>Germany</p>
-            </div>
-        </div>
-      <small id="time">00:00</small>
-    </div>
-
-    <div class="container">
-          <div class="status" id="status"></div> 
-        <h2 id="date">24 Jun 2024</h2>
-        <small>Stuttgart Arena</small>
-        <div class="content">
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_1108.png" alt="Scotland">
-                <p>Scotland</p>
-            </div>
-            <p class="goals">-</p>
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_769.png" alt="Hungary">
-                <p>Hungary</p>
-            </div>
-        </div>
-      <small id="time">00:00</small>
-    </div>
-
-    <div class="container">
-          <div class="status" id="status"></div> 
-        <h2 id="date">25 Jun 2024</h2>
-        <small>Leipzig Stadium</small>
-        <div class="content">
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_3.png" alt="Croatia">
-                <p>Croatia</p>
-            </div>
-            <p class="goals">-</p>
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_768.png" alt="Italy">
-                <p>Italy</p>
-            </div>
-        </div>
-      <small id="time">00:00</small>
-    </div>
-
-    <div class="container">
-          <div class="status" id="status"></div> 
-        <h2 id="date">25 Jun 2024</h2>
-        <small>Düsseldorf Arena</small>
-        <div class="content">
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_778.png" alt="Albania">
-                <p>Albania</p>
-            </div>
-            <p class="goals">-</p>
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_9.png" alt="Spain">
-                <p>Spain</p>
-            </div>
-        </div>
-      <small id="time">00:00</small>
-    </div>
-
-    <div class="container">
-          <div class="status" id="status"></div> 
-        <h2 id="date" >25 Jun 2024</h2>
-        <small>Olympiastadion Berlin</small>
-        <div class="content">
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_1118.png" alt="Netherlands">
-                <p>Netherlands</p>
-            </div>
-            <p class="goals">-</p>
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_775.png" alt="Austria">
-                <p>Austria</p>
-            </div>
-        </div>
-      <small id="time">21:00</small>
-    </div>
-
-    <div class="container">
-          <div class="status" id="status"></div> 
-        <h2 id="date">25 Jun 2024</h2>
-        <small>BVB Stadion Dortmund</small>
-        <div class="content">
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_2.png" alt="France">
-                <p>France</p>
-            </div>
-            <p class="goals">-</p>
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_24.png" alt="Poland">
-                <p>Poland</p>
-            </div>
-        </div>
-        <small id="time">21:00</small>
-    </div>
-
-    <div class="container">
-          <div class="status" id="status"></div> 
-        <h2 id="date">26 Jun 2024</h2>
-        <small>Cologne Stadium</small>
-        <div class="content">
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_10.png" alt="England">
-                <p>England</p>
-            </div>
-            <p class="goals">-</p>
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_1091.png" alt="Slovenia">
-                <p>Slovenia</p>
-            </div>
-        </div>
-      <small id="time">00:00</small>
-    </div>
-
-    <div class="container">
-          <div class="status" id="status"></div> 
-        <h2 id="date">26 Jun 2024</h2>
-        <small>Fußball Arena München</small>
-        <div class="content">
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_21.png" alt="Denmark">
-                <p>Denmark</p>
-            </div>
-            <p class="goals">-</p>
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_14.png" alt="Serbia">
-                <p>Serbia</p>
-            </div>
-        </div>
-      <small id="time">00:00</small>
-    </div>
-
-    <div class="container">
-          <div class="status" id="status"></div> 
-        <h2 id="date">26 Jun 2024</h2>
-        <small>Frankfurt Arena</small>
-        <div class="content">
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_773.png" alt="Slovakia">
-                <p>Slovakia</p>
-            </div>
-            <p class="goals">-</p>
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_774.png" alt="Romania">
-                <p>Romania</p>
-            </div>
-        </div>
-      <small id="time">21:00</small>
-    </div>
-
-    <div class="container">
-          <div class="status" id="status"></div> 
-        <h2 id="date">26 Jun 2024</h2>
-        <small>Stuttgart Arena</small>
-        <div class="content">
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_772.png" alt="Ukraine">
-                <p>Ukraine</p>
-            </div>
-            <p class="goals">-</p>
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_1.png" alt="Belgium">
-                <p>Belgium</p>
-            </div>
-        </div>
-      <small id="time">21:00</small>
-    </div>
-
-    <div class="container">
-          <div class="status" id="status"></div> 
-        <h2 id="date">27 Jun 2024</h2>
-        <small>Volksparkstadion</small>
-        <div class="content">
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_770.png" alt="Czech Republic">
-                <p>Czech Republic</p>
-            </div>
-            <p class="goals">-</p>
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_777.png" alt="Türkiye">
-                <p>Türkiye</p>
-            </div>
-        </div>
-      <small id="time">00:00</small>
-    </div>
-
-    <div class="container">
-          <div class="status" id="status"></div> 
-        <h2 id="date">27 Jun 2024</h2>
-        <small>Arena AufSchalke</small>
-        <div class="content">
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_1104.png" alt="Georgia">
-                <p>Georgia</p>
-            </div>
-            <p class="goals">-</p>
-            <div class="country">
-                <img src="https://sports.oneonline.mv/public/images/euro2024/flag_27.png" alt="Portugal">
-                <p>Portugal</p>
-            </div>
-        </div>
-      <small id="time">21:00</small>
-    </div>
+    <div id="matchContainer"></div>
     
 
     <div class="container-gap">
@@ -1088,6 +437,322 @@ i{
     </div>
   
     <script>
+        const matches = [
+            {
+                date: "15 Jun 2024",
+                time: "00:00",
+                stadium: "Fußball Arena München",
+                team1: { name: "Germany", img: "https://sports.oneonline.mv/public/images/euro2024/flag_25.png" },
+                score: "5 - 1",
+                team2: { name: "Scotland", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1108.png" },
+            },
+            {
+                date: "15 Jun 2024",
+                time: "18:00",
+                stadium: "Cologne Stadium",
+                team1: { name: "Hungary", img: "https://sports.oneonline.mv/public/images/euro2024/flag_769.png" },
+                score: "1 - 3",
+                team2: { name: "Switzerland", img: "https://sports.oneonline.mv/public/images/euro2024/flag_15.png" },
+            },
+            {
+                date: "15 Jun 2024",
+                time: "21:00",
+                stadium: "Olympiastadion Berlin",
+                team1: { name: "Spain", img: "https://sports.oneonline.mv/public/images/euro2024/flag_9.png" },
+                score: "3 - 0",
+                team2: { name: "Croatia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_3.png" },
+            },
+            {
+                date: "16 Jun 2024",
+                time: "00:00",
+                stadium: "BVB Stadion Dortmund",
+                team1: { name: "Italy", img: "https://sports.oneonline.mv/public/images/euro2024/flag_768.png" },
+                score: "2 - 1",
+                team2: { name: "Albania", img: "https://sports.oneonline.mv/public/images/euro2024/flag_778.png" },
+            },
+            {
+                date: "16 Jun 2024",
+                time: "21:00",
+                stadium: "Stuttgart Arena",
+                team1: { name: "Slovenia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1091.png" },
+                score: "1 - 1",
+                team2: { name: "Denmark", img: "https://sports.oneonline.mv/public/images/euro2024/flag_21.png" },
+            },
+            {
+                date: "16 Jun 2024",
+                time: "18:00",
+                stadium: "Volksparkstadion",
+                team1: { name: "Poland", img: "https://sports.oneonline.mv/public/images/euro2024/flag_24.png" },
+                score: "1 - 2",
+                team2: { name: "Netherlands", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1118.png" },
+            },
+            {
+                date: "17 Jun 2024",
+                time: "00:00",
+                stadium: "Arena AufSchalke",
+                team1: { name: "Serbia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_14.png" },
+                score: "0 - 1",
+                team2: { name: "England", img: "https://sports.oneonline.mv/public/images/euro2024/flag_10.png" },
+            },
+            {
+                date: "17 Jun 2024",
+                time: "21:00",
+                stadium: "Frankfurt Arena",
+                team1: { name: "Belgium", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1.png" },
+                score: "0 - 1",
+                team2: { name: "Slovakia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_773.png" },
+            },
+            {
+                date: "17 Jun 2024",
+                time: "18:00",
+                stadium: "Fußball Arena München",
+                team1: { name: "Romania", img: "https://sports.oneonline.mv/public/images/euro2024/flag_774.png" },
+                score: "3 - 0",
+                team2: { name: "Ukraine", img: "https://sports.oneonline.mv/public/images/euro2024/flag_772.png" },
+            },
+            {
+                date: "18 Jun 2024",
+                time: "00:00",
+                stadium: "Düsseldorf Arena",
+                team1: { name: "Austria", img: "https://sports.oneonline.mv/public/images/euro2024/flag_775.png" },
+                score: "0 - 1",
+                team2: { name: "France", img: "https://sports.oneonline.mv/public/images/euro2024/flag_2.png" },
+            },
+            {
+                date: "18 Jun 2024",
+                time: "21:00",
+                stadium: "BVB Stadion Dortmund",
+                team1: { name: "Türkiye", img: "https://sports.oneonline.mv/public/images/euro2024/flag_777.png" },
+                score: "3 - 1",
+                team2: { name: "Georgia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1104.png" },
+            },
+            {
+                date: "19 Jun 2024",
+                time: "00:00",
+                stadium: "Leipzig Stadium",
+                team1: { name: "Portugal", img: "https://sports.oneonline.mv/public/images/euro2024/flag_27.png" },
+                score: "2 - 1",
+                team2: { name: "Czech Republic", img: "https://sports.oneonline.mv/public/images/euro2024/flag_770.png" },
+            },
+            {
+                date: "19 Jun 2024",
+                time: "21:00",
+                stadium: "Stuttgart Arena",
+                team1: { name: "Germany", img: "https://sports.oneonline.mv/public/images/euro2024/flag_25.png" },
+                score: "2 - 0",
+                team2: { name: "Hungary", img: "https://sports.oneonline.mv/public/images/euro2024/flag_769.png" },
+            },
+            {
+                date: "19 Jun 2024",
+                time: "18:00",
+                stadium: "Volksparkstadion",
+                team1: { name: "Croatia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_3.png" },
+                score: "2 - 2",
+                team2: { name: "Albania", img: "https://sports.oneonline.mv/public/images/euro2024/flag_778.png" },
+            },
+            {
+                date: "20 Jun 2024",
+                time: "00:00",
+                stadium: "Cologne Stadium",
+                team1: { name: "Scotland", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1108.png" },
+                score: "1 - 1",
+                team2: { name: "Switzerland", img: "https://sports.oneonline.mv/public/images/euro2024/flag_15.png" },
+            },
+            {
+                date: "20 Jun 2024",
+                time: "21:00",
+                stadium: "Frankfurt Arena",
+                team1: { name: "Denmark", img: "https://sports.oneonline.mv/public/images/euro2024/flag_21.png" },
+                score: "",
+                team2: { name: "England", img: "https://sports.oneonline.mv/public/images/euro2024/flag_10.png" },
+            },
+            {
+                date: "20 Jun 2024",
+                time: "18:00",
+                stadium: "Fußball Arena München",
+                team1: { name: "Slovenia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1091.png" },
+                score: "1 - 0",
+                team2: { name: "Serbia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_14.png" },
+            },
+            {
+                date: "21 Jun 2024",
+                time: "00:00",
+                stadium: "Arena AufSchalke",
+                team1: { name: "Spain", img: "https://sports.oneonline.mv/public/images/euro2024/flag_9.png" },
+                score: "",
+                team2: { name: "Italy", img: "https://sports.oneonline.mv/public/images/euro2024/flag_768.png" },
+            },
+            {
+                date: "21 Jun 2024",
+                time: "18:00",
+                stadium: "Düsseldorf Arena",
+                team1: { name: "Slovakia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_773.png" },
+                score: "",
+                team2: { name: "Ukraine", img: "https://sports.oneonline.mv/public/images/euro2024/flag_772.png" },
+            },
+            {
+                date: "21 Jun 2024",
+                time: "21:00",
+                stadium: "Olympiastadion Berlin",
+                team1: { name: "Poland", img: "https://sports.oneonline.mv/public/images/euro2024/flag_24.png" },
+                score: "",
+                team2: { name: "Austria", img: "https://sports.oneonline.mv/public/images/euro2024/flag_775.png" },
+            },
+            {
+                date: "22 Jun 2024",
+                time: "00:00",
+                stadium: "Leipzig Stadium",
+                team1: { name: "Netherlands", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1118.png" },
+                score: "",
+                team2: { name: "France", img: "https://sports.oneonline.mv/public/images/euro2024/flag_2.png" },
+            },
+            {
+                date: "22 Jun 2024",
+                time: "21:00",
+                stadium: "BVB Stadion Dortmund",
+                team1: { name: "Türkiye", img: "https://sports.oneonline.mv/public/images/euro2024/flag_777.png" },
+                score: "",
+                team2: { name: "Portugal", img: "https://sports.oneonline.mv/public/images/euro2024/flag_27.png" },
+            },
+            {
+                date: "22 Jun 2024",
+                time: "18:00",
+                stadium: "Volksparkstadion",
+                team1: { name: "Georgia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1104.png" },
+                score: "",
+                team2: { name: "Czech Republic", img: "https://sports.oneonline.mv/public/images/euro2024/flag_770.png" },
+            },
+            {
+                date: "23 Jun 2024",
+                time: "00:00",
+                stadium: "Cologne Stadium",
+                team1: { name: "Belgium", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1.png" },
+                score: "",
+                team2: { name: "Romania", img: "https://sports.oneonline.mv/public/images/euro2024/flag_774.png" },
+            },
+            {
+                date: "24 Jun 2024",
+                time: "00:00",
+                stadium: "Frankfurt Arena",
+                team1: { name: "Switzerland", img: "https://sports.oneonline.mv/public/images/euro2024/flag_15.png" },
+                score: "",
+                team2: { name: "Germany", img: "https://sports.oneonline.mv/public/images/euro2024/flag_25.png" },
+            },
+            {
+                date: "24 Jun 2024",
+                time: "00:00",
+                stadium: "Stuttgart Arena",
+                team1: { name: "Scotland", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1108.png" },
+                score: "",
+                team2: { name: "Hungary", img: "https://sports.oneonline.mv/public/images/euro2024/flag_769.png" },
+            },
+            {
+                date: "25 Jun 2024",
+                time: "00:00",
+                stadium: "Leipzig Stadium",
+                team1: { name: "Croatia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_3.png" },
+                score: "",
+                team2: { name: "Italy", img: "https://sports.oneonline.mv/public/images/euro2024/flag_768.png" },
+            },
+            {
+                date: "25 Jun 2024",
+                time: "00:00",
+                stadium: "Düsseldorf Arena",
+                team1: { name: "Albania", img: "https://sports.oneonline.mv/public/images/euro2024/flag_778.png" },
+                score: "",
+                team2: { name: "Spain", img: "https://sports.oneonline.mv/public/images/euro2024/flag_9.png" },
+            },
+            {
+                date: "25 Jun 2024",
+                time: "21:00",
+                stadium: "Olympiastadion Berlin",
+                team1: { name: "Netherlands", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1118.png" },
+                score: "",
+                team2: { name: "Austria", img: "https://sports.oneonline.mv/public/images/euro2024/flag_775.png" },
+            },
+            {
+                date: "25 Jun 2024",
+                time: "21:00",
+                stadium: "BVB Stadion Dortmund",
+                team1: { name: "France", img: "https://sports.oneonline.mv/public/images/euro2024/flag_2.png" },
+                score: "",
+                team2: { name: "Poland", img: "https://sports.oneonline.mv/public/images/euro2024/flag_24.png" },
+            },
+            {
+                date: "26 Jun 2024",
+                time: "00:00",
+                stadium: "Cologne Stadium",
+                team1: { name: "England", img: "https://sports.oneonline.mv/public/images/euro2024/flag_10.png" },
+                score: "",
+                team2: { name: "Slovenia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1091.png" },
+            },
+            {
+                date: "26 Jun 2024",
+                time: "00:00",
+                stadium: "Fußball Arena München",
+                team1: { name: "Denmark", img: "https://sports.oneonline.mv/public/images/euro2024/flag_21.png" },
+                score: "",
+                team2: { name: "Serbia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_14.png" },
+            },
+            {
+                date: "26 Jun 2024",
+                time: "21:00",
+                stadium: "Frankfurt Arena",
+                team1: { name: "Slovakia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_773.png" },
+                score: "",
+                team2: { name: "Romania", img: "https://sports.oneonline.mv/public/images/euro2024/flag_774.png" },
+            },
+            {
+                date: "26 Jun 2024",
+                time: "21:00",
+                stadium: "Stuttgart Arena",
+                team1: { name: "Ukraine", img: "https://sports.oneonline.mv/public/images/euro2024/flag_772.png" },
+                score: "",
+                team2: { name: "Belgium", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1.png" },
+            },
+            {
+                date: "27 Jun 2024",
+                time: "00:00",
+                stadium: "Volksparkstadion",
+                team1: { name: "Czech Republic", img: "https://sports.oneonline.mv/public/images/euro2024/flag_770.png" },
+                score: "",
+                team2: { name: "Türkiye", img: "https://sports.oneonline.mv/public/images/euro2024/flag_777.png" },
+            },
+            {
+                date: "27 Jun 2024",
+                time: "00:00",
+                stadium: "Arena AufSchalke",
+                team1: { name: "Georgia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1104.png" },
+                score: "",
+                team2: { name: "Portugal", img: "https://sports.oneonline.mv/public/images/euro2024/flag_27.png" },
+            }
+        ];
+
+
+        const matchContainer = document.getElementById('matchContainer');
+
+        matches.forEach(match => {
+            const matchDiv = document.createElement('div');
+            matchDiv.classList.add('container');
+            matchDiv.innerHTML = `
+                <div class="status ${match.status}" id="status">${match.status}</div> 
+                <h2 id="date">${match.date}</h2>
+                <small>${match.stadium}</small>
+                <div class="content">
+                    <div class="country">
+                        <img src="${match.team1.img}" alt="${match.team1.name}">
+                        <p>${match.team1.name}</p>
+                    </div>
+                    <p class="goals">${match.score}</p>
+                    <div class="country">
+                        <img src="${match.team2.img}" alt="${match.team2.name}">
+                        <p>${match.team2.name}</p>
+                    </div>
+                </div>
+                <small id="time">${match.time}</small>
+            `;
+            matchContainer.appendChild(matchDiv);
+        });
         document.addEventListener('DOMContentLoaded', function () {
             const containers = document.querySelectorAll('.container');
 
