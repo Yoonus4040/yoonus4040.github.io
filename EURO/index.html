@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UEFA EURO 2024</title>
+    <script src="https://kit.fontawesome.com/a692e1c39f.js" crossorigin="anonymous"></script>
     <meta property="og:image" content="eurobanner.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
     <link rel="icon" type="image/x-icon" href="https://64.media.tumblr.com/3746b501fac22062dc20132e18a32551/b1a34612e5bde968-ba/s400x600/2c5a9a17cf4331c5c10721a4cde2616541e4f8c2.gif">
@@ -21,7 +22,24 @@
             color: #1B262C;
             background-color: #F4F9F9;
         }
+        
+        ::-webkit-scrollbar {
+            width:0px;
+        }
 
+        ::-webkit-scrollbar-track {
+            background-color: #fff;
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+               width:0px;
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+            background: #F4F9F9; 
+        }
+        
         header {
             width: 100%;
             text-align: center;
@@ -314,7 +332,7 @@ color: white;
           width: 28%;
         }
 
-   
+
 
         img {
           height: calc(0.3 * var(--m));
@@ -391,6 +409,28 @@ i{
             font-size: 18px;
             color: #000;
         }
+        input {
+              border: 1px solid rgba(0, 0, 0, 0.1);
+                background-color: rgba(255, 255, 255, 0.3);
+                backdrop-filter: blur(10px);
+                  -webkit-backdrop-filter: blur(10px);
+            outline: none;
+            height: 20px;
+            color: black;
+            padding: 0.5rem 2.5rem;
+            border-radius: 50px;
+        }
+
+        input::placeholder {
+            color: black;
+        }
+
+        .search {
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            position: fixed;
+        }
     </style>
 
 </head>
@@ -400,13 +440,17 @@ i{
         <img src="https://64.media.tumblr.com/3746b501fac22062dc20132e18a32551/b1a34612e5bde968-ba/s400x600/2c5a9a17cf4331c5c10721a4cde2616541e4f8c2.gif" alt="Loading Image" id="loading-image">
         <p id="loading-text"></p>
     </div>
-    <div id="matchContainer"></div>
     
+    <div id="matchContainer"></div>
+
 
     <div class="container-gap">
         </div>
     <div class="container-gap">
         </div>
+    <div>
+        <input type="text" class="search" id="searchBar" placeholder="Search...">
+    </div>
     <footer id="footer">
       <div class="col col1">
         <h3>EURO 2024</h3>
@@ -435,8 +479,9 @@ i{
         <div class="modal-content" id="modalContent">
         </div>
     </div>
-  
+
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
         const matches = [
             {
                 date: "15 Jun 2024",
@@ -563,7 +608,7 @@ i{
                 time: "21:00",
                 stadium: "Frankfurt Arena",
                 team1: { name: "Denmark", img: "https://sports.oneonline.mv/public/images/euro2024/flag_21.png" },
-                score: "",
+                score: "1 - 1",
                 team2: { name: "England", img: "https://sports.oneonline.mv/public/images/euro2024/flag_10.png" },
             },
             {
@@ -579,7 +624,7 @@ i{
                 time: "00:00",
                 stadium: "Arena AufSchalke",
                 team1: { name: "Spain", img: "https://sports.oneonline.mv/public/images/euro2024/flag_9.png" },
-                score: "",
+                score: "1 - 0",
                 team2: { name: "Italy", img: "https://sports.oneonline.mv/public/images/euro2024/flag_768.png" },
             },
             {
@@ -587,7 +632,7 @@ i{
                 time: "18:00",
                 stadium: "Düsseldorf Arena",
                 team1: { name: "Slovakia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_773.png" },
-                score: "",
+                score: "1 - 2",
                 team2: { name: "Ukraine", img: "https://sports.oneonline.mv/public/images/euro2024/flag_772.png" },
             },
             {
@@ -595,7 +640,7 @@ i{
                 time: "21:00",
                 stadium: "Olympiastadion Berlin",
                 team1: { name: "Poland", img: "https://sports.oneonline.mv/public/images/euro2024/flag_24.png" },
-                score: "",
+                score: "1 - 3",
                 team2: { name: "Austria", img: "https://sports.oneonline.mv/public/images/euro2024/flag_775.png" },
             },
             {
@@ -603,7 +648,7 @@ i{
                 time: "00:00",
                 stadium: "Leipzig Stadium",
                 team1: { name: "Netherlands", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1118.png" },
-                score: "",
+                score: "0 - 0",
                 team2: { name: "France", img: "https://sports.oneonline.mv/public/images/euro2024/flag_2.png" },
             },
             {
@@ -611,7 +656,7 @@ i{
                 time: "21:00",
                 stadium: "BVB Stadion Dortmund",
                 team1: { name: "Türkiye", img: "https://sports.oneonline.mv/public/images/euro2024/flag_777.png" },
-                score: "",
+                score: "0 - 3",
                 team2: { name: "Portugal", img: "https://sports.oneonline.mv/public/images/euro2024/flag_27.png" },
             },
             {
@@ -619,7 +664,7 @@ i{
                 time: "18:00",
                 stadium: "Volksparkstadion",
                 team1: { name: "Georgia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1104.png" },
-                score: "",
+                score: "1 - 1",
                 team2: { name: "Czech Republic", img: "https://sports.oneonline.mv/public/images/euro2024/flag_770.png" },
             },
             {
@@ -627,7 +672,7 @@ i{
                 time: "00:00",
                 stadium: "Cologne Stadium",
                 team1: { name: "Belgium", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1.png" },
-                score: "",
+                score: "2 - 0",
                 team2: { name: "Romania", img: "https://sports.oneonline.mv/public/images/euro2024/flag_774.png" },
             },
             {
@@ -635,7 +680,7 @@ i{
                 time: "00:00",
                 stadium: "Frankfurt Arena",
                 team1: { name: "Switzerland", img: "https://sports.oneonline.mv/public/images/euro2024/flag_15.png" },
-                score: "",
+                score: "1 - 1",
                 team2: { name: "Germany", img: "https://sports.oneonline.mv/public/images/euro2024/flag_25.png" },
             },
             {
@@ -643,7 +688,7 @@ i{
                 time: "00:00",
                 stadium: "Stuttgart Arena",
                 team1: { name: "Scotland", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1108.png" },
-                score: "",
+                score: "0 - 1",
                 team2: { name: "Hungary", img: "https://sports.oneonline.mv/public/images/euro2024/flag_769.png" },
             },
             {
@@ -651,7 +696,7 @@ i{
                 time: "00:00",
                 stadium: "Leipzig Stadium",
                 team1: { name: "Croatia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_3.png" },
-                score: "",
+                score: "1 - 1",
                 team2: { name: "Italy", img: "https://sports.oneonline.mv/public/images/euro2024/flag_768.png" },
             },
             {
@@ -659,7 +704,7 @@ i{
                 time: "00:00",
                 stadium: "Düsseldorf Arena",
                 team1: { name: "Albania", img: "https://sports.oneonline.mv/public/images/euro2024/flag_778.png" },
-                score: "",
+                score: "0 - 1",
                 team2: { name: "Spain", img: "https://sports.oneonline.mv/public/images/euro2024/flag_9.png" },
             },
             {
@@ -729,30 +774,46 @@ i{
         ];
 
 
-        const matchContainer = document.getElementById('matchContainer');
+            const searchBar = document.getElementById('searchBar');
+            const matchContainer = document.getElementById('matchContainer');
 
-        matches.forEach(match => {
-            const matchDiv = document.createElement('div');
-            matchDiv.classList.add('container');
-            matchDiv.innerHTML = `
-                <div class="status ${match.status}" id="status">${match.status}</div> 
-                <h2 id="date">${match.date}</h2>
-                <small>${match.stadium}</small>
-                <div class="content">
-                    <div class="country">
-                        <img src="${match.team1.img}" alt="${match.team1.name}">
-                        <p>${match.team1.name}</p>
-                    </div>
-                    <p class="goals">${match.score}</p>
-                    <div class="country">
-                        <img src="${match.team2.img}" alt="${match.team2.name}">
-                        <p>${match.team2.name}</p>
-                    </div>
-                </div>
-                <small id="time">${match.time}</small>
-            `;
-            matchContainer.appendChild(matchDiv);
-        });
+            function displayMatches(matches) {
+                matchContainer.innerHTML = '';
+                matches.forEach(match => {
+                    const matchDiv = document.createElement('div');
+                    matchDiv.classList.add('container');
+                    matchDiv.innerHTML = `
+                        <div class="status ${match.status}" id="status">${match.status}</div> 
+                        <h2 id="date">${match.date}</h2>
+                        <small>${match.stadium}</small>
+                        <div class="content">
+                            <div class="country">
+                                <img src="${match.team1.img}" alt="${match.team1.name}">
+                                <p>${match.team1.name}</p>
+                            </div>
+                            <p class="goals">${match.score}</p>
+                            <div class="country">
+                                <img src="${match.team2.img}" alt="${match.team2.name}">
+                                <p>${match.team2.name}</p>
+                            </div>
+                        </div>
+                        <small id="time">${match.time}</small>
+                    `;
+                    matchContainer.appendChild(matchDiv);
+                });
+            }
+
+            displayMatches(matches);
+
+            searchBar.addEventListener('keyup', (e) => {
+                const searchString = e.target.value.toLowerCase();
+                const filteredMatches = matches.filter(match =>
+                    match.team1.name.toLowerCase().includes(searchString) ||
+                    match.team2.name.toLowerCase().includes(searchString)
+                );
+                displayMatches(filteredMatches);
+            });
+            });
         document.addEventListener('DOMContentLoaded', function () {
             const containers = document.querySelectorAll('.container');
 
@@ -838,7 +899,7 @@ i{
             return months[monthName];
         }
 
-        
+
         const matchContainers = document.querySelectorAll(".container");
         matchContainers.forEach(matchContainer => {
             updateMatchStatus(matchContainer);
@@ -852,7 +913,7 @@ i{
 
         document.addEventListener("DOMContentLoaded", function() {
             setTimeout(function() {
-            
+
                 document.getElementById("loading-screen").style.display = "none";
                 document.getElementById("content").style.display = "block";
             }, 5000); 
