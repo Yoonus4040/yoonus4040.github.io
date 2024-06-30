@@ -18,10 +18,12 @@
             justify-content: center;
             align-items: center;
             height: 50vh;
+            overflow-x: hidden;
             margin: 0;
             color: #1B262C;
             background-color: #F4F9F9;
         }
+        
         
         ::-webkit-scrollbar {
             width:0px;
@@ -155,7 +157,8 @@
             background-color: transparent;
             border-radius: 20px;
             padding: 20px;
-            max-width: 90%;
+             overflow-x: hidden;
+            max-width: 95%;
             max-height: 90%;
             overflow: auto;
             text-align: center;
@@ -168,7 +171,6 @@
             height: auto;
             border-radius: 10px;
         }
-
         h2 {
             margin: 0;
         }
@@ -352,12 +354,12 @@ color: white;
 
         }
 i{
-    font-size: 30px;
+    font-size: 35px;
 }
         .link {
           width: calc(0.8 * var(--m));
           height: calc(0.8 * var(--m));
-          background-color: rgba(255,255,255,0.1);
+          background-color:transparent;
           border-radius: calc(0.1 * var(--m));
           display: flex;
           justify-content: center;
@@ -431,6 +433,91 @@ i{
             transform: translateX(-50%);
             position: fixed;
         }
+            .timeline {
+                width: 90%;
+                max-width: 700px;
+                margin: 20px 0;
+                padding: 20px;
+                border-radius: 10px;
+                background-color: transparent;
+            }
+
+            .timeline-item {
+                margin: 20px 0;
+                padding: 10px;
+                border: 1px solid rgba(0, 0, 0, 0.1);
+                background-color: transparent;
+                border-radius: 15px;
+                position: relative;
+                animation: fadeIn 0.5s ease-in-out;
+            }
+
+            .timeline-item::before {
+                content: "";
+                position: absolute;
+                top: 10px;
+                left: -10px;
+                width: 20px;
+                height: 10px;
+                border-radius: 50%;
+            background-color: transparent;
+            }
+
+            .timeline-item h4 {
+                margin: 0;
+                font-size: 16px;
+                color: #1B262C;
+            }
+
+            .timeline-item p {
+                margin: 5px 0 0;
+                font-size: 14px;
+                color: #333;
+            }
+
+            .timeline-item time {
+                display: block;
+                font-size: 12px;
+                color: #777;
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        .player-info {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .player-info img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-left: 20%;
+            margin-right: 10px;
+        }
+
+        .player-info p {
+            margin: 0;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .player-info small {
+            display: block;
+            font-size: 14px;
+            color: #555;
+        }
+
+        
     </style>
 
 </head>
@@ -440,7 +527,6 @@ i{
         <img src="https://64.media.tumblr.com/3746b501fac22062dc20132e18a32551/b1a34612e5bde968-ba/s400x600/2c5a9a17cf4331c5c10721a4cde2616541e4f8c2.gif" alt="Loading Image" id="loading-image">
         <p id="loading-text"></p>
     </div>
-    
     <div id="matchContainer"></div>
 
 
@@ -482,297 +568,121 @@ i{
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-        const matches = [
-            {
-                date: "15 Jun 2024",
-                time: "00:00",
-                stadium: "Fußball Arena München",
-                team1: { name: "Germany", img: "https://sports.oneonline.mv/public/images/euro2024/flag_25.png" },
-                score: "5 - 1",
-                team2: { name: "Scotland", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1108.png" },
-            },
-            {
-                date: "15 Jun 2024",
-                time: "18:00",
-                stadium: "Cologne Stadium",
-                team1: { name: "Hungary", img: "https://sports.oneonline.mv/public/images/euro2024/flag_769.png" },
-                score: "1 - 3",
-                team2: { name: "Switzerland", img: "https://sports.oneonline.mv/public/images/euro2024/flag_15.png" },
-            },
-            {
-                date: "15 Jun 2024",
-                time: "21:00",
-                stadium: "Olympiastadion Berlin",
-                team1: { name: "Spain", img: "https://sports.oneonline.mv/public/images/euro2024/flag_9.png" },
-                score: "3 - 0",
-                team2: { name: "Croatia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_3.png" },
-            },
-            {
-                date: "16 Jun 2024",
-                time: "00:00",
-                stadium: "BVB Stadion Dortmund",
-                team1: { name: "Italy", img: "https://sports.oneonline.mv/public/images/euro2024/flag_768.png" },
-                score: "2 - 1",
-                team2: { name: "Albania", img: "https://sports.oneonline.mv/public/images/euro2024/flag_778.png" },
-            },
-            {
-                date: "16 Jun 2024",
-                time: "21:00",
-                stadium: "Stuttgart Arena",
-                team1: { name: "Slovenia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1091.png" },
-                score: "1 - 1",
-                team2: { name: "Denmark", img: "https://sports.oneonline.mv/public/images/euro2024/flag_21.png" },
-            },
-            {
-                date: "16 Jun 2024",
-                time: "18:00",
-                stadium: "Volksparkstadion",
-                team1: { name: "Poland", img: "https://sports.oneonline.mv/public/images/euro2024/flag_24.png" },
-                score: "1 - 2",
-                team2: { name: "Netherlands", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1118.png" },
-            },
-            {
-                date: "17 Jun 2024",
-                time: "00:00",
-                stadium: "Arena AufSchalke",
-                team1: { name: "Serbia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_14.png" },
-                score: "0 - 1",
-                team2: { name: "England", img: "https://sports.oneonline.mv/public/images/euro2024/flag_10.png" },
-            },
-            {
-                date: "17 Jun 2024",
-                time: "21:00",
-                stadium: "Frankfurt Arena",
-                team1: { name: "Belgium", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1.png" },
-                score: "0 - 1",
-                team2: { name: "Slovakia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_773.png" },
-            },
-            {
-                date: "17 Jun 2024",
-                time: "18:00",
-                stadium: "Fußball Arena München",
-                team1: { name: "Romania", img: "https://sports.oneonline.mv/public/images/euro2024/flag_774.png" },
-                score: "3 - 0",
-                team2: { name: "Ukraine", img: "https://sports.oneonline.mv/public/images/euro2024/flag_772.png" },
-            },
-            {
-                date: "18 Jun 2024",
-                time: "00:00",
-                stadium: "Düsseldorf Arena",
-                team1: { name: "Austria", img: "https://sports.oneonline.mv/public/images/euro2024/flag_775.png" },
-                score: "0 - 1",
-                team2: { name: "France", img: "https://sports.oneonline.mv/public/images/euro2024/flag_2.png" },
-            },
-            {
-                date: "18 Jun 2024",
-                time: "21:00",
-                stadium: "BVB Stadion Dortmund",
-                team1: { name: "Türkiye", img: "https://sports.oneonline.mv/public/images/euro2024/flag_777.png" },
-                score: "3 - 1",
-                team2: { name: "Georgia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1104.png" },
-            },
-            {
-                date: "19 Jun 2024",
-                time: "00:00",
-                stadium: "Leipzig Stadium",
-                team1: { name: "Portugal", img: "https://sports.oneonline.mv/public/images/euro2024/flag_27.png" },
-                score: "2 - 1",
-                team2: { name: "Czech Republic", img: "https://sports.oneonline.mv/public/images/euro2024/flag_770.png" },
-            },
-            {
-                date: "19 Jun 2024",
-                time: "21:00",
-                stadium: "Stuttgart Arena",
-                team1: { name: "Germany", img: "https://sports.oneonline.mv/public/images/euro2024/flag_25.png" },
-                score: "2 - 0",
-                team2: { name: "Hungary", img: "https://sports.oneonline.mv/public/images/euro2024/flag_769.png" },
-            },
-            {
-                date: "19 Jun 2024",
-                time: "18:00",
-                stadium: "Volksparkstadion",
-                team1: { name: "Croatia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_3.png" },
-                score: "2 - 2",
-                team2: { name: "Albania", img: "https://sports.oneonline.mv/public/images/euro2024/flag_778.png" },
-            },
-            {
-                date: "20 Jun 2024",
-                time: "00:00",
-                stadium: "Cologne Stadium",
-                team1: { name: "Scotland", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1108.png" },
-                score: "1 - 1",
-                team2: { name: "Switzerland", img: "https://sports.oneonline.mv/public/images/euro2024/flag_15.png" },
-            },
-            {
-                date: "20 Jun 2024",
-                time: "21:00",
-                stadium: "Frankfurt Arena",
-                team1: { name: "Denmark", img: "https://sports.oneonline.mv/public/images/euro2024/flag_21.png" },
-                score: "1 - 1",
-                team2: { name: "England", img: "https://sports.oneonline.mv/public/images/euro2024/flag_10.png" },
-            },
-            {
-                date: "20 Jun 2024",
-                time: "18:00",
-                stadium: "Fußball Arena München",
-                team1: { name: "Slovenia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1091.png" },
-                score: "1 - 0",
-                team2: { name: "Serbia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_14.png" },
-            },
-            {
-                date: "21 Jun 2024",
-                time: "00:00",
-                stadium: "Arena AufSchalke",
-                team1: { name: "Spain", img: "https://sports.oneonline.mv/public/images/euro2024/flag_9.png" },
-                score: "1 - 0",
-                team2: { name: "Italy", img: "https://sports.oneonline.mv/public/images/euro2024/flag_768.png" },
-            },
-            {
-                date: "21 Jun 2024",
-                time: "18:00",
-                stadium: "Düsseldorf Arena",
-                team1: { name: "Slovakia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_773.png" },
-                score: "1 - 2",
-                team2: { name: "Ukraine", img: "https://sports.oneonline.mv/public/images/euro2024/flag_772.png" },
-            },
-            {
-                date: "21 Jun 2024",
-                time: "21:00",
-                stadium: "Olympiastadion Berlin",
-                team1: { name: "Poland", img: "https://sports.oneonline.mv/public/images/euro2024/flag_24.png" },
-                score: "1 - 3",
-                team2: { name: "Austria", img: "https://sports.oneonline.mv/public/images/euro2024/flag_775.png" },
-            },
-            {
-                date: "22 Jun 2024",
-                time: "00:00",
-                stadium: "Leipzig Stadium",
-                team1: { name: "Netherlands", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1118.png" },
-                score: "0 - 0",
-                team2: { name: "France", img: "https://sports.oneonline.mv/public/images/euro2024/flag_2.png" },
-            },
-            {
-                date: "22 Jun 2024",
-                time: "21:00",
-                stadium: "BVB Stadion Dortmund",
-                team1: { name: "Türkiye", img: "https://sports.oneonline.mv/public/images/euro2024/flag_777.png" },
-                score: "0 - 3",
-                team2: { name: "Portugal", img: "https://sports.oneonline.mv/public/images/euro2024/flag_27.png" },
-            },
-            {
-                date: "22 Jun 2024",
-                time: "18:00",
-                stadium: "Volksparkstadion",
-                team1: { name: "Georgia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1104.png" },
-                score: "1 - 1",
-                team2: { name: "Czech Republic", img: "https://sports.oneonline.mv/public/images/euro2024/flag_770.png" },
-            },
-            {
-                date: "23 Jun 2024",
-                time: "00:00",
-                stadium: "Cologne Stadium",
-                team1: { name: "Belgium", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1.png" },
-                score: "2 - 0",
-                team2: { name: "Romania", img: "https://sports.oneonline.mv/public/images/euro2024/flag_774.png" },
-            },
-            {
-                date: "24 Jun 2024",
-                time: "00:00",
-                stadium: "Frankfurt Arena",
-                team1: { name: "Switzerland", img: "https://sports.oneonline.mv/public/images/euro2024/flag_15.png" },
-                score: "1 - 1",
-                team2: { name: "Germany", img: "https://sports.oneonline.mv/public/images/euro2024/flag_25.png" },
-            },
-            {
-                date: "24 Jun 2024",
-                time: "00:00",
-                stadium: "Stuttgart Arena",
-                team1: { name: "Scotland", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1108.png" },
-                score: "0 - 1",
-                team2: { name: "Hungary", img: "https://sports.oneonline.mv/public/images/euro2024/flag_769.png" },
-            },
-            {
-                date: "25 Jun 2024",
-                time: "00:00",
-                stadium: "Leipzig Stadium",
-                team1: { name: "Croatia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_3.png" },
-                score: "1 - 1",
-                team2: { name: "Italy", img: "https://sports.oneonline.mv/public/images/euro2024/flag_768.png" },
-            },
-            {
-                date: "25 Jun 2024",
-                time: "00:00",
-                stadium: "Düsseldorf Arena",
-                team1: { name: "Albania", img: "https://sports.oneonline.mv/public/images/euro2024/flag_778.png" },
-                score: "0 - 1",
-                team2: { name: "Spain", img: "https://sports.oneonline.mv/public/images/euro2024/flag_9.png" },
-            },
-            {
-                date: "25 Jun 2024",
-                time: "21:00",
-                stadium: "Olympiastadion Berlin",
-                team1: { name: "Netherlands", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1118.png" },
-                score: "",
-                team2: { name: "Austria", img: "https://sports.oneonline.mv/public/images/euro2024/flag_775.png" },
-            },
-            {
-                date: "25 Jun 2024",
-                time: "21:00",
-                stadium: "BVB Stadion Dortmund",
-                team1: { name: "France", img: "https://sports.oneonline.mv/public/images/euro2024/flag_2.png" },
-                score: "",
-                team2: { name: "Poland", img: "https://sports.oneonline.mv/public/images/euro2024/flag_24.png" },
-            },
-            {
-                date: "26 Jun 2024",
-                time: "00:00",
-                stadium: "Cologne Stadium",
-                team1: { name: "England", img: "https://sports.oneonline.mv/public/images/euro2024/flag_10.png" },
-                score: "",
-                team2: { name: "Slovenia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1091.png" },
-            },
-            {
-                date: "26 Jun 2024",
-                time: "00:00",
-                stadium: "Fußball Arena München",
-                team1: { name: "Denmark", img: "https://sports.oneonline.mv/public/images/euro2024/flag_21.png" },
-                score: "",
-                team2: { name: "Serbia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_14.png" },
-            },
-            {
-                date: "26 Jun 2024",
-                time: "21:00",
-                stadium: "Frankfurt Arena",
-                team1: { name: "Slovakia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_773.png" },
-                score: "",
-                team2: { name: "Romania", img: "https://sports.oneonline.mv/public/images/euro2024/flag_774.png" },
-            },
-            {
-                date: "26 Jun 2024",
-                time: "21:00",
-                stadium: "Stuttgart Arena",
-                team1: { name: "Ukraine", img: "https://sports.oneonline.mv/public/images/euro2024/flag_772.png" },
-                score: "",
-                team2: { name: "Belgium", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1.png" },
-            },
-            {
-                date: "27 Jun 2024",
-                time: "00:00",
-                stadium: "Volksparkstadion",
-                team1: { name: "Czech Republic", img: "https://sports.oneonline.mv/public/images/euro2024/flag_770.png" },
-                score: "",
-                team2: { name: "Türkiye", img: "https://sports.oneonline.mv/public/images/euro2024/flag_777.png" },
-            },
-            {
-                date: "27 Jun 2024",
-                time: "00:00",
-                stadium: "Arena AufSchalke",
-                team1: { name: "Georgia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1104.png" },
-                score: "",
-                team2: { name: "Portugal", img: "https://sports.oneonline.mv/public/images/euro2024/flag_27.png" },
-            }
-        ];
-
+            const matches = [
+                {
+                    date: "June 29, 2024",
+                    time: "21:00",
+                    stadium: "Olympiastadion Berlin",
+                    team1: { name: "Switzerland", img: "https://sports.oneonline.mv/public/images/euro2024/flag_15.png" },
+                    score: "2 - 0",
+                    team2: { name: "Italy", img: "https://sports.oneonline.mv/public/images/euro2024/flag_768.png" },
+                    events: [
+                        {
+                            time: "21:00", title: "KICK-OFF", description: "Match has started."
+                        },
+                        {
+                            time: "35'", title: "YELLOW CARD", description: "",
+                            player: {
+                                name: "Nicolò Barella",
+                                country: "Italy",
+                                img: "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcQNe_kQc4I_bHzn5srw7QDhV9KWHgof-l8R15tx7zoGe1x-3ashmPWRdnbkfLOJPIYyuMBORiqvkAwsvYesqquqKXEepMGX5RQfNA"
+                            }
+                        },
+                        {
+                            time: "45'", title: "GOOAALLL!!!", description: "",
+                            player: {
+                                name: "Remo Freuler",
+                                country: "Switzerland",
+                                img: "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcTOyW695opAoQ1SBfuyqcP6VM7NBV201dN-R4Y0zwo00-ok8aejZ4gTl_nEml0lucxBBIX-QVOvExuJD0X2bKyeRUtA3nfZkm912A"
+                            }
+                        },
+                            {
+                                time: "47'", title: "YELLOW CARD", description: "",
+                                player: {
+                                    name: "Stephan El Shaarawy",
+                                    country: "Italy",
+                                    img: "https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcSCYZO9pdYyA9A9Z9K6QygfjJvmD9sPxPDSiA6Sz-yFDSRjz_dvaLGoAllwLhvPcDQEf6z-nmqaUDvg6GX62yVcJeeCNnnjfB2S2Q"
+                                }
+                            },
+                        {
+                            time: "45+3'", title: "Half-time", description: "First half ends. Score: Switzerland 1 - 0 Italy."
+                        },
+                        {
+                            time: "50'", title: "GOALLL!!!", description: "",
+                            player: {
+                                name: "Ruben Vargas",
+                                country: "Switzerland",
+                                img: "data:image/jpeg;base64,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"
+                            }
+                        },
+                        {
+                            time: "90+3'", title: "Full-time", description: "Match ends. Final score: Switzerland 2 - 0 Italy."
+                        }
+                    ]
+                },
+                {
+                    date: "30 Jun 2024",
+                    time: "00:00",
+                    stadium: "BVB Stadion Dortmund",
+                    team1: { name: "Germany", img: "https://sports.oneonline.mv/public/images/euro2024/flag_25.png" },
+                    score: "2 - 0",
+                    team2: { name: "Denmark", img: "https://sports.oneonline.mv/public/images/euro2024/flag_21.png" },
+                    events: [
+                    {
+                        time: "", title: "NULL", description: ""
+                    },
+                        ]
+                    
+                },
+                {
+                    date: "30 Jun 2024",
+                    time: "21:00",
+                    stadium: "Arena AufSchalke",
+                    team1: { name: "England", img: "https://sports.oneonline.mv/public/images/euro2024/flag_10.png" },
+                    score: "-",
+                    team2: { name: "Slovakia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_773.png" },
+                },
+                {
+                    date: "01 Jul 2024",
+                    time: "21:00",
+                    stadium: "Düsseldorf Arena",
+                    team1: { name: "France", img: "https://sports.oneonline.mv/public/images/euro2024/flag_2.png" },
+                    score: "-",
+                    team2: { name: "Belgium", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1.png" },
+                },
+                {
+                    date: "01 Jul 2024",
+                    time: "00:00",
+                    stadium: "Cologne Stadium",
+                    team1: { name: "Spain", img: "https://sports.oneonline.mv/public/images/euro2024/flag_9.png" },
+                    score: "-",
+                    team2: { name: "Georgia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1104.png" },
+                },
+                {
+                    date: "02 Jul 2024",
+                    time: "00:00",
+                    stadium: "Frankfurt Arena",
+                    team1: { name: "Portugal", img: "https://sports.oneonline.mv/public/images/euro2024/flag_27.png" },
+                    score: "-",
+                    team2: { name: "Slovenia", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1091.png" },
+                },
+                {
+                    date: "02 Jul 2024",
+                    time: "21:00",
+                    stadium: "Fußball Arena München",
+                    team1: { name: "Romania", img: "https://sports.oneonline.mv/public/images/euro2024/flag_774.png" },
+                    score: "-",
+                    team2: { name: "Netherlands", img: "https://sports.oneonline.mv/public/images/euro2024/flag_1118.png" },
+                },
+                {
+                    date: "03 Jul 2024",
+                    time: "00:00",
+                    stadium: "Leipzig Stadium",
+                    team1: { name: "Austria", img: "https://sports.oneonline.mv/public/images/euro2024/flag_775.png" },
+                    score: "-",
+                    team2: { name: "Türkiye", img: "https://sports.oneonline.mv/public/images/euro2024/flag_777.png" },
+                }
+            ];
 
             const searchBar = document.getElementById('searchBar');
             const matchContainer = document.getElementById('matchContainer');
@@ -783,7 +693,7 @@ i{
                     const matchDiv = document.createElement('div');
                     matchDiv.classList.add('container');
                     matchDiv.innerHTML = `
-                        <div class="status ${match.status}" id="status">${match.status}</div> 
+                        
                         <h2 id="date">${match.date}</h2>
                         <small>${match.stadium}</small>
                         <div class="content">
@@ -799,7 +709,60 @@ i{
                         </div>
                         <small id="time">${match.time}</small>
                     `;
+                    matchDiv.addEventListener('click', () => showModal(match));
                     matchContainer.appendChild(matchDiv);
+                });
+            }
+
+            function showModal(match) {
+                const modalOverlay = document.getElementById('modalOverlay');
+                const modalContent = document.getElementById('modalContent');
+
+                const matchDetails = `
+                    <h2>${match.date}</h2>
+                    <small>${match.stadium}</small>
+                    <div class="content">
+                        <div class="country">
+                            <img src="${match.team1.img}" alt="${match.team1.name}">
+                            <p>${match.team1.name}</p>
+                        </div>
+                        <p class="goals">${match.score}</p>
+                        <div class="country">
+                            <img src="${match.team2.img}" alt="${match.team2.name}">
+                            <p>${match.team2.name}</p>
+                        </div>
+                    </div>
+                    <small>${match.time}</small>
+                `;
+
+                const timeline = document.createElement('div');
+                timeline.classList.add('timeline');
+
+                match.events.forEach(event => {
+                    const eventDiv = document.createElement('div');
+                    eventDiv.classList.add('timeline-item');
+                    eventDiv.innerHTML = `
+                        <h4>${event.title}</h4>
+                        <p>${event.description}</p>
+                        ${event.player ? `
+                        <div class="player-info">
+                            <img src="${event.player.img}" alt="${event.player.name}">
+                            <small>${event.player.name}, ${event.player.country}</small>
+                        </div>
+                        <time>${event.time}</time>
+                        ` : ''}
+                    `;
+                    timeline.appendChild(eventDiv);
+                });
+
+                modalContent.innerHTML = matchDetails;
+                modalContent.appendChild(timeline);
+                modalOverlay.style.display = 'flex';
+
+                modalOverlay.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        modalOverlay.style.display = 'none';
+                    }
                 });
             }
 
@@ -809,107 +772,12 @@ i{
                 const searchString = e.target.value.toLowerCase();
                 const filteredMatches = matches.filter(match =>
                     match.team1.name.toLowerCase().includes(searchString) ||
-                    match.team2.name.toLowerCase().includes(searchString)
+                    match.team2.name.toLowerCase().includes(searchString) ||
+                    match.stadium.toLowerCase().includes(searchString)
                 );
                 displayMatches(filteredMatches);
             });
-            });
-        document.addEventListener('DOMContentLoaded', function () {
-            const containers = document.querySelectorAll('.container');
-
-            containers.forEach(container => {
-                container.addEventListener('click', function () {
-                    const modalOverlay = document.getElementById('modalOverlay');
-                    const modalContent = document.getElementById('modalContent');
-                    const clone = this.cloneNode(true);
-                    clone.querySelector('.status').remove();
-                    clone.style.position = 'fixed';
-                    clone.style.top = '50%';
-                    clone.style.left = '50%';
-                    clone.style.transform = 'translate(-50%, -50%)';
-                    clone.style.width = '80%';
-                    clone.style.maxWidth = '800px';
-                    clone.style.height = 'auto';
-                    clone.style.zIndex = '1001';
-                    clone.style.fontSize = '20px';
-
-                    clone.style.backgroundColor = 'transparent';
-
-                    clone.querySelectorAll('.country img').forEach(img => {
-                        img.style.width = '50px';
-                        img.style.height = 'auto';
-                    });
-
-                    modalContent.innerHTML = '';
-                    modalContent.appendChild(clone);
-
-                    modalOverlay.style.display = 'flex';
-
-                    modalOverlay.addEventListener('click', function (e) {
-                        if (e.target === this) {
-                            modalOverlay.style.display = 'none';
-                        }
-                    });
-                });
-            });
         });
-        function isWithinTimeRange(targetDate, currentDate, minutesRange) {
-            const timeDiff = targetDate.getTime() - currentDate.getTime();
-            const minuteDiff = timeDiff / (1000 * 60); 
-
-            return minuteDiff >= 0 && minuteDiff <= minutesRange;
-        }
-
-        function updateMatchStatus(matchContainer) {
-            const dateElement = matchContainer.querySelector("#date");
-            const timeElement = matchContainer.querySelector("#time");
-            const statusElement = matchContainer.querySelector(".status");
-
-            const dateValue = dateElement.textContent.trim(); 
-            const timeValue = timeElement.textContent.trim(); 
-            const [day, month, year] = dateValue.split(" ");
-            const monthNumber = getMonthNumber(month);
-            const targetDateTime = new Date(`${year}-${monthNumber}-${day}T${timeValue}:00Z`);
-
-            const minutesRange = 105;
-            const currentDate = new Date();
-
-            if (currentDate > targetDateTime) {
-                statusElement.textContent = "FULL-TIME";
-                statusElement.className = "status played";
-                statusElement.style.color = "#F4F9F9";
-                statusElement.style.backgroundColor = "#1B262C";
-            } else if (isWithinTimeRange(targetDateTime, currentDate, minutesRange)) {
-                statusElement.textContent = "LIVE";
-                statusElement.className = "status live";
-                statusElement.style.backgroundColor = "#FF0000";
-            } else {
-                statusElement.textContent = "UPCOMING";
-                statusElement.className = "status upcoming";
-                statusElement.style.color = "#1B262C";
-                statusElement.style.backgroundColor = "#DDE6ED";
-            }
-        }
-
-        function getMonthNumber(monthName) {
-            const months = {
-                Jan: "01", Feb: "02", Mar: "03", Apr: "04", May: "05", Jun: "06",
-                Jul: "07", Aug: "08", Sep: "09", Oct: "10", Nov: "11", Dec: "12"
-            };
-            return months[monthName];
-        }
-
-
-        const matchContainers = document.querySelectorAll(".container");
-        matchContainers.forEach(matchContainer => {
-            updateMatchStatus(matchContainer);
-        });
-
-        setInterval(() => {
-            matchContainers.forEach(matchContainer => {
-                updateMatchStatus(matchContainer);
-            });
-        }, 60000);
 
         document.addEventListener("DOMContentLoaded", function() {
             setTimeout(function() {
